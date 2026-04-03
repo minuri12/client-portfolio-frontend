@@ -1,0 +1,594 @@
+.overline-wrapper {
+  grid-column-gap: 12px;
+  align-self: flex-start;
+  align-items: center;
+  display: flex;
+  padding-top: 200px;
+}
+
+.info-content {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 34px;
+  box-sizing: border-box;
+}
+
+.icon-section-dot {
+  background-color: white;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  box-shadow: 0 0 20px #fff;
+}
+
+.text-projectpage-overline {
+  color: #f2f2f266;
+  text-align: left;
+  letter-spacing: 1.5px;
+  margin-top: 1px;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 19px;
+}
+
+.text-hero.info-hero {
+  text-align: left;
+  letter-spacing: -1px;
+  text-shadow: 0 4px 10px #0057ff33, 0 -4px 10px #ff5a0026, 0 0 30px #fff3;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 110%;
+  color: white;
+  width: 95%;
+}
+
+.text-info-hero-serif {
+  font-family: "Kaushan Script", cursive;
+  font-style: normal;
+}
+
+.AboutText {
+  color: #FFFFFF;
+  letter-spacing: 0.8px;
+  line-height: 20px;
+  flex: 1;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+}
+
+/* Styles for 'What I Care About' section */
+  .care-heading {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #f2f2f2e6;
+    margin-top: 50px;
+  }
+
+  .care-list {
+    list-style: disc;
+    padding-left: 20px;
+    margin-top: 25px;
+    margin-left: 25px;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #ffffff;
+  }
+
+  .care-list li {
+    margin-bottom: 6px;
+  }
+
+.Aboutpart {
+  display: flex;
+  align-items: center;
+  margin-top: 100px;
+  gap: 50px;
+}
+
+/* make Aboutpart a positioning context for the floating box */
+.Aboutpart {
+  position: relative;
+}
+
+.window-outline {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  outline-offset: -1px;
+  background-image: radial-gradient(
+    circle farthest-side at 50% 0,
+    #f2f2f233,
+    #0000
+  );
+  border-radius: 24px;
+  outline: 1px solid #f2f2f226;
+  padding: 8px;
+  overflow: hidden;
+  box-shadow: inset 0 0 8px #0006, 0 0 60px #0003, 0 30px 120px #000c;
+  width: 40%;
+  margin-right: 0px;
+}
+
+.Meholder {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.Me {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.MeVideo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: center top;
+  transform: scale(1.02);
+  transition: transform 0.35s ease;
+}
+
+.window-outline:hover .MeVideo {
+  transform: scale(1.05);
+}
+
+.AboutHead {
+  color: #f2f2f2e6;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.Tech {
+  width: 80px;
+  margin: 10px;
+}
+
+.figma {
+  height: 60px;
+  width: auto;
+}
+
+.webflow {
+  height: 65px;
+  width: auto;
+}
+
+.atliasan {
+  height: 60px;
+  width: auto;
+}
+
+.jira {
+  height: 60px;
+  width: auto;
+}
+
+.TechStack {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  overflow: hidden;
+}
+
+.TechStack .Tech {
+  margin: 0;
+}
+
+.TechStack .last-tech {
+  margin-left: 12px;
+}
+
+.Meholder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.3) 40%,
+    rgba(0, 0, 0, 0.5) 70%,
+    rgb(0, 0, 0) 100%
+  ); /* Adjust gradient colors as needed */
+  z-index: 1; /* Places the gradient above the image */
+  pointer-events: none; /* Allow clicks to pass through to video controls */
+}
+
+
+/* Story Carousel Styles */
+.story-carousel-section {
+  margin: 80px 0;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* make the story container a positioning context for the floating panel */
+.story-carousel-container {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  display: flex;
+}
+
+.story-header {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.story-title {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  font-family: Neue Montreal, sans-serif;
+}
+
+.story-chapters {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.chapter-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.chapter-indicator.vertical {
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nav-btn {
+  background: rgba(242, 242, 242, 0.1);
+  border: 1px solid rgba(242, 242, 242, 0.2);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: rgba(242, 242, 242, 0.2);
+  transform: scale(1.05);
+}
+
+/* Disabled state for navigation buttons (first/last chapter) */
+.nav-btn.disabled,
+.nav-btn:disabled {
+  cursor: default;
+  opacity: 0.45;
+  pointer-events: none;
+  transform: none;
+  background: rgba(242, 242, 242, 0.06);
+}
+
+.nav-btn.disabled:hover {
+  transform: none;
+  background: rgba(242, 242, 242, 0.06);
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(242, 242, 242, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.story-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  min-width: 0;
+  width: 100%;
+}
+
+.story-card {
+  display: flex;
+  align-items: flex-start;
+  background: rgba(242, 242, 242, 0.05);
+  border: 1px solid rgba(242, 242, 242, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  height: 490px;
+  min-height: 470px;
+  min-width: 0;
+  width: 100%;
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+/* Floating panel that mirrors the requested translucent box, placed on the right of the story section */
+.story-floating-box {
+  flex-shrink: 0;
+  width: clamp(200px, 25vw, 327px);
+  height: auto;
+  min-height: 490px;
+  border-radius: 12px;
+  background: #FFFFFF0D; /* updated semi-transparent white per design */
+  backdrop-filter: blur(48.599998474121094px);
+  -webkit-backdrop-filter: blur(48.599998474121094px);
+  opacity: 1;
+  z-index: 60;
+  padding: 28px 24px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #fff;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Large number styling inside the floating box */
+.sf-big-number {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(80px, 15vw, 200px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #FFFFFF0D; /* use requested translucent white for text */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: transparent;
+}
+
+.sf-title {
+  font-family: Neue Montreal, sans-serif;
+  font-size: 20px;
+  margin: 0 0 12px 0;
+  color: #ffffff;
+}
+
+.sf-desc {
+  color: rgba(242,242,242,0.9);
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.story-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.story-card:hover {
+  border-color: rgba(242, 242, 242, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.story-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.story-image {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.story-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.chapter-title {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 15px;
+  font-family: Neue Montreal, sans-serif;
+}
+
+.chapter-description {
+  color: rgba(242, 242, 242, 0.88);
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: Neue Montreal, sans-serif;
+  text-align: justify;
+  margin: 0;
+  padding: 0;
+  white-space: pre-line;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.chapter-summary {
+  color: rgba(242, 242, 242, 0.8);
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: justify;
+  margin: 36px 0 0 0;
+  padding: 0;
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+/* Right-side translucent blurred box (design accent) */
+.right-floating-box {
+  position: absolute;
+  top: 11px;
+  right: 8.33px;
+  width: 327.33038330078125px;
+  height: 417px;
+  border-radius: 12px;
+  background: #FFFFFF08; /* semi-transparent white */
+  backdrop-filter: blur(48.599998474121094px);
+  -webkit-backdrop-filter: blur(48.599998474121094px);
+  opacity: 1;
+  pointer-events: none; /* decorative only */
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  z-index: 50; /* ensure it's above other content */
+}
+
+@media only screen and (max-width: 1220px) {
+  .info-content {
+    padding: 0 20px;
+  }
+}
+
+@media only screen and (max-width: 1078px) {
+  .info-content {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .info-content {
+    padding: 0 12px;
+  }
+
+  .text-hero.info-hero {
+    width: 100%;
+  }
+
+  .Aboutpart {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .window-outline {
+    margin-right: 0px;
+    width: 100%;
+    margin-bottom: 80px;
+  }
+
+  .Tech {
+    height: auto;
+    width: 45px;
+  }
+
+  .Grapicscard {
+    padding: 8%;
+  }
+
+  /* hide the decorative floating box on smaller screens */
+  .right-floating-box {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  /* hide floating panel on tablet/mobile */
+  .story-floating-box {
+    display: none;
+  }
+
+  .story-chapters {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .story-carousel-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .story-carousel-section {
+    padding: 0;
+  }
+
+  .story-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .story-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .story-image-container {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .story-controls {
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .chapter-indicator.vertical {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .nav-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+}

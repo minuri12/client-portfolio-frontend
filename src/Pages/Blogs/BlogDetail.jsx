@@ -16,6 +16,12 @@ function BlogDetail() {
   const [relatedBlogs, setRelatedBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const sectionReveal = {
+    initial: { opacity: 0, y: 50 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.2 },
+    transition: { duration: 0.8, ease: 'easeOut' },
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -59,9 +65,7 @@ function BlogDetail() {
           <motion.button
             className='back-to-blog'
             onClick={() => navigate('/blogs')}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            {...sectionReveal}
           >
             <span>←</span> Back to Blog
           </motion.button>
@@ -78,9 +82,7 @@ function BlogDetail() {
           <motion.button
             className='back-to-blog'
             onClick={() => navigate('/blogs')}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            {...sectionReveal}
           >
             <span>←</span> Back to Blog
           </motion.button>
@@ -96,9 +98,7 @@ function BlogDetail() {
         <motion.button
           className='back-to-blog'
           onClick={() => navigate('/blogs')}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          {...sectionReveal}
         >
           <span>←</span> Back to Blog
         </motion.button>
@@ -106,7 +106,8 @@ function BlogDetail() {
         <motion.div
           className='blog-hero-image'
           initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.05 }}
         >
           <img src={getCoverImage(blog.coverImage)} alt={blog.title} />
@@ -115,13 +116,15 @@ function BlogDetail() {
         <motion.div
           className='blog-article'
           initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
         >
           <motion.h1
             className='blog-article-title'
             initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
           >
             {blog.title}
@@ -137,7 +140,8 @@ function BlogDetail() {
           <motion.div
             className='related-blogs-section'
             initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
           >
             <div className='related-blogs-grid'>
@@ -147,7 +151,8 @@ function BlogDetail() {
                   className='related-blog-card'
                   onClick={() => navigate(`/blog/${relatedBlog._id}`)}
                   initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
                   transition={{ duration: 0.6, ease: 'easeOut', delay: 0.25 + index * 0.06 }}
                 >
                   <div className='related-blog-image'>

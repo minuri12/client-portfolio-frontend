@@ -84,6 +84,13 @@ function Info() {
     }
   };
 
+  const sectionReveal = {
+    initial: { opacity: 0, y: 50 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.2 },
+    transition: { duration: 0.8, ease: "easeOut" },
+  };
+
   return (
     <div>
       <div className="section-nav">
@@ -93,9 +100,7 @@ function Info() {
       <div className="info-content">
       <motion.div
         class="overline-wrapper"
-        initial={{ opacity: 0, y: 50 }} // start with 0 opacity and below the screen
-        animate={{ opacity: 1, y: 0 }} // animate to full opacity and original position
-        transition={{ duration: 0.8, ease: "easeOut" }} // control speed and easing
+        {...sectionReveal}
       >
         <div class="icon-section-dot"></div>
         <div class="text-projectpage-overline">ABOUT ME</div>
@@ -104,9 +109,7 @@ function Info() {
       <br />
       <motion.div
         class="text-hero info-hero"
-        initial={{ opacity: 0, y: 50 }} // start with 0 opacity and below the screen
-        animate={{ opacity: 1, y: 0 }} // animate to full opacity and original position
-        transition={{ duration: 0.8, ease: "easeOut" }} // control speed and easing
+        {...sectionReveal}
       >
         “ I’m a product designer who loves creating meaningful products that
         inspire me and bring excitement to everyone who uses them. ”
@@ -115,9 +118,8 @@ function Info() {
 
       <motion.div
         className="Aboutpart"
-        initial={{ opacity: 0, y: 50 }} // start with 0 opacity and below the screen
-        animate={{ opacity: 1, y: 0 }} // animate to full opacity and original position
-        transition={{ duration: 1.5, ease: "easeOut" }} // control speed and easing
+        {...sectionReveal}
+        transition={{ duration: 1, ease: "easeOut" }}
       >
         <div className="AboutText">
           I’m Minuri. I have experience in design and coding, and I love
@@ -173,7 +175,7 @@ function Info() {
         {/* Decorative box removed from Aboutpart; moved to story section below */}
       </motion.div>
 
-      <div className="GrapicSection">
+      <motion.div className="GrapicSection" {...sectionReveal}>
         <a
           className="Grapicscard"
           href="https://www.behance.net/minurihewage"
@@ -203,9 +205,9 @@ function Info() {
             <img src={webflow} className="Tech webflow last-tech" alt="Logo" />
           </div>
         </a>
-      </div>
+      </motion.div>
 
-      <div className="story-carousel-section">
+      <motion.div className="story-carousel-section" {...sectionReveal} transition={{ duration: 1, ease: "easeOut" }}>
         <div className="story-header">
           <h2 className="story-title">Read My Story</h2>
         </div>
@@ -299,7 +301,7 @@ function Info() {
             </AnimatePresence>
           </aside>
         </div>
-      </div>
+      </motion.div>
 
       </div>
 

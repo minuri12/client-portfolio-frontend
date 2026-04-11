@@ -52,7 +52,8 @@ function Projects() {
       <motion.div
         className="text-hero project-title"
         initial={{ opacity: 0, y: 50 }} // start with 0 opacity and below the screen
-        animate={{ opacity: 1, y: 0 }} // animate to full opacity and original position
+        whileInView={{ opacity: 1, y: 0 }} // animate to full opacity and original position
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 1.5, ease: "easeOut" }} // control speed and easing
       >
         MoodWave
@@ -60,7 +61,8 @@ function Projects() {
       <motion.div
         className="text-projectpage-year"
         initial={{ opacity: 0, y: 50 }} // start with 0 opacity and below the screen
-        animate={{ opacity: 1, y: 0 }} // animate to full opacity and original position
+        whileInView={{ opacity: 1, y: 0 }} // animate to full opacity and original position
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 1.5, ease: "easeOut" }} // control speed and easing
       >
         Check the emotions of the music.
@@ -69,7 +71,8 @@ function Projects() {
       <motion.div
         className="Project_img cover"
         initial={{ opacity: 0, y: 50 }} // start with 0 opacity and below the screen
-        animate={{ opacity: 1, y: 0 }} // animate to full opacity and original position
+        whileInView={{ opacity: 1, y: 0 }} // animate to full opacity and original position
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 1.5, ease: "easeOut" }} // control speed and easing
       >
         <img

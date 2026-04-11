@@ -30,6 +30,12 @@ function Blogs() {
   const [totalPages, setTotalPages] = useState(1);
 
   const categories = ['All', 'Design', 'Our Mind', 'Others'];
+  const sectionReveal = {
+    initial: { opacity: 0, y: 50 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.2 },
+    transition: { duration: 0.8, ease: 'easeOut' },
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -93,17 +99,14 @@ function Blogs() {
       <div className='blogs-container'>
         <motion.h1
           className='blogs-main-title'
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          {...sectionReveal}
         >
           Let's Talk Everything
         </motion.h1>
         
         <motion.div
           className='blog-categories'
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          {...sectionReveal}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.05 }}
         >
           {categories.map((category) => (
@@ -126,14 +129,15 @@ function Blogs() {
               {blogs.length === 0 ? (
                 <p className='blogs-empty'>No blogs found in this category.</p>
               ) : (
-                blogs.map((blog) => (
+                blogs.map((blog, index) => (
                   <motion.div
                     key={blog._id}
                     className='blog-card'
                     onClick={() => handleBlogClick(blog._id)}
                     initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: 'easeOut' }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.15 }}
+                    transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.05 }}
                   >
                     <div className='blog-image-container'>
                       <img src={getCoverImage(blog.coverImage)} alt={blog.title} className='blog-image' />
@@ -153,7 +157,8 @@ function Blogs() {
               <motion.div
                 className='blogs-pagination'
                 initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}
               >
                 <button

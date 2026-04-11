@@ -24,6 +24,12 @@ function Home() {
   const [blogsError, setBlogsError] = useState("");
 
   const API_BASE_URL = "http://localhost:5001";
+  const sectionReveal = {
+    initial: { opacity: 0, y: 50 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.2 },
+    transition: { duration: 0.8, ease: "easeOut" },
+  };
 
   useEffect(() => {
     setInterval(() => setTime(new Date()), 1000);
@@ -85,9 +91,7 @@ function Home() {
 
       <motion.div
         className="pagecontent"
-        initial={{ opacity: 0, y: 50 }} // start with 0 opacity and below the screen
-        animate={{ opacity: 1, y: 0 }} // animate to full opacity and original position
-        transition={{ duration: 0.8, ease: "easeOut" }} // control speed and easing
+        {...sectionReveal}
       >
         <div className="First">
           <div className="main-head">
@@ -116,9 +120,8 @@ function Home() {
 
       <motion.div
         className="main-content"
-        initial={{ opacity: 0, y: 50 }} // start with 0 opacity and below the screen
-        animate={{ opacity: 1, y: 0 }} // animate to full opacity and original position
-        transition={{ duration: 1.5, ease: "easeOut" }} // control speed and easing
+        {...sectionReveal}
+        transition={{ duration: 1, ease: "easeOut" }}
       >
         <div className="part_one ">
           <div className="first_bar">
@@ -176,9 +179,8 @@ function Home() {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 50 }} // start with 0 opacity and below the screen
-        animate={{ opacity: 1, y: 0 }} // animate to full opacity and original position
-        transition={{ duration: 2.8, ease: "easeOut" }} // control speed and easing
+        {...sectionReveal}
+        transition={{ duration: 1, ease: "easeOut" }}
       >
         <div className="Volhead">Volunteer Experience</div>
         <div className="VolExperiance">
@@ -189,9 +191,8 @@ function Home() {
 
       <motion.div
         className="part_one second"
-        initial={{ opacity: 0, y: 50 }} // start with 0 opacity and below the screen
-        animate={{ opacity: 1, y: 0 }} // animate to full opacity and original position
-        transition={{ duration: 3.0, ease: "easeOut" }} // control speed and easing
+        {...sectionReveal}
+        transition={{ duration: 1, ease: "easeOut" }}
       >
         <div className="row">
           <div className="imgholder">
@@ -211,14 +212,14 @@ function Home() {
         </div>
       </motion.div>
 
-      <div className="Volhead">My Projects</div>
+      <motion.div {...sectionReveal} transition={{ duration: 0.7, ease: "easeOut" }}>
+        <div className="Volhead">My Projects</div>
+      </motion.div>
       <br />
 
-      <div
+      <motion.div
         className="projectSection"
-        initial={{ opacity: 0, y: 50 }} // start with 0 opacity and below the screen
-        animate={{ opacity: 1, y: 0 }} // animate to full opacity and original position
-        transition={{ duration: 0.8, ease: "easeOut" }} // control speed and easing
+        {...sectionReveal}
       >
         <div className="card card1">
           <Link to="/projects" className="LinkTest">
@@ -265,9 +266,9 @@ function Home() {
             </div>
           </Link>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="projectSection">
+      <motion.div className="projectSection" {...sectionReveal}>
         <div className="card">
           <Link to="/projects-3" className="LinkTest">
             <div className="project-card-outline">
@@ -312,19 +313,18 @@ function Home() {
             </div>
           </Link>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="GrapicSection">
+      <motion.div className="GrapicSection" {...sectionReveal} transition={{ duration: 0.7, ease: "easeOut" }}>
         <Link to="/more-projects" className="Grapicscard more-projects-card">
           <div className="headGrapic">More Projects</div>
         </Link>
-      </div>
+      </motion.div>
 
       <motion.div
         className="recent-blogs-section"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.1, ease: "easeOut" }}
+        {...sectionReveal}
+        transition={{ duration: 0.9, ease: "easeOut" }}
       >
         <div className="Volhead">Let's Talk Everything</div>
 
@@ -360,9 +360,7 @@ function Home() {
       {/* Services Section - added after projects */}
       <motion.div
         className="services-section"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        {...sectionReveal}
       >
         <div className="services-title">
           <div className="Volhead">My Services</div>
@@ -420,9 +418,8 @@ function Home() {
 
       <motion.div
         className="part_one second"
-        initial={{ opacity: 0, y: 50 }} // start with 0 opacity and below the screen
-        animate={{ opacity: 1, y: 0 }} // animate to full opacity and original position
-        transition={{ duration: 3.0, ease: "easeOut" }} // control speed and easing
+        {...sectionReveal}
+        transition={{ duration: 1, ease: "easeOut" }}
       >
         <div className="row">
           <div className="imgholder">
@@ -467,9 +464,11 @@ function Home() {
       <br />
       <br />
 
-      <div
+      <motion.div
         data-w-id="ee1e9c3e-a1c6-2190-15b3-1daea0409ed7"
         className="section-footer"
+        {...sectionReveal}
+        transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <div className="container-footer">
           <div className="footer-bottom-wrapper">
@@ -489,7 +488,7 @@ function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       </div>
     </div>

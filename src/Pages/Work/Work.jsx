@@ -23,7 +23,7 @@ function Home() {
   const [blogsLoading, setBlogsLoading] = useState(true);
   const [blogsError, setBlogsError] = useState("");
 
-  const API_BASE_URL = "http://localhost:5001";
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
   const sectionReveal = {
     initial: { opacity: 0, y: 50 },
     whileInView: { opacity: 1, y: 0 },

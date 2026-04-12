@@ -74,7 +74,7 @@ function Home() {
     };
 
     fetchRecentBlogs();
-  }, []);
+  }, [API_BASE_URL]);
 
   const getCoverImage = (coverImage) => {
     if (!coverImage) return Project1;

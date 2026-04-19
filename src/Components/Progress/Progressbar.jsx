@@ -1,6 +1,10 @@
 import "./Progressbar.css";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Logo from "../../Assets/Logo.png";
+
+const RADIUS = 70;
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
 function Progressbar({ value = 0, onComplete, showButton }) {
   const [present, setPresent] = useState(value);
@@ -8,42 +12,53 @@ function Progressbar({ value = 0, onComplete, showButton }) {
 
   useEffect(() => {
     if (present < 100) {
-      const timer = setTimeout(() => setPresent((newVal) => newVal + 1), 40);
+      const timer = setTimeout(() => setPresent((val) => val + 1), 40);
       return () => clearTimeout(timer);
     } else {
-      onComplete(); // Call onComplete when progress is 100%
+      navigate("/home");
     }
-  }, [present, onComplete]);
+  }, [present, navigate]);
 
-  const handlebuttonclick = () => {
-    navigate("/home");
-  };
+
+
+  const strokeOffset = CIRCUMFERENCE - (present / 100) * CIRCUMFERENCE;
 
   return (
     <div className="container">
-      <div className="logo-block3">
-        <div className="LogoText">
-          <div className="text-logo loading">Minuri Senara</div>
-        </div>
-      </div>
-
-      {/* Show the progress bar and text only if present is less than 100 */}
+      {/* Show ring + logo + percentage while loading */}
       {present < 100 ? (
         <>
-          <div
-            className="progressbarfill"
-            style={{ width: `${present}%` }}
-          ></div>
-          <div className="progressbartext">{present}%</div>
+          <div className="ring-wrapper">
+            <svg className="ring-svg" viewBox="0 0 160 160" width="160" height="160">
+              <circle
+                className="ring-track"
+                cx="80"
+                cy="80"
+                r={RADIUS}
+                fill="none"
+                strokeWidth="2"
+              />
+              <circle
+                className="ring-progress"
+                cx="80"
+                cy="80"
+                r={RADIUS}
+                fill="none"
+                strokeWidth="2"
+                strokeDasharray={CIRCUMFERENCE}
+                strokeDashoffset={strokeOffset}
+                strokeLinecap="round"
+              />
+            </svg>
+            <div className="ring-inner">
+              <img src={Logo} alt="Logo" className="loading-logo" />
+            </div>
+          </div>
+
         </>
       ) : null}
 
-      {/* Show the button if present is 100% */}
-      {present >= 100 && showButton && (
-        <button className="start-button show" onClick={handlebuttonclick}>
-          START
-        </button>
-      )}
+
     </div>
   );
 }

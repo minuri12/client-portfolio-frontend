@@ -9,9 +9,8 @@ function supportsCustomCursor() {
   }
 
   const coarsePointer = window.matchMedia("(hover: none), (pointer: coarse)").matches;
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  return !coarsePointer && !reducedMotion;
+  return !coarsePointer;
 }
 
 function parseRgb(color) {
@@ -77,16 +76,11 @@ function getBackgroundAtPoint(x, y) {
 
 function getCursorTheme(_color) {
   return {
-    // Neutral charcoal tone between black and gray.
-    dotBackground: "rgba(79, 79, 79, 0.96)",
-    dotOutline: "rgba(96, 96, 96, 0.9)",
-    dotShadow: "0 0 0 1px rgba(18, 18, 18, 0.35)",
-    ringBorder: "rgba(110, 110, 110, 0.72)",
+    ringBorder: "rgba(228, 228, 228, 0.55)",
   };
 }
 
 function CustomCursor() {
-  const dotRef = useRef(null);
   const ringRef = useRef(null);
   const frameRef = useRef(null);
   const hiddenRef = useRef(true);
@@ -94,16 +88,16 @@ function CustomCursor() {
 
   const [hidden, setHidden] = useState(true);
   const [isHover, setIsHover] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
 
   useEffect(() => {
     if (!supportsCustomCursor()) {
       return undefined;
     }
 
-    const dot = dotRef.current;
     const ring = ringRef.current;
 
-    if (!dot || !ring) {
+    if (!ring) {
       return undefined;
     }
 
@@ -127,9 +121,6 @@ function CustomCursor() {
 
       themeRef.current = themeKey;
 
-      dot.style.background = theme.dotBackground;
-      dot.style.outlineColor = theme.dotOutline;
-      dot.style.boxShadow = theme.dotShadow;
       ring.style.borderColor = theme.ringBorder;
     };
 
@@ -145,7 +136,7 @@ function CustomCursor() {
       mouse.x = event.clientX;
       mouse.y = event.clientY;
 
-      setTransform(dot, mouse.x, mouse.y);
+      setTransform(ring, mouse.x, mouse.y);
       applyTheme(mouse.x, mouse.y);
 
       if (hiddenRef.current) {
@@ -176,11 +167,21 @@ function CustomCursor() {
       }
     };
 
+    const onMouseDown = () => {
+      setIsPressed(true);
+    };
+
+    const onMouseUp = () => {
+      setIsPressed(false);
+    };
+
     window.addEventListener("mousemove", onMove, { passive: true });
     document.addEventListener("mouseleave", onMouseLeave);
     document.addEventListener("mouseenter", onMouseEnter);
     document.addEventListener("mouseover", onOver);
     document.addEventListener("mouseout", onOut);
+    document.addEventListener("mousedown", onMouseDown);
+    document.addEventListener("mouseup", onMouseUp);
 
     frameRef.current = requestAnimationFrame(animate);
 
@@ -192,6 +193,8 @@ function CustomCursor() {
       document.removeEventListener("mouseenter", onMouseEnter);
       document.removeEventListener("mouseover", onOver);
       document.removeEventListener("mouseout", onOut);
+      document.removeEventListener("mousedown", onMouseDown);
+      document.removeEventListener("mouseup", onMouseUp);
 
       if (frameRef.current) {
         cancelAnimationFrame(frameRef.current);
@@ -206,13 +209,8 @@ function CustomCursor() {
   return (
     <>
       <div
-        ref={dotRef}
-        className={`cursor-dot ${hidden ? "cursor-hidden" : ""} ${isHover ? "cursor-hover" : ""}`}
-        aria-hidden="true"
-      />
-      <div
         ref={ringRef}
-        className={`cursor-ring ${hidden ? "cursor-hidden" : ""} ${isHover ? "cursor-hover" : ""}`}
+        className={`cursor-ring ${hidden ? "cursor-hidden" : ""} ${isHover ? "cursor-hover" : ""} ${isPressed ? "cursor-pressed" : ""}`}
         aria-hidden="true"
       />
     </>

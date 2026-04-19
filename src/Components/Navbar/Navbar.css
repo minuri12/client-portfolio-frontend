@@ -19,7 +19,7 @@
 }
 
 .logo-block img {
-  width: 30px;
+  width: 45px;
   height: auto;
 }
 
@@ -45,11 +45,15 @@
   grid-column-gap: 12px;
   display: flex;
   align-items: center;
+  text-decoration: none;
+  color: inherit;
 }
 
 .Navbar {
   margin: 40px 50px;
   max-width: 1400px;
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -63,6 +67,10 @@
   margin-bottom: -2px;
   margin-left: 43px;
   box-shadow: 0 2px 25px 2px #fff;
+}
+
+.nav-pill-wrapper {
+  position: relative;
 }
 
 .nav-toggle {
@@ -102,8 +110,8 @@ a {
   /* width adapts to number of nav items for better hover area */
   width: calc(var(--nav-count, 3) * 100px);
   height: 48px;
-  padding-left: 6px;
-  padding-right: 6px;
+  padding-left: 14px;
+  padding-right: 14px;
   transition: box-shadow 1s cubic-bezier(0.23, 1, 0.32, 1),
     border 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   display: flex;
@@ -195,16 +203,17 @@ a {
   vertical-align: middle;
 }
 
+
+.logo-block {
+  display: inline-flex;
+}
+
 .nav-indicator-glow.info {
   margin-left: 131px;
 }
 
 .nav-indicator-glow.blogs {
   margin-left: 239px;
-}
-
-.logo-block {
-  display: inline-flex;
 }
 
 .chip-socials-wrapper {
@@ -299,14 +308,19 @@ a {
     margin: 40px 20px;
   }
 
-  .chip-socials-wrapper {
-    display: none;
+  .nav-right-wrapper,
+  .nav-pill-wrapper {
+    display: none !important;
   }
 
   .pil2 {
     width: 50px;
     height: 50px;
     display: flex;
+  }
+
+  .nav-pill-wrapper {
+    display: none;
   }
 
   .mobile-popup-menu {
@@ -375,16 +389,15 @@ a {
   }
 
   .logo-block {
-    width: 0px;
-    padding-left: 25px;
+    width: auto;
+    padding-left: 0;
   }
 }
 
 @media only screen and (max-width: 480px) {
   .Navbar {
-    margin: 28px 12px;
-    justify-content: flex-start;
-    gap: 5px;
+    margin: 28px 16px;
+    justify-content: space-between;
   }
 
   .nav-pill-wrapper .nav-pill {
@@ -394,6 +407,7 @@ a {
   .pil2 {
     width: 50px;
     height: 50px;
+    margin-right: 12px;
   }
 
   .logo-block {

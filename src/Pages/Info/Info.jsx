@@ -11,7 +11,12 @@ import webflow from "../../Assets/Webflow.png";
 import Atliasan from "../../Assets/Atliasan.png";
 import Jira from "../../Assets/Jira.png";
 import MeVideo from "../../Assets/Info_Video/Me_Video.mp4";
+import VideoThumbnail from "../../Assets/Info_Video/Thumbnail.jpg";
 import Frame42 from "../../Assets/Me2.png";
+import instergram from "../../Assets/instagram.png";
+import Minuri3 from "../../Assets/Minuri3.png";
+import behance from "../../Assets/behance.png";
+import "../Work/Work.css";
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../Components/Navbar/Navbar";
@@ -20,7 +25,14 @@ function Info() {
 
   const [currentChapter, setCurrentChapter] = useState(0);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [lightColor, setLightColor] = useState("rgba(255, 255, 255, 0.4)");
+  const [isMobileView, setIsMobileView] = useState(() => window.innerWidth <= 768);
   const videoRef = useRef(null);
+
+  useEffect(() => {
+    const colors = ["rgba(255, 0, 0, 0.4)", "rgba(255, 255, 0, 0.35)", "rgba(255, 255, 255, 0.4)"];
+    setLightColor(colors[Math.floor(Math.random() * colors.length)]);
+  }, [currentChapter]);
 
   // Story chapters data
   const storyChapters = [
@@ -72,6 +84,15 @@ function Info() {
 
   useEffect(() => {
     document.title = "Info";
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const toggleVideoPlayback = () => {
@@ -154,6 +175,7 @@ function Info() {
               loop
               playsInline
               preload="metadata"
+              poster={VideoThumbnail}
               aria-label="Video portrait of Minuri"
               onPlay={() => setIsVideoPlaying(true)}
               onPause={() => setIsVideoPlaying(false)}
@@ -164,7 +186,7 @@ function Info() {
 
             <button
               type="button"
-              className="MePlayToggle"
+              className={`MePlayToggle ${isVideoPlaying ? "playing" : ""}`}
               onClick={toggleVideoPlayback}
               aria-label={isVideoPlaying ? "Pause video" : "Play video"}
             >
@@ -275,14 +297,22 @@ function Info() {
                   disabled={currentChapter === storyChapters.length - 1}
                   aria-label="Next chapter"
                 >
-                  ↓
+                  {isMobileView ? "→" : "↓"}
                 </button>
               </div>
             </div>
           </div>
 
           {/* Floating panel that shows the current chapter details on the right */}
-          <aside className="story-floating-box" aria-live="polite">
+          <aside 
+            className="story-floating-box" 
+            aria-live="polite"
+            style={{
+              "--card-light-color": lightColor,
+              overflow: "hidden", // necessary for the pseudo-element moving light
+              position: "relative"
+            }}
+          >
             <AnimatePresence mode="wait">
               <motion.div
                 key={storyChapters[currentChapter]?.id ?? currentChapter}
@@ -303,6 +333,55 @@ function Info() {
         </div>
       </motion.div>
 
+        <br />
+        <br />
+        <br />
+        <motion.div
+          className="part_one second"
+          {...sectionReveal}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          <div className="row">
+            <div className="imgholder">
+              <img src={Minuri3} className="Minuri2" alt="Logo" />
+            </div>
+            <div className="text-section">
+              <div className="head_name">
+                How I can help <span>you?</span>
+              </div>
+              <div className="description seconDes">
+                Let’s collaborate to create something exceptional! I'm excited to
+                connect over new opportunities in software engineering.
+              </div>
+              <div className="button_section" style={{ width: "30%" }}>
+                <div className="Logo_Social1">
+                  <a href="https://www.behance.net/minurihewage" target="_blank" rel="noreferrer" className="contactbtn">
+                    <div className="Touch">
+                      <img src={behance} className="logomark" alt="Logo" />
+                    </div>
+                  </a>
+                </div>
+
+                <div className="Logo_Social2">
+                  <a
+                    href="https://www.instagram.com/minuri_senara/?next=%2F"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="contactbtn"
+                  >
+                    <div className="Touch">
+                      <img src={instergram} className="logomark" alt="Logo" />{" "}
+                    </div>
+                  </a>
+                </div>
+                <a href="https://wa.me/94713775404?text=Hi%20Minuri%2C%20I%20would%20like%20to%20chat%20about%20your%20services." target="_blank" rel="noreferrer" className="contactbtn">
+                  <div className="Touch">Get In Touch</div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
       </div>
 
       <div
@@ -313,7 +392,7 @@ function Info() {
           <div className="footer-bottom-wrapper">
             <div className="footer-bottom-left">
               <div className="text-footer-copyright">
-                © 2024 Minuri Senara. All Rights Reserved.
+                © 2026 Minuri Senara. All Rights Reserved.
               </div>
               <div className="text-under-copyright">
                 Made with Love and Music (in every note, feel the heat).
@@ -322,7 +401,7 @@ function Info() {
             <div className="footer-bottom-right">
               <div className="text-last-updated">
                 {" "}
-                Last updated by Minuri on April 15, 2024
+                Last updated by Minuri on April 15, 2026
               </div>
             </div>
           </div>

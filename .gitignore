@@ -49,4 +49,5 @@ Thumbs.db
 .idea/
 
 # IDE project settings
-.idea/
+.idea/node_modules/
+node_modules/

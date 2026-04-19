@@ -14,7 +14,7 @@ const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const categoryMap = {
   'All': null,
   'Design': 'design',
-  'Our Mind': 'our-mind',
+  'Life': ['our-mind', 'life', 'ourmind'],
   'Others': 'others',
 };
 
@@ -29,7 +29,7 @@ function Blogs() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  const categories = ['All', 'Design', 'Our Mind', 'Others'];
+  const categories = ['All', 'Life', 'Others'];
   const sectionReveal = {
     initial: { opacity: 0, y: 50 },
     whileInView: { opacity: 1, y: 0 },
@@ -47,14 +47,37 @@ function Blogs() {
       setLoading(true);
       setError(null);
       try {
-        const params = { published: 'true', limit: PAGE_SIZE, page: currentPage };
+        const baseParams = { published: 'true', limit: PAGE_SIZE, page: currentPage };
         const backendCategory = categoryMap[activeCategory];
-        if (backendCategory) {
-          params.category = backendCategory;
+        const categoryOptions = Array.isArray(backendCategory)
+          ? backendCategory
+          : backendCategory
+            ? [backendCategory]
+            : [null];
+
+        let responseData = null;
+        let lastError = null;
+
+        for (const categoryOption of categoryOptions) {
+          try {
+            const params = { ...baseParams };
+            if (categoryOption) {
+              params.category = categoryOption;
+            }
+            const { data } = await axios.get(`${API_BASE_URL}/api/blogs`, { params });
+            responseData = data;
+            break;
+          } catch (requestError) {
+            lastError = requestError;
+          }
         }
-        const { data } = await axios.get(`${API_BASE_URL}/api/blogs`, { params });
-        setBlogs(data.data.blogs);
-        setTotalPages(data.data.pagination.totalPages);
+
+        if (!responseData) {
+          throw lastError || new Error('Failed to load blogs');
+        }
+
+        setBlogs(responseData.data.blogs);
+        setTotalPages(responseData.data.pagination.totalPages);
       } catch (err) {
         setError('Failed to load blogs. Please try again later.');
       } finally {

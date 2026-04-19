@@ -106,7 +106,7 @@ input:checked + .slider {
 }
 
 .main-content {
-  margin-top: 40px;
+  margin-top: 140px;
   display: flex;
   width: 100%;
   gap: 20px;
@@ -136,7 +136,7 @@ input:checked + .slider {
   position: relative;
   color: white;
   font-size: 25px;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .grediant {
@@ -277,6 +277,30 @@ input:checked + .slider {
   outline-width: 4px;
 }
 
+@keyframes buttonPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.contactbtn .Touch {
+  animation: buttonPulse 2s infinite;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Remove animation from icon-only buttons (Behance & Instagram) */
+.Logo_Social1 .contactbtn .Touch,
+.Logo_Social2 .contactbtn .Touch {
+  animation: none;
+  box-shadow: none;
+}
+
 .button_section {
   justify-content: space-between;
   display: flex;
@@ -296,8 +320,8 @@ input:checked + .slider {
 
 .description {
   font-size: 18px;
-  color: #797979;
-  font-weight: 500;
+  color: #c7c7c7; /* Brighter color for better visibility */
+  font-weight: 300; /* Increased weight from 100 to make it legible */
 }
 
 .head_name {
@@ -336,6 +360,7 @@ input:checked + .slider {
   overflow-x: hidden;
 }
 
+
 .VolExperiance {
   margin-top: 30px;
   align-items: center;
@@ -367,13 +392,13 @@ input:checked + .slider {
 }
 .imgholder {
   position: relative;
-  width: 260px;
-  margin-right: 20px; /* Ensure the gradient overlay stays on top of the image */
+  width: 290px;
+  margin-right: 20px;
 }
 
 .Minuri2 {
   padding-top: 20px;
-  width: 260px;
+  width: 290px;
   height: auto;
 
   display: block;
@@ -398,9 +423,9 @@ input:checked + .slider {
 .Minuri2 {
   position: relative;
   z-index: 0;
-  height: 300px;
+  height: 330px;
   width: auto;
-  padding-right: 100px;
+  padding-right: 60px;
 }
 
 .secondsec {
@@ -995,7 +1020,7 @@ tbody td {
 }
 
 .logo-block .logomark2 {
-  width: 45px;
+  width: 30px;
 }
 
 

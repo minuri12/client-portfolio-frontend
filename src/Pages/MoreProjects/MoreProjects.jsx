@@ -1,37 +1,64 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './MoreProjects.module.css';
-import Arrow from '../../Assets/right-arrow.png';
 import { motion } from 'framer-motion';
+import axios from 'axios';
+import Navbar from '../../Components/Navbar/Navbar';
+
+// Fallback thumbnail image
+import blogThumb from '../../Assets/Project1.png';
+
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const PAGE_SIZE = 6;
 
 function MoreProjects() {
     const navigate = useNavigate();
+    const [blogs, setBlogs] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
-    const rowsPerPage = 6;
+    const [totalPages, setTotalPages] = useState(1);
 
-    const handleBack = () => {
-        navigate(-1);
+    const sectionReveal = {
+        initial: { opacity: 0, y: 50 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.2 },
+        transition: { duration: 0.8, ease: 'easeOut' },
     };
 
-    const projectUrl = (projectName) => {
-        return `/project/${projectName.toLowerCase().replace(/\s+/g, '-')}`;
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        document.title = 'More Projects';
+    }, []);
+
+    useEffect(() => {
+        const fetchProjects = async () => {
+            setLoading(true);
+            setError(null);
+            try {
+                const params = { published: 'true', limit: PAGE_SIZE, page: currentPage, category: 'projects' };
+                const { data } = await axios.get(`${API_BASE_URL}/api/blogs`, { params });
+                setBlogs(data.data.blogs);
+                setTotalPages(data.data.pagination.totalPages);
+            } catch (err) {
+                setError('Failed to load projects. Please try again later.');
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchProjects();
+    }, [currentPage]);
+
+    const getCoverImage = (coverImage) => {
+        if (!coverImage) return blogThumb;
+        if (coverImage.startsWith('http')) return coverImage;
+        return `${API_BASE_URL}${coverImage}`;
     };
 
-    const projects = [
-        { name: 'Nexo', description: 'E commerce website', role: 'Prototype, Frontend, Backend' },
-        { name: 'MyJourney', description: 'Travel planning app that simplifies the process based on your traveler category and budget.', role: 'Prototype, Frontend' },
-        { name: 'Helping Hand', description: 'Hospital Management System', role: 'Prototype, Frontend, Backend' },
-        { name: 'ShopSense', description: 'Mobile app leveraging AI to enhance online clothing shopping for the visually impaired, with an admin panel for sellers.', role: 'Prototype, Frontend' },
-        { name: 'Industrial Chemistry', description: 'Mobile application for learning Chemistry for Advanced Level students.', role: 'IdearMart App' },
-        { name: 'My Portfolio Website', description: 'Developed the website using React and CSS.', role: 'Prototype, Frontend, Backend' },
-        { name: 'Haven', description: 'AI-powered, web-based platform that utilizes AI and virtual reality (VR) technology to promote mental well-being.', role: 'Prototype, Frontend' },
-        { name: 'Market Management System', description: 'Developed a system for managing the billing process for a supermarket.', role: 'Frontend, Backend' }
-    ];
 
-    const indexOfLastRow = currentPage * rowsPerPage;
-    const indexOfFirstRow = indexOfLastRow - rowsPerPage;
-    const currentRows = projects.slice(indexOfFirstRow, indexOfLastRow);
-    const totalPages = Math.ceil(projects.length / rowsPerPage);
+    const handleBlogClick = (blogId) => {
+        navigate(`/blog/${blogId}`);
+    };
 
     const handleNextPage = () => {
         if (currentPage < totalPages) {
@@ -46,67 +73,88 @@ function MoreProjects() {
     };
 
     return (
-        <motion.div
-            className={styles.MoreProjects}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 30 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-        >
-            <div className="button-project-back" onClick={handleBack}>
-                <img src={Arrow} className="Arrow" alt="Right Arrow" />
-                <div className="text-button">Back</div>
-            </div>
+        <div className={styles.MoreProjects}>
+            <Navbar />
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                style={{ paddingTop: '80px' }}
+            >
+                <div className={styles.Volhead}>More Projects</div>
 
-            <div className={styles.Volhead}>More Projects</div>
+            {loading && <div className={styles.loading}>Loading projects...</div>}
+            {error && <div className={styles.error}>{error}</div>}
 
-            <div className={`${styles.OtherProjectHolder} ${styles.firsttb}`}>
-                <table id="interactiveTable">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>My Role</th>
-                            <th>Link</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {currentRows.map((project, index) => (
-                            <tr key={index}>
-                                <td>{project.name}</td>
-                                <td>{project.description}</td>
-                                <td>{project.role}</td>
-                                <td style={{ padding: "0.1rem" }}>
-                                    <Link to={projectUrl(project.name)} className="contactbtn">
-                                        <div className="Touch">Click Here</div>
-                                    </Link>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+            {!loading && !error && (
+                <>
+                    {blogs.length === 0 ? (
+                        <p className={styles.empty}>No projects found.</p>
+                    ) : (
+                        <div className={styles.projectsGrid}>
+                            {blogs.map((blog, index) => (
+                                <motion.div
+                                    key={blog._id}
+                                    className={styles.projectCard}
+                                    onClick={() => handleBlogClick(blog._id)}
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.15 }}
+                                    transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.05 }}
+                                >
+                                    <div className={styles.projectImageContainer}>
+                                        <img src={getCoverImage(blog.coverImage)} alt={blog.title} className={styles.projectImage} />
+                                    </div>
+                                    <div className={styles.projectContent}>
+                                        <h2 className={styles.projectTitle}>{blog.title}</h2>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    )}
 
-            <div className={styles.pagination}>
-                <button
-                    className={styles['pagination-btn']}
-                    onClick={handlePrevPage}
-                    disabled={currentPage === 1}
-                >
-                    Previous
-                </button>
+                    {totalPages > 1 && (
+                        <motion.div
+                            className={styles.pagination}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.6, ease: 'easeOut' }}
+                        >
+                            <button
+                                className={styles['pagination-btn']}
+                                onClick={handlePrevPage}
+                                disabled={currentPage === 1}
+                            >
+                                ← Prev
+                            </button>
 
-                <span>Page {currentPage} of {totalPages}</span>
+                            <div className={styles['pagination-pages']}>
+                                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                                    <button
+                                        key={page}
+                                        className={`${styles['pagination-page']} ${currentPage === page ? styles.active : ''}`}
+                                        onClick={() => setCurrentPage(page)}
+                                    >
+                                        {page}
+                                    </button>
+                                ))}
+                            </div>
 
-                <button
-                    className={styles['pagination-btn']}
-                    onClick={handleNextPage}
-                    disabled={currentPage === totalPages}
-                >
-                    Next
-                </button>
-            </div>
-        </motion.div>
+                            <button
+                                className={styles['pagination-btn']}
+                                onClick={handleNextPage}
+                                disabled={currentPage === totalPages}
+                            >
+                                Next →
+                            </button>
+                        </motion.div>
+                    )}
+                </>
+            )}
+            </motion.div>
+        </div>
     );
 }
 

@@ -18,12 +18,20 @@ function Navbar() {
 
   // Keep active index in state so UI updates reliably when route changes
   const [activeIndex, setActiveIndex] = useState(() => {
-    const idx = navItems.findIndex((item) => item.to === location.pathname);
+    let idx = navItems.findIndex((item) => item.to === location.pathname);
+    // If on a blog detail page (/blog/:id), highlight the Blogs tab
+    if (idx < 0 && location.pathname.startsWith('/blog/')) {
+      idx = navItems.findIndex((item) => item.to === '/blogs');
+    }
     return idx < 0 ? 0 : idx;
   });
 
   useEffect(() => {
     let idx = navItems.findIndex((item) => item.to === location.pathname);
+    // If on a blog detail page (/blog/:id), highlight the Blogs tab
+    if (idx < 0 && location.pathname.startsWith('/blog/')) {
+      idx = navItems.findIndex((item) => item.to === '/blogs');
+    }
     if (idx < 0) idx = 0;
     setActiveIndex(idx);
   }, [location.pathname]); // navItems is a module-level constant, not reactive
@@ -39,19 +47,19 @@ function Navbar() {
   return (
     <div className="section-nav">
       <div className="Navbar">
-        <div className="logo-block Navbarfix"> 
+        <Link to="/home" className="logo-block Navbarfix" aria-label="Go to home page">
           <img src={Logo} className="logomark" alt="Logo" />
           <div className="LogoText">
             <div className="text-logo">Minuri Senara</div>
             <div className="text-underlogo">Digital Product Designer</div>
           </div>
-        </div>
+        </Link>
 
         {/* Navigation Links */}
         <div className={`nav-pill-wrapper ${isMenuOpen ? "active" : ""}`}>
           <div
             className={`nav-indicator-glow ${
-              activeIndex === 0 ? "work" : activeIndex === 1 ? "info" : activeIndex === 2 ? "blogs" : "" 
+              activeIndex === 0 ? "work" : activeIndex === 1 ? "info" : activeIndex === 2 ? "blogs" : ""
             }`}
             style={{
               left: `calc(${activeIndex + 0.5} * (100% / ${navCount}) - 12px)`,
@@ -71,8 +79,8 @@ function Navbar() {
             <div
               className="nav-indicator-pill"
               style={{
-                left: `calc(${activeIndex} * (100% / ${navCount}) + 6px)`,
-                width: `calc(100% / ${navCount} - 8px)`,
+                left: `calc(14px + ${activeIndex} * ((100% - 28px) / ${navCount}))`,
+                width: `calc((100% - 28px) / ${navCount})`,
               }}
             ></div>
           </div>
@@ -94,6 +102,17 @@ function Navbar() {
                   display: "flex",
                 }}
               >
+                {navItems.map((item) => (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    className="popup-menu-item w-inline-block"
+                    onClick={() => setDropdownOpen(false)}
+                  >
+                    <div className="text-popup-menu">{item.label}</div>
+                  </Link>
+                ))}
+                <div style={{width: "100%", height: "1px", backgroundColor: "rgba(242, 242, 242, 0.1)", margin: "4px 0"}}></div>
                 <a
                   href="https://www.linkedin.com/in/mshewage/"
                   target="_blank"
@@ -109,7 +128,7 @@ function Navbar() {
                   />
                 </a>
                 <a
-                  href="https://drive.google.com/file/d/167oQtkvzh5bpspC_XLpRthUL3fq0th1F/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1KmhzxjGa4howhIVkKAMjI1-XDBSrlQ0g/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="popup-menu-item w-inline-block"
@@ -144,7 +163,7 @@ function Navbar() {
               />
             </a>
             <a
-              href="https://drive.google.com/file/d/167oQtkvzh5bpspC_XLpRthUL3fq0th1F/view?usp=sharing"
+              href="https://drive.google.com/file/d/1KmhzxjGa4howhIVkKAMjI1-XDBSrlQ0g/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="chip-socials w-inline-block"

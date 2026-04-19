@@ -1,0 +1,61 @@
+/* ── Rope container: fixed on right side, full page height ── */
+.rope-container {
+  position: fixed;
+  right: 24px;
+  top: 0;
+  width: 32px;
+  height: 100vh;
+  z-index: 9999;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+}
+
+/* ── The rope line ── */
+.rope-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.25) 10%,
+    rgba(255, 255, 255, 0.25) 90%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: 2px;
+}
+
+/* ── The climbing character ── */
+.rope-climber {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  transition: top 0.12s ease-out;
+  line-height: 1;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+}
+
+/* Slight tilt when climbing up */
+.rope-climber.climbing-up {
+  animation: climbUp 0.3s ease infinite;
+}
+
+/* Slight tilt when sliding down */
+.rope-climber.climbing-down {
+  animation: climbDown 0.3s ease infinite;
+}
+
+@keyframes climbUp {
+  0%   { transform: translateX(-50%) rotate(-8deg) scale(1); }
+  50%  { transform: translateX(-50%) rotate(8deg)  scale(1.05); }
+  100% { transform: translateX(-50%) rotate(-8deg) scale(1); }
+}
+
+@keyframes climbDown {
+  0%   { transform: translateX(-50%) rotate(5deg)  scale(0.97); }
+  50%  { transform: translateX(-50%) rotate(-5deg) scale(1); }
+  100% { transform: translateX(-50%) rotate(5deg)  scale(0.97); }
+}

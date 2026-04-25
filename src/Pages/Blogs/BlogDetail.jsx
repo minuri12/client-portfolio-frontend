@@ -282,14 +282,14 @@ function BlogDetail() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.05 }}
         >
           <motion.h1
             className='blog-article-title'
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.05 }}
           >
             {blog.title}
           </motion.h1>

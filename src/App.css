@@ -233,3 +233,14 @@ html.custom-cursor-active * {
     animation: none;
   }
 }
+
+@media (max-width: 768px) {
+  .cookie-consent-button,
+  .cookie-consent-decline-button {
+    font-size: 1rem;
+  }
+
+  .cookie-consent-button-wrapper {
+    gap: 8px;
+  }
+}

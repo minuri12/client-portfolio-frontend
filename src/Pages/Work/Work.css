@@ -44,6 +44,13 @@
   padding-top: 150px;
 }
 
+/* Reduce gap between First section and Nav bar in Mobile View */
+@media only screen and (max-width: 900px) {
+  .main-content {
+    margin-top: 0px; /* Reduced from 140px */
+  }
+}
+
 .switch input {
   opacity: 0;
   width: 0;

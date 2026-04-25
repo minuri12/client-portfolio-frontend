@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import './Blogs.css';
 import Navbar from '../../Components/Navbar/Navbar';
 import { motion } from 'framer-motion';
@@ -8,7 +7,7 @@ import { motion } from 'framer-motion';
 // Fallback thumbnail image
 import blogThumb from '../../Assets/Project1.png';
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 // Map frontend display label → backend category value
 const categoryMap = {
@@ -47,38 +46,27 @@ function Blogs() {
       setLoading(true);
       setError(null);
       try {
-        const baseParams = { published: 'true', limit: PAGE_SIZE, page: currentPage };
-        const backendCategory = categoryMap[activeCategory];
-        const categoryOptions = Array.isArray(backendCategory)
-          ? backendCategory
-          : backendCategory
-            ? [backendCategory]
-            : [null];
-
-        let responseData = null;
-        let lastError = null;
-
-        for (const categoryOption of categoryOptions) {
-          try {
-            const params = { ...baseParams };
-            if (categoryOption) {
-              params.category = categoryOption;
-            }
-            const { data } = await axios.get(`${API_BASE_URL}/api/blogs`, { params });
-            responseData = data;
-            break;
-          } catch (requestError) {
-            lastError = requestError;
+        const response = await fetch(
+          `${process.env.REACT_APP_API_URL}/api/blogs?published=true&limit=6&page=1`,
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
           }
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        if (!responseData) {
-          throw lastError || new Error('Failed to load blogs');
-        }
+        const data = await response.json();
+        console.log('Blog data:', data);
 
-        setBlogs(responseData.data.blogs);
-        setTotalPages(responseData.data.pagination.totalPages);
+        setBlogs(data.data.blogs);
+        setTotalPages(data.data.pagination.totalPages);
       } catch (err) {
+        console.error('Failed to fetch blogs:', err);
         setError('Failed to load blogs. Please try again later.');
       } finally {
         setLoading(false);

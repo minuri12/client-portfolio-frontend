@@ -37,7 +37,11 @@ function Blogs() {
       setLoading(true);
       setError(null);
       try {
-        const apiUrl = `/api/blogs?published=true&limit=6&page=1`;
+        let apiUrl = `/api/blogs?published=true&limit=6&page=${currentPage}`;
+        if (activeCategory !== 'All') {
+          const categoryParam = activeCategory.toLowerCase();
+          apiUrl += `&category=${categoryParam}`;
+        }
         console.log('Fetching blogs from:', apiUrl);
 
         const response = await fetch(
@@ -116,8 +120,6 @@ function Blogs() {
     navigate(`/blog/${blogId}`);
   };
 
-  const filteredBlogs = activeCategory === 'All' ? blogs : blogs.filter(blog => blog.category === activeCategory);
-
   return (
     <div className='blogs-page'>
       <Navbar />
@@ -151,10 +153,10 @@ function Blogs() {
         {!loading && !error && (
           <>
             <div className='blogs-list'>
-              {filteredBlogs.length === 0 ? (
+              {blogs.length === 0 ? (
                 <p className='blogs-empty'>No blogs found in this category.</p>
               ) : (
-                filteredBlogs.map((blog, index) => (
+                blogs.map((blog, index) => (
                   <motion.div
                     key={blog._id}
                     className='blog-card'

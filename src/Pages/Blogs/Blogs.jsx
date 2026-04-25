@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 // Fallback thumbnail image
 import blogThumb from '../../Assets/Project1.png';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL;
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 
 function Blogs() {
@@ -37,8 +37,11 @@ function Blogs() {
       setLoading(true);
       setError(null);
       try {
+        const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/api/blogs?published=true&limit=6&page=1`;
+        console.log('Fetching blogs from:', apiUrl);
+
         const response = await fetch(
-          `${process.env.REACT_APP_API_URL}/api/blogs?published=true&limit=6&page=1`,
+          apiUrl,
           {
             method: 'GET',
             headers: {
@@ -58,7 +61,12 @@ function Blogs() {
         setTotalPages(data.data.pagination.totalPages);
       } catch (err) {
         console.error('Failed to fetch blogs:', err);
-        setError('Failed to load blogs. Please try again later.');
+        // Provide more specific error messages
+        if (err.message === 'Failed to fetch') {
+          setError('Unable to connect to the blog server. Please check your internet connection or try again later.');
+        } else {
+          setError('Failed to load blogs. Please try again later.');
+        }
       } finally {
         setLoading(false);
       }

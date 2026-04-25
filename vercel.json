@@ -5,10 +5,12 @@
   "framework": "create-react-app",
   "build": {
     "env": {
-      "CI": "false"
+      "CI": "false",
+      "REACT_APP_API_BASE_URL": "https://client-portfolio-backend.vercel.app"
     }
   },
   "env": {
-    "CI": "false"
+    "CI": "false",
+    "REACT_APP_API_BASE_URL": "https://client-portfolio-backend.vercel.app"
   }
 }

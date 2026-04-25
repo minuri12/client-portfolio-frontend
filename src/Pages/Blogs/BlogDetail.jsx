@@ -274,7 +274,7 @@ function BlogDetail() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.05 }}
         >
-          <img src={getCoverImage(blog.coverImage)} alt={blog.title} />
+          <img src={getCoverImage(blog.coverImage)} alt={blog.title} loading="lazy" />
         </motion.div>
 
         <motion.div
@@ -322,7 +322,7 @@ function BlogDetail() {
                   transition={{ duration: 0.6, ease: 'easeOut', delay: 0.25 + index * 0.06 }}
                 >
                   <div className='related-blog-image'>
-                    <img src={getCoverImage(relatedBlog.coverImage)} alt={relatedBlog.title} />
+                    <img src={getCoverImage(relatedBlog.coverImage)} alt={relatedBlog.title} loading="lazy" />
                   </div>
                   <h3 className='related-blog-title'>{relatedBlog.title}</h3>
                 </motion.div>

@@ -13,6 +13,7 @@ import Scrolltotop from "./Components/Scrolltotop";
 import MoreProjects from "./Pages/MoreProjects/MoreProjects";
 import WhatsAppIcon from "./Assets/WhatsAppIcon.png";
 import CustomCursor from "./Components/CustomCursor";
+import Footer from "./Components/Footer/Footer";
 import CookieConsent from "react-cookie-consent";
 
 function AppContent() {
@@ -35,6 +36,8 @@ function AppContent() {
         <Route path="/blog/:id" element={<BlogDetail />} />
         <Route path="/more-projects" element={<MoreProjects />} />
       </Routes>
+
+      <Footer />
 
       {!isLoadingPage && (
         <a

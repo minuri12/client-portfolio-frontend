@@ -1,0 +1,79 @@
+.section-footer {
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 80px;
+  display: flex;
+  position: relative;
+  margin: 0;
+  color: white;
+}
+
+.text-footer-copyright {
+  letter-spacing: 0.2px;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.text-under-copyright {
+  opacity: 0.5;
+  letter-spacing: 0.2px;
+  text-transform: none;
+  font-family: Neue Montreal, sans-serif;
+}
+
+.text-last-updated {
+  opacity: 0.5;
+  letter-spacing: 0.2px;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 20px;
+}
+
+.container-footer {
+  grid-row-gap: 64px;
+  flex-direction: column;
+  width: 100%;
+  max-width: 882px;
+  display: flex;
+  margin: 0;
+}
+
+.footer-bottom-wrapper {
+  grid-column-gap: 48px;
+  flex: 1;
+  justify-content: space-between;
+  align-self: stretch;
+  align-items: flex-end;
+  display: flex;
+}
+
+.footer-bottom-left,
+.footer-bottom-right {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .section-footer {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+
+  .footer-bottom-wrapper {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .text-footer-copyright {
+    font-size: 14px;
+  }
+
+  .text-under-copyright {
+    font-size: 11px;
+  }
+}

@@ -54,8 +54,8 @@ function AppContent() {
         enableDeclineButton
         expires={150}
         style={{ background: "#ffffff", color: "black", bottom: "80px", zIndex: 9999 }}
-        buttonStyle={{ background: "#ff0000", color: "white", borderRadius: "8px" }}
-        declineButtonStyle={{ background: "transparent", border: "1px solid #ff0000", color: "white", borderRadius: "8px" }}
+        buttonStyle={{ background: "#ff0000", color: "white", borderRadius: "8px", height: "48px", padding: "0 20px" }}
+        declineButtonStyle={{ background: "transparent", border: "1px solid black", color: "black", borderRadius: "8px", height: "48px", padding: "0 20px" }}
       >
         We use cookies to enhance your experience on minuri.me. By clicking Accept All, you agree to our use of cookies.
       </CookieConsent>

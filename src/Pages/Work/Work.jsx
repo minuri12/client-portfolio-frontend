@@ -56,7 +56,7 @@ function Home() {
       setBlogsError("");
 
       try {
-        const response = await fetch(`${API_BASE_URL}/api/blogs?published=true&limit=3&page=1`);
+        const response = await fetch(`/api/blogs?published=true&limit=3&page=1`);
         if (!response.ok) {
           throw new Error("Failed to load recent blogs");
         }

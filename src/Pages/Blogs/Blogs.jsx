@@ -19,7 +19,7 @@ function Blogs() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  const categories = ['All', 'Life', 'Others'];
+  const categories = ['All', 'Design', 'Life', 'Projects', 'Others'];
   const sectionReveal = {
     initial: { opacity: 0, y: 50 },
     whileInView: { opacity: 1, y: 0 },
@@ -149,10 +149,12 @@ function Blogs() {
         {!loading && !error && (
           <>
             <div className='blogs-list'>
-              {blogs.length === 0 ? (
-                <p className='blogs-empty'>No blogs found in this category.</p>
-              ) : (
-                blogs.map((blog, index) => (
+              {(() => {
+                const filteredBlogs = activeCategory === 'All' ? blogs : blogs.filter(blog => blog.category === activeCategory);
+                return filteredBlogs.length === 0 ? (
+                  <p className='blogs-empty'>No blogs found in this category.</p>
+                ) : (
+                  filteredBlogs.map((blog, index) => (
                   <motion.div
                     key={blog._id}
                     className='blog-card'

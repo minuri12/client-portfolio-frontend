@@ -30,7 +30,7 @@ function MoreProjects() {
             setError(null);
             try {
                 const params = { published: 'true', limit: PAGE_SIZE, page: currentPage, category: 'projects' };
-                const { data } = await axios.get(`${API_BASE_URL}/api/blogs`, { params });
+                const { data } = await axios.get(`/api/blogs`, { params });
                 setBlogs(data.data.blogs);
                 setTotalPages(data.data.pagination.totalPages);
             } catch (err) {

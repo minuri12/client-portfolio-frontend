@@ -1024,6 +1024,19 @@ tbody td {
   padding: 20px 50px;
   margin-top: 40px;
   margin-bottom: 0;
+  background: #b60227 !important;
+}
+
+.more-projects-card:hover {
+  background: #b60227 !important;
+}
+
+.more-projects-card::after {
+  display: none !important;
+}
+
+.more-projects-card .headGrapic {
+  color: white !important;
 }
 
 .LinkTest {

@@ -49,6 +49,10 @@
   .main-content {
     margin-top: 0px; /* Reduced from 140px */
   }
+
+  .page-wrapper > br {
+    display: none;
+  }
 }
 
 .switch input {

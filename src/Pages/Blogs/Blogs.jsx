@@ -92,10 +92,23 @@ function Blogs() {
     setCurrentPage(1);
   };
 
-  const getCoverImage = (coverImage) => {
+  const getCoverImage = (coverImage, optimize = true) => {
     if (!coverImage) return blogThumb;
-    if (coverImage.startsWith('http')) return coverImage;
-    return `${API_BASE_URL}${coverImage}`;
+    
+    // If it's a relative path, prepend API_BASE_URL
+    let imageUrl = coverImage.startsWith('http') ? coverImage : `${API_BASE_URL}${coverImage}`;
+    
+    // Apply Cloudinary optimization for better performance
+    // Only optimize Cloudinary URLs and when optimize flag is true
+    if (optimize && imageUrl.includes('cloudinary.com/image/upload')) {
+      // Replace '/upload/' with optimized transformation parameters
+      imageUrl = imageUrl.replace(
+        '/upload/',
+        '/upload/w_800,h_600,c_fill,q_auto,f_auto/'
+      );
+    }
+    
+    return imageUrl;
   };
 
   const getPlainText = (html) => {

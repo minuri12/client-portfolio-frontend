@@ -118,12 +118,12 @@ function BlogDetail() {
       setLoading(true);
       setError(null);
       try {
-        const { data } = await axios.get(`${API_BASE_URL}/api/blogs/${id}`);
+        const { data } = await axios.get(`/api/blogs/${id}`);
         const fetchedBlog = data.data.blog;
         setBlog(fetchedBlog);
 
         // Fetch random blogs
-        const { data: relatedData } = await axios.get(`${API_BASE_URL}/api/blogs`, {
+        const { data: relatedData } = await axios.get(`/api/blogs`, {
           params: { published: 'true', limit: 4 },
         });
         setRelatedBlogs(

@@ -37,7 +37,7 @@ function Blogs() {
       setLoading(true);
       setError(null);
       try {
-        const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/api/blogs?published=true&limit=6&page=1`;
+        const apiUrl = `/api/blogs?published=true&limit=6&page=1`;
         console.log('Fetching blogs from:', apiUrl);
 
         const response = await fetch(

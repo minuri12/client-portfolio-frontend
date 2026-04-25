@@ -13,6 +13,7 @@ import Scrolltotop from "./Components/Scrolltotop";
 import MoreProjects from "./Pages/MoreProjects/MoreProjects";
 import WhatsAppIcon from "./Assets/WhatsAppIcon.png";
 import CustomCursor from "./Components/CustomCursor";
+import CookieConsent from "react-cookie-consent";
 
 function AppContent() {
   const location = useLocation();
@@ -46,6 +47,18 @@ function AppContent() {
           <img src={WhatsAppIcon} alt="WhatsApp" className="whatsapp-float-icon" />
         </a>
       )}
+      <CookieConsent
+        location="bottom"
+        buttonText="Accept All"
+        declineButtonText="Decline"
+        enableDeclineButton
+        expires={150}
+        style={{ background: "#1a1a2e", color: "white" }}
+        buttonStyle={{ background: "#7c3aed", color: "white", borderRadius: "8px" }}
+        declineButtonStyle={{ background: "transparent", border: "1px solid white", color: "white", borderRadius: "8px" }}
+      >
+        We use cookies to enhance your experience on minuri.me. By clicking Accept All, you agree to our use of cookies.
+      </CookieConsent>
     </div>
   );
 }
@@ -59,3 +72,4 @@ function App() {
 }
 
 export default App;
+

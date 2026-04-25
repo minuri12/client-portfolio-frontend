@@ -344,7 +344,7 @@ a {
     padding: 8px;
     display: none;
     position: fixed;
-    inset: 88px 24px auto auto;
+    inset: 72px 24px auto auto;
     overflow: hidden;
     box-shadow: 0 10px 30px #2020204d;
   }
@@ -359,6 +359,14 @@ a {
     text-decoration: none;
     transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
     display: flex;
+  }
+
+  .popup-menu-item.active-popup-item {
+    background-color: rgba(242, 242, 242, 0.12);
+  }
+
+  .popup-menu-item.active-popup-item .text-popup-menu {
+    font-weight: 700;
   }
 
   .mobile-popup-menu img {

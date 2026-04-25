@@ -102,11 +102,11 @@ function Navbar() {
                   display: "flex",
                 }}
               >
-                {navItems.map((item) => (
+                {navItems.map((item, idx) => (
                   <Link
                     key={item.to}
                     to={item.to}
-                    className="popup-menu-item w-inline-block"
+                    className={`popup-menu-item w-inline-block ${activeIndex === idx ? 'active-popup-item' : ''}`}
                     onClick={() => setDropdownOpen(false)}
                   >
                     <div className="text-popup-menu">{item.label}</div>

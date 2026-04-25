@@ -9,15 +9,6 @@ import blogThumb from '../../Assets/Project1.png';
 
 const API_BASE_URL = process.env.REACT_APP_API_URL;
 
-// Map frontend display label → backend category value
-const categoryMap = {
-  'All': null,
-  'Design': 'design',
-  'Life': ['our-mind', 'life', 'ourmind'],
-  'Others': 'others',
-};
-
-const PAGE_SIZE = 6;
 
 function Blogs() {
   const navigate = useNavigate();

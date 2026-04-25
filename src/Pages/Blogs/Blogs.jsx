@@ -116,6 +116,8 @@ function Blogs() {
     navigate(`/blog/${blogId}`);
   };
 
+  const filteredBlogs = activeCategory === 'All' ? blogs : blogs.filter(blog => blog.category === activeCategory);
+
   return (
     <div className='blogs-page'>
       <Navbar />
@@ -149,12 +151,10 @@ function Blogs() {
         {!loading && !error && (
           <>
             <div className='blogs-list'>
-              {(() => {
-                const filteredBlogs = activeCategory === 'All' ? blogs : blogs.filter(blog => blog.category === activeCategory);
-                return filteredBlogs.length === 0 ? (
-                  <p className='blogs-empty'>No blogs found in this category.</p>
-                ) : (
-                  filteredBlogs.map((blog, index) => (
+              {filteredBlogs.length === 0 ? (
+                <p className='blogs-empty'>No blogs found in this category.</p>
+              ) : (
+                filteredBlogs.map((blog, index) => (
                   <motion.div
                     key={blog._id}
                     className='blog-card'

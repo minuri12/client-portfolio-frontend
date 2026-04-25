@@ -1021,14 +1021,20 @@ tbody td {
 .more-projects-card {
   width: auto;
   max-width: 100%;
-  padding: 20px 50px;
+  padding: 0;
   margin-top: 40px;
   margin-bottom: 0;
-  background: #b60227 !important;
+  background: #ffffff !important;
+  border-radius: 999px;
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: inline-flex;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .more-projects-card:hover {
-  background: #b60227 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 22px 32px rgba(0, 0, 0, 0.14);
 }
 
 .more-projects-card::after {
@@ -1036,8 +1042,27 @@ tbody td {
 }
 
 .more-projects-card .headGrapic {
-  color: white !important;
+  color: #111111 !important;
+  padding: 16px 28px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
+
+.more-projects-card .headGrapic::after {
+  content: '→';
+  display: inline-block;
+  margin-left: 14px;
+  transition: transform 0.25s ease;
+}
+
+.more-projects-card:hover .headGrapic::after {
+  transform: translateX(-5px);
+}
+
 
 .LinkTest {
   text-decoration: none !important;

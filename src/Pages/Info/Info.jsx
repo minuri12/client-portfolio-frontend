@@ -280,92 +280,117 @@ function Info() {
           <h2 className="story-title">Read My Story</h2>
         </div>
 
-        <div className="story-chapters">
-          <div className="story-carousel-container">
-            <div className="story-content">
-              <motion.div
-                ref={storyCardRef}
-                className="story-card"
-                drag={isMobileView ? "x" : false}
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.7}
-                onDragEnd={isMobileView ? handleDragEnd : undefined}
-                initial={false}
-                animate={{
-                  x: swipeDirection === "left" ? -30 : swipeDirection === "right" ? 30 : 0,
-                  opacity: swipeDirection ? 0.7 : 1,
-                  rotate: swipeDirection === "left" ? -2 : swipeDirection === "right" ? 2 : 0,
-                }}
-                transition={{ duration: 0.2 }}
-                style={{
-                  cursor: isMobileView ? "grab" : "default",
-                  touchAction: isMobileView ? "pan-y" : "auto",
-                }}
-              >
-                {/* <div className="story-image-container">
-                <img 
-                  src={storyChapters[currentChapter].image} 
-                  alt={storyChapters[currentChapter].title}
-                  className="story-image"
-                />
-              </div> */}
-                <AnimatePresence mode="wait" initial={false}>
+          <div className="story-chapters">
+            <div className="story-carousel-container">
+              <div className="story-content">
+                {/* Mobile view: Show all chapters stacked vertically */}
+                {isMobileView ? (
+                  <div className="story-cards-stacked">
+                    {storyChapters.map((chapter, index) => (
+                      <motion.div
+                        key={chapter.id}
+                        className="story-card story-card-mobile"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                      >
+                        <div className="story-text">
+                          <h3 className="chapter-title">
+                            Chapter {String(chapter.id).padStart(2, "0")}
+                          </h3>
+                          <p className="chapter-description">
+                            {chapter.description}
+                          </p>
+                          <p className="chapter-summary">
+                            {`"${chapter.summary}"`}
+                          </p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                ) : (
+                  // Desktop view: Show one chapter at a time with carousel
                   <motion.div
-                    key={storyChapters[currentChapter].id}
-                    className="story-text"
-                    initial={{ opacity: 0, y: 14 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -14 }}
-                    transition={{ duration: 0.35, ease: "easeInOut" }}
+                    ref={storyCardRef}
+                    className="story-card"
+                    drag={isMobileView ? "x" : false}
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.7}
+                    onDragEnd={isMobileView ? handleDragEnd : undefined}
+                    initial={false}
+                    animate={{
+                      x: swipeDirection === "left" ? -30 : swipeDirection === "right" ? 30 : 0,
+                      opacity: swipeDirection ? 0.7 : 1,
+                      rotate: swipeDirection === "left" ? -2 : swipeDirection === "right" ? 2 : 0,
+                    }}
+                    transition={{ duration: 0.2 }}
+                    style={{
+                      cursor: isMobileView ? "grab" : "default",
+                      touchAction: isMobileView ? "pan-y" : "auto",
+                    }}
                   >
-                    <h3 className="chapter-title">
-                      Chapter {String(storyChapters[currentChapter].id).padStart(2, "0")}
-                    </h3>
-                    <p className="chapter-description">
-                      {storyChapters[currentChapter].description}
-                    </p>
-                    <p className="chapter-summary">
-                      {`"${storyChapters[currentChapter].summary}"`}
-                    </p>
+                    <AnimatePresence mode="wait" initial={false}>
+                      <motion.div
+                        key={storyChapters[currentChapter].id}
+                        className="story-text"
+                        initial={{ opacity: 0, y: 14 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -14 }}
+                        transition={{ duration: 0.35, ease: "easeInOut" }}
+                      >
+                        <h3 className="chapter-title">
+                          Chapter {String(storyChapters[currentChapter].id).padStart(2, "0")}
+                        </h3>
+                        <p className="chapter-description">
+                          {storyChapters[currentChapter].description}
+                        </p>
+                        <p className="chapter-summary">
+                          {`"${storyChapters[currentChapter].summary}"`}
+                        </p>
+                      </motion.div>
+                    </AnimatePresence>
                   </motion.div>
-                </AnimatePresence>
-              </motion.div>
+                )}
 
-              <div className="story-controls">
-                <button
-                  className={`nav-btn prev ${currentChapter === 0 ? "disabled" : ""}`}
-                  onClick={currentChapter === 0 ? undefined : prevChapter}
-                  disabled={currentChapter === 0}
-                  aria-label="Previous chapter"
-                >
-                  {isMobileView ? "←" : "↑"}
-                </button>
+                {/* Desktop-only controls */}
+                {!isMobileView && (
+                  <div className="story-controls">
+                    <button
+                      className={`nav-btn prev ${currentChapter === 0 ? "disabled" : ""}`}
+                      onClick={currentChapter === 0 ? undefined : prevChapter}
+                      disabled={currentChapter === 0}
+                      aria-label="Previous chapter"
+                    >
+                      ↑
+                    </button>
 
-                <div className="chapter-indicator vertical">
-                  {storyChapters.map((_, index) => (
-                    <div
-                      key={index}
-                      className={`dot ${index === currentChapter ? "active" : ""}`}
-                      onClick={() => setCurrentChapter(index)}
-                    />
-                  ))}
-                </div>
+                    <div className="chapter-indicator vertical">
+                      {storyChapters.map((_, index) => (
+                        <div
+                          key={index}
+                          className={`dot ${index === currentChapter ? "active" : ""}`}
+                          onClick={() => setCurrentChapter(index)}
+                        />
+                      ))}
+                    </div>
 
-                <button
-                  className={`nav-btn next ${currentChapter === storyChapters.length - 1 ? "disabled" : ""}`}
-                  onClick={
-                    currentChapter === storyChapters.length - 1
-                      ? undefined
-                      : nextChapter
-                  }
-                  disabled={currentChapter === storyChapters.length - 1}
-                  aria-label="Next chapter"
-                >
-                  {isMobileView ? "→" : "↓"}
-                </button>
+                    <button
+                      className={`nav-btn next ${currentChapter === storyChapters.length - 1 ? "disabled" : ""}`}
+                      onClick={
+                        currentChapter === storyChapters.length - 1
+                          ? undefined
+                          : nextChapter
+                      }
+                      disabled={currentChapter === storyChapters.length - 1}
+                      aria-label="Next chapter"
+                    >
+                      ↓
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
-          </div>
 
           {/* Floating panel that shows the current chapter details on the right */}
           <aside 

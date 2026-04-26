@@ -667,6 +667,18 @@
   }
 }
 
+/* Mobile stacked cards container */
+.story-cards-stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.story-card-mobile {
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .story-carousel-section {
     --mobile-chapter-card-height: auto;
@@ -687,6 +699,18 @@
   }
 
   .story-card {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 20px;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: auto;
+    max-height: none;
+  }
+
+  .story-card-mobile {
     flex-direction: column;
     align-items: flex-start;
     text-align: left;

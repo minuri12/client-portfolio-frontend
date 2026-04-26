@@ -190,7 +190,16 @@ function Info() {
               onClick={toggleVideoPlayback}
               aria-label={isVideoPlaying ? "Pause video" : "Play video"}
             >
-              {isVideoPlaying ? "❚❚" : "▶"}
+              {isVideoPlaying ? (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="6" y="4" width="4" height="16" rx="1" fill="currentColor"/>
+                  <rect x="14" y="4" width="4" height="16" rx="1" fill="currentColor"/>
+                </svg>
+              ) : (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 5.14v13.72a1 1 0 001.5.86l11-6.86a1 1 0 000-1.72l-11-6.86a1 1 0 00-1.5.86z" fill="currentColor"/>
+                </svg>
+              )}
             </button>
           </div>
         </div>
@@ -274,7 +283,7 @@ function Info() {
                   disabled={currentChapter === 0}
                   aria-label="Previous chapter"
                 >
-                  ↑
+                  {isMobileView ? "←" : "↑"}
                 </button>
 
                 <div className="chapter-indicator vertical">

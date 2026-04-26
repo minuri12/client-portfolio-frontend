@@ -137,40 +137,6 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .blogs-main-title {
-    font-size: 36px;
-    margin-bottom: 40px;
-  }
-
-  .blog-categories {
-    gap: 20px;
-  }
-
-  .category-btn {
-    font-size: 16px;
-  }
-
-  .blog-card {
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-  }
-
-  .blog-image-container {
-    width: 100%;
-    height: 250px;
-  }
-
-  .blog-title {
-    font-size: 24px;
-  }
-
-  .blog-description {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 480px) {
   .blogs-page {
     padding: 60px 0 40px;
   }
@@ -188,12 +154,42 @@
     font-size: 14px;
   }
 
+  .blog-card {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
   .blog-image-container {
+    width: 100%;
     height: 200px;
   }
 
   .blog-title {
     font-size: 20px;
+  }
+
+  .blog-description {
+    font-size: 15px;
+  }
+
+  /* Pagination - Single row on mobile (hide page numbers) */
+  .blogs-pagination {
+    flex-wrap: nowrap !important;
+    gap: 10px;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+  }
+
+  .pagination-btn {
+    white-space: nowrap;
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  .pagination-pages {
+    display: none !important;
   }
 }
 

@@ -53,3 +53,5 @@ Thumbs.db
 # IDE project settings
 .idea/node_modules/
 node_modules/
+.vercel
+.env*.local

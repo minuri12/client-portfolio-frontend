@@ -637,9 +637,7 @@
     height: 38px;
   }
 
-  .Grapicscard {
-    padding: 8%;
-  }
+  
 
   /* hide the decorative floating box on smaller screens */
   .right-floating-box {
@@ -791,11 +789,7 @@
     margin-bottom: 28px;
   }
 
-  .Grapicscard {
-    margin-top: 28px;
-    margin-bottom: 24px;
-  }
-
+ 
   .story-carousel-section {
     margin: 40px 0 24px;
   }

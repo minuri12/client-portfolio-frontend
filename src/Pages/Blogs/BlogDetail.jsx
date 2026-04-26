@@ -284,15 +284,9 @@ function BlogDetail() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.05 }}
         >
-          <motion.h1
-            className='blog-article-title'
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.05 }}
-          >
+          <h1 className='blog-article-title'>
             {blog.title}
-          </motion.h1>
+          </h1>
 
           <div
             className='blog-article-content rich-content'

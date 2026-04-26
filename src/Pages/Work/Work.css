@@ -305,11 +305,13 @@ input:checked + .slider {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Remove animation from icon-only buttons (Behance & Instagram) */
-.Logo_Social1 .contactbtn .Touch,
-.Logo_Social2 .contactbtn .Touch {
+/* Remove animation and extra borders from icon-only buttons (Behance & Instagram) */
+.Logo_Social1 > .contactbtn .Touch,
+.Logo_Social2 > .contactbtn .Touch {
   animation: none;
   box-shadow: none;
+  outline: none;
+  border: none;
 }
 
 .button_section {
@@ -374,6 +376,7 @@ input:checked + .slider {
 
 .VolExperiance {
   margin-top: 30px;
+  margin-bottom: 100px;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -381,7 +384,7 @@ input:checked + .slider {
 
 .Volhead {
   color: white;
-  margin-top: 80px;
+  margin-top: 100px;
   text-align: center;
 }
 
@@ -420,7 +423,7 @@ input:checked + .slider {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+
   height: 100%;
   background-image: linear-gradient(
     to top,
@@ -450,9 +453,14 @@ input:checked + .slider {
   display: flex;
 }
 
+/* Add margin-top for the final "How I can help you" section */
+.part_one.second:last-of-type {
+  margin-top: 0;
+}
+
 /* Services section styles */
 .services-section {
-  padding: 60px 0px;
+  padding: 100px 0px 0px 0px;
 }
 
 .services-section .Volhead {
@@ -550,7 +558,7 @@ input:checked + .slider {
 .seconDes {
   margin-bottom: 20px;
   font-size: 20px;
-  line-height: 30px;
+ 
   background-color: transparent;
 }
 
@@ -947,7 +955,7 @@ tbody td {
   margin-left: 0;
 }
 
-.Grapicscard {
+.Grapicscard1 {
   text-decoration: none;
   position: relative;
   grid-row-gap: 16px;
@@ -960,49 +968,63 @@ tbody td {
   flex-direction: column;
   width: 100%;
   align-items: center;
-  transition: background 0.8s linear;
+  transition: background 0.3s ease, transform 0.3s ease;
   margin-top: 100px;
   margin-bottom: 50px;
-  background: radial-gradient(
-    circle at 50% 0,
-    #0af7ff13,
-    #22222209 50%
-  ); /* Default state */
+ 
   overflow: hidden;
-  cursor: pointer; /* Ensure the pseudo-element stays within bounds */
+  cursor: pointer;
 }
 
-.Grapicscard::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-    circle at 50% 0,
-    #0af7ff46,
-    #22222246 60%
-  ); /* Hover state gradient */
-  opacity: 0; /* Initially hidden */
-  transition: opacity 0.8s linear; /* Smooth transition */
-  z-index: -1; /* Place behind the content */
-  border-radius: 20px; /* Match the border-radius */
+.Grapicscard1:hover {
+  
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
-.Grapicscard:hover::after {
-  opacity: 1;
-  cursor: pointer; /* Fade in the hover gradient */
+
+
+.Grapicscard {
+  height: 40px;
+  outline: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+  box-shadow: 3px 3px 5px rgba(12, 12, 12, 0.267);
+  cursor: pointer;
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+  font-size: 14px;
+  align-items: center;
+  display: flex;
+  padding: 0 12px;
+  white-space: nowrap;
+  line-height: 1;
+  color: white !important;
+  background-color: white;
+  text-decoration: none !important;
+
+}
+.Grapicscard:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid #f2f2f20a;
+  color: white;
+  text-decoration: none;
 }
 
+.Grapicscard:hover * {
+  color: white;
+  font-weight: 400;
+}
 .headGrapic {
-  color: #f2f2f266;
+  color: #333333;
   text-align: center;
   letter-spacing: 1.5px;
   margin-top: 1px;
   font-family: Neue Montreal, sans-serif;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: bold;
   line-height: 19px;
 }
 
@@ -1021,54 +1043,10 @@ tbody td {
 .more-projects-card {
   width: auto;
   max-width: 100%;
-  padding: 0;
+  padding: 20px 50px;
   margin-top: 40px;
   margin-bottom: 0;
-  background: #ffffff !important;
-  border-radius: 999px;
-  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
 }
-
-.more-projects-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 22px 32px rgba(0, 0, 0, 0.14);
-}
-
-.more-projects-card .headGrapic {
-  color: #111111 !important;
-  min-height: 38px;
-  padding: 0 26px;
-  border-radius: 999px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  font-size: 15px;
-}
-
-.more-projects-card .headGrapic::after {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .more-projects-card {
-    margin-top: 24px;
-  }
-
-  .more-projects-card .headGrapic {
-    min-height: 32px;
-    padding: 0 18px;
-    font-size: 14px;
-  }
-}
-
 
 .LinkTest {
   text-decoration: none !important;
@@ -1090,7 +1068,7 @@ tbody td {
 }
 
 .recent-blogs-section {
-  margin-top: 56px;
+  margin-top: 100px;
 }
 
 .recent-blogs-section .Volhead {
@@ -1152,7 +1130,7 @@ tbody td {
   width: auto;
   max-width: 100%;
   margin: 0;
-  padding: 16px 52px;
+  padding: 20px 50px;
 }
 
 .recent-blogs-state {
@@ -1340,6 +1318,52 @@ tbody td {
     width: 60%;
     margin: 10px;
   }
+
+  /* "What Makes Me Different" section - Mobile/Tablet layout */
+  .part_one.second {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+    min-height: 400px;
+    padding-bottom: 0 !important;
+  }
+
+  .part_one.second .row {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+  }
+
+  .part_one.second .text-section {
+    order: 1;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .part_one.second .imgholder {
+    order: 2;
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 0;
+  }
+
+  .part_one.second .Minuri2 {
+    max-width: 320px;
+    height: auto;
+    padding-right: 0;
+  }
+
+  /* Pin image to bottom of "What Makes Me Different" section on tablet/mobile */
+  .part_one.second .imgholder {
+    margin-top: auto;
+  }
 }
 
 /* Tablet portrait / mobile landscape */
@@ -1347,7 +1371,7 @@ tbody td {
   .page-wrapper { padding: 0 16px; }
 
   .recent-blogs-section {
-    margin-top: 42px;
+    margin-top: 60px;
   }
 
   .recent-blogs-grid {
@@ -1365,7 +1389,7 @@ tbody td {
   }
 
   .services-section {
-    padding: 30px 0px;
+    padding: 60px 0px;
   }
 
   .services-grid {
@@ -1397,7 +1421,7 @@ tbody td {
 
   .Volhead {
     font-size: 28px;
-    margin-top: 40px;
+    margin-top: 60px;
   }
 
   .head_name {
@@ -1525,6 +1549,19 @@ tbody td {
     width: 100%;
     margin: 8px 0;
   }
+
+  .part_one.second:last-of-type {
+    margin-top: 60px;
+  }
+
+  .VolExperiance {
+    margin-bottom: 60px;
+  }
+
+  /* Pin image to bottom of "What Makes Me Different" section on mobile */
+  .part_one.second .imgholder {
+    margin-top: auto;
+  }
 }
 
 /* Small mobile */
@@ -1536,7 +1573,7 @@ tbody td {
   }
 
   .services-section {
-    padding: 20px 0px;
+    padding: 50px 0px;
   }
 
   .services-grid {
@@ -1547,6 +1584,11 @@ tbody td {
   .service-card {
     width: 100%;
     padding: 24px 14px;
+  }
+
+  /* Pin image to bottom of "What Makes Me Different" section on small mobile */
+  .part_one.second .imgholder {
+    margin-top: auto;
   }
 
   .service-badge {
@@ -1568,12 +1610,20 @@ tbody td {
 
   .Volhead {
     font-size: 24px;
-    margin-top: 30px;
+    margin-top: 50px;
   }
 
   .card {
     width: 100%;
     margin: 6px 0;
+  }
+
+  .part_one.second:last-of-type {
+    margin-top: 50px;
+  }
+
+  .VolExperiance {
+    margin-bottom: 50px;
   }
 }
 

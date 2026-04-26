@@ -533,7 +533,7 @@ input:checked + .slider {
 
 .service-desc {
   margin-top: 18px;
-  color: rgba(242,242,242,0.6);
+  color: rgb(255, 255, 255);
   font-size: 18px;
 }
 
@@ -557,7 +557,7 @@ input:checked + .slider {
 
 .seconDes {
   margin-bottom: 20px;
-  font-size: 20px;
+  font-size: 18px;
  
   background-color: transparent;
 }
@@ -969,8 +969,9 @@ tbody td {
   width: 100%;
   align-items: center;
   transition: background 0.3s ease, transform 0.3s ease;
-  margin-top: 100px;
-  margin-bottom: 50px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+ 
  
   overflow: hidden;
   cursor: pointer;
@@ -1115,7 +1116,7 @@ tbody td {
 
 .recent-blog-title {
   margin: 20px 0px;
-  font-size: 22px;
+  font-size: 18px;
   line-height: 1.2;
   color: #f2f2f2;
 }
@@ -1371,7 +1372,7 @@ tbody td {
   .page-wrapper { padding: 0 16px; }
 
   .recent-blogs-section {
-    margin-top: 60px;
+    margin-top: 0px;
   }
 
   .recent-blogs-grid {

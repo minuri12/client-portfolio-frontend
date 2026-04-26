@@ -27,7 +27,9 @@ function Info() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [lightColor, setLightColor] = useState("rgba(255, 255, 255, 0.4)");
   const [isMobileView, setIsMobileView] = useState(() => window.innerWidth <= 768);
+  const [swipeDirection, setSwipeDirection] = useState(null);
   const videoRef = useRef(null);
+  const storyCardRef = useRef(null);
 
   useEffect(() => {
     const colors = ["rgba(255, 0, 0, 0.4)", "rgba(255, 255, 0, 0.35)", "rgba(255, 255, 255, 0.4)"];
@@ -75,11 +77,46 @@ function Info() {
   ];
 
   const nextChapter = () => {
-    setCurrentChapter((prev) => (prev + 1) % storyChapters.length);
+    if (currentChapter < storyChapters.length - 1) {
+      setSwipeDirection("left");
+      setTimeout(() => {
+        setCurrentChapter((prev) => prev + 1);
+        setSwipeDirection(null);
+      }, 100);
+    }
   };
 
   const prevChapter = () => {
-    setCurrentChapter((prev) => (prev - 1 + storyChapters.length) % storyChapters.length);
+    if (currentChapter > 0) {
+      setSwipeDirection("right");
+      setTimeout(() => {
+        setCurrentChapter((prev) => prev - 1);
+        setSwipeDirection(null);
+      }, 100);
+    }
+  };
+
+  const handleDragEnd = (event, info) => {
+    const threshold = 50; // Minimum swipe distance
+    const velocity = Math.abs(info.velocity.x);
+    
+    if (velocity > 300) { // Minimum velocity for swipe
+      if (info.offset.x > threshold && currentChapter > 0) {
+        // Swiped right - go to previous chapter
+        setSwipeDirection("right");
+        setTimeout(() => {
+          setCurrentChapter((prev) => prev - 1);
+          setSwipeDirection(null);
+        }, 100);
+      } else if (info.offset.x < -threshold && currentChapter < storyChapters.length - 1) {
+        // Swiped left - go to next chapter
+        setSwipeDirection("left");
+        setTimeout(() => {
+          setCurrentChapter((prev) => prev + 1);
+          setSwipeDirection(null);
+        }, 100);
+      }
+    }
   };
 
   useEffect(() => {
@@ -246,7 +283,25 @@ function Info() {
         <div className="story-chapters">
           <div className="story-carousel-container">
             <div className="story-content">
-              <div className="story-card">
+              <motion.div
+                ref={storyCardRef}
+                className="story-card"
+                drag={isMobileView ? "x" : false}
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.7}
+                onDragEnd={isMobileView ? handleDragEnd : undefined}
+                initial={false}
+                animate={{
+                  x: swipeDirection === "left" ? -30 : swipeDirection === "right" ? 30 : 0,
+                  opacity: swipeDirection ? 0.7 : 1,
+                  rotate: swipeDirection === "left" ? -2 : swipeDirection === "right" ? 2 : 0,
+                }}
+                transition={{ duration: 0.2 }}
+                style={{
+                  cursor: isMobileView ? "grab" : "default",
+                  touchAction: isMobileView ? "pan-y" : "auto",
+                }}
+              >
                 {/* <div className="story-image-container">
                 <img 
                   src={storyChapters[currentChapter].image} 
@@ -274,7 +329,7 @@ function Info() {
                     </p>
                   </motion.div>
                 </AnimatePresence>
-              </div>
+              </motion.div>
 
               <div className="story-controls">
                 <button

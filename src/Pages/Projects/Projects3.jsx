@@ -131,7 +131,7 @@ function Projects() {
 
       <div className="GrapicSection">
         <div
-          className="Grapicscard"
+          className="Grapicscard1"
         >
           <div className="headGrapic">Technologies</div>
           <div className="LogoPro TechStack">

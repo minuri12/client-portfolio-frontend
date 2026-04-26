@@ -199,7 +199,7 @@ function Info() {
 
       <motion.div className="GrapicSection" {...sectionReveal}>
         <a
-          className="Grapicscard"
+          className="Grapicscard1"
           href="https://www.behance.net/minurihewage"
           target="_blank"
           rel="noopener noreferrer"

@@ -333,7 +333,7 @@ input:checked + .slider {
 
 .description {
   font-size: 18px;
-  color: #c7c7c7; /* Brighter color for better visibility */
+  color: #ffffff; /* Brighter color for better visibility */
   font-weight: 300; /* Increased weight from 100 to make it legible */
 }
 
@@ -1195,8 +1195,8 @@ tbody td {
 
   .description {
     font-size: 16px;
-    color: #797979;
-    font-weight: 500;
+    color: #ffffff;
+   
     text-align: left;
   }
 

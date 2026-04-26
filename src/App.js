@@ -37,7 +37,7 @@ function AppContent() {
         <Route path="/more-projects" element={<MoreProjects />} />
       </Routes>
 
-      <Footer />
+      {!isLoadingPage && <Footer />}
 
       {!isLoadingPage && (
         <a

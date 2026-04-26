@@ -11,6 +11,7 @@ import Blogs from "./Pages/Blogs/Blogs";
 import BlogDetail from "./Pages/Blogs/BlogDetail";
 import Scrolltotop from "./Components/Scrolltotop";
 import MoreProjects from "./Pages/MoreProjects/MoreProjects";
+import NotFound from "./Pages/NotFound/NotFound";
 import WhatsAppIcon from "./Assets/WhatsAppIcon.png";
 import CustomCursor from "./Components/CustomCursor";
 import Footer from "./Components/Footer/Footer";
@@ -35,6 +36,7 @@ function AppContent() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blog/:id" element={<BlogDetail />} />
         <Route path="/more-projects" element={<MoreProjects />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       {!isLoadingPage && <Footer />}

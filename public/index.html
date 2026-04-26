@@ -58,6 +58,81 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Minuri | Portfolio</title>
+
+    <!-- Structured Data: Person Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Minuri",
+      "url": "https://minuri.me",
+      "jobTitle": "Frontend Developer",
+      "description": "A passionate frontend developer and designer creating modern web experiences.",
+      "sameAs": [
+        "https://github.com/minuri12",
+        "https://linkedin.com/in/mshewage",
+        "https://twitter.com/YOUR_HANDLE"
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: Website Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Minuri | Portfolio",
+      "url": "https://minuri.me",
+      "description": "Portfolio of Minuri — Frontend Developer and Designer.",
+      "author": {
+        "@type": "Person",
+        "name": "Minuri"
+      }
+    }
+    </script>
+
+    <!-- Structured Data: CreativeWork Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Minuri's Portfolio",
+      "url": "https://minuri.me",
+      "author": {
+        "@type": "Person",
+        "name": "Minuri"
+      },
+      "description": "A collection of frontend development and design projects by Minuri."
+    }
+    </script>
+
+    <!-- Structured Data: BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://minuri.me"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Projects",
+          "item": "https://minuri.me/projects"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Contact",
+          "item": "https://minuri.me/contact"
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

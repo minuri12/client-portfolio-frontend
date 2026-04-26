@@ -47,7 +47,7 @@ function Projects() {
         <div className="text-button">Back</div>
       </div>
 
-      <motion.div
+      <motion.h1
         className="text-hero project-title"
         initial={{ opacity: 0, y: 50 }} // start with 0 opacity and below the screen
         whileInView={{ opacity: 1, y: 0 }} // animate to full opacity and original position
@@ -55,7 +55,7 @@ function Projects() {
         transition={{ duration: 1.5, ease: "easeOut" }} // control speed and easing
       >
         Trophy
-      </motion.div>
+      </motion.h1>
       <motion.div
         className="text-projectpage-year"
         initial={{ opacity: 0, y: 50 }} // start with 0 opacity and below the screen
@@ -141,7 +141,7 @@ function Projects() {
         <div
           className="Grapicscard1"
         >
-          <div className="headGrapic">Technologies</div>
+          <h2 className="headGrapic">Technologies</h2>
           <div className="LogoPro">
             <img src={Reacts} className="Tech" alt="Logo" />
             <img src={flutter} className="Tech" alt="Logo" />
@@ -157,7 +157,7 @@ function Projects() {
       </div>
       <br />
       <div className="double-column-block">
-        <div className="text-projectpage-subheading">1. Motivation </div>
+        <h2 className="text-projectpage-subheading">1. Motivation</h2>
         <div className="content-trailing">
           <div className="text-projectpage-body">
             The motivation to develop Trophy arose from the observation that a
@@ -181,7 +181,7 @@ function Projects() {
       <br />
       <br />
       <div className="double-column-block">
-        <div className="text-projectpage-subheading">2. Features </div>
+        <h2 className="text-projectpage-subheading">2. Features</h2>
         <div className="content-trailing">
           <div className="text-projectpage-body">
             <span className="text-highlighted-body">• Earning Coins</span>{" "}

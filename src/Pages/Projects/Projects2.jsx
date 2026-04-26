@@ -49,7 +49,7 @@ function Projects() {
         <div className="text-button">Back</div>
       </div>
 
-      <motion.div
+      <motion.h1
         className="text-hero project-title"
         initial={{ opacity: 0, y: 50 }} // start with 0 opacity and below the screen
         whileInView={{ opacity: 1, y: 0 }} // animate to full opacity and original position
@@ -57,7 +57,7 @@ function Projects() {
         transition={{ duration: 1.5, ease: "easeOut" }} // control speed and easing
       >
         MoodWave
-      </motion.div>
+      </motion.h1>
       <motion.div
         className="text-projectpage-year"
         initial={{ opacity: 0, y: 50 }} // start with 0 opacity and below the screen
@@ -142,7 +142,7 @@ function Projects() {
         <div
           className="Grapicscard1"
         >
-          <div className="headGrapic">Technologies</div>
+          <h2 className="headGrapic">Technologies</h2>
           <div className="LogoPro TechStack">
             <img src={html} className="Tech" alt="Logo" />
             <img src={css} className="Tech" alt="Logo" />
@@ -160,7 +160,7 @@ function Projects() {
       </div>
       <br />
       <div className="double-column-block">
-        <div className="text-projectpage-subheading">1. Motivation </div>
+        <h2 className="text-projectpage-subheading">1. Motivation</h2>
         <div className="content-trailing">
           <div className="text-projectpage-body">
             Reduce the gap between music and emotions. Through technology, aims
@@ -174,7 +174,7 @@ function Projects() {
       <br />
       <br />
       <div className="double-column-block">
-        <div className="text-projectpage-subheading">2. Features </div>
+        <h2 className="text-projectpage-subheading">2. Features</h2>
         <div className="content-trailing">
           <div className="text-projectpage-body">
             <span className="text-highlighted-body">• Creator Side </span>{" "}

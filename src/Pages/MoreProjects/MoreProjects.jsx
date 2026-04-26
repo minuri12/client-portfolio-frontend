@@ -7,6 +7,7 @@ import Navbar from '../../Components/Navbar/Navbar';
 
 // Fallback thumbnail image
 import blogThumb from '../../Assets/Project1.png';
+import noProjectImage from '../../Assets/No Project.png';
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const PAGE_SIZE = 6;
@@ -88,7 +89,7 @@ function MoreProjects() {
                 transition={{ duration: 1.5, ease: "easeOut" }}
                 style={{ paddingTop: '80px' }}
             >
-                <div className={styles.Volhead}>More Projects</div>
+                <h2 className={styles.Volhead}>More Projects</h2>
 
             {loading && <div className={styles.loading}>Loading projects...</div>}
             {error && <div className={styles.error}>{error}</div>}
@@ -96,7 +97,10 @@ function MoreProjects() {
             {!loading && !error && (
                 <>
                     {blogs.length === 0 ? (
-                        <p className={styles.empty}>No projects found.</p>
+                        <div className={styles.empty}>
+                            <img src={noProjectImage} alt="No projects found" className={styles.emptyImage} />
+                            <p>working sooner ! Stay tuned.</p>
+                        </div>
                     ) : (
                         <div className={styles.projectsGrid}>
                             {blogs.map((blog, index) => (

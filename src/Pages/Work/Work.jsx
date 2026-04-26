@@ -137,10 +137,10 @@ function Home() {
                 </a>
               </div>
             </div>
-            <div className="head_name">
+            <h1 className="head_name">
               Obsessed with crafting <span>seamless </span>
               <br /> digital experiences.
-            </div>
+            </h1>
             <div className="description">
               Hey, I'm Minuri, welcome to my world. I love designing and building innovative,
               <br /> user-friendly solutions that solve real-world problems.
@@ -167,7 +167,7 @@ function Home() {
           {...sectionReveal}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <div className="Volhead">Volunteer Experience</div>
+          <h2 className="Volhead">Volunteer Experience</h2>
           <div className="VolExperiance">
             <img src={Volunteer} className="volunteer" alt="Logo" />
           </div>{" "}
@@ -198,7 +198,7 @@ function Home() {
         </motion.div>
 
         <motion.div {...sectionReveal} transition={{ duration: 0.7, ease: "easeOut" }}>
-          <div className="Volhead">My Projects</div>
+          <h2 className="Volhead">My Projects</h2>
         </motion.div>
         <br />
 
@@ -312,7 +312,7 @@ function Home() {
           {...sectionReveal}
         >
           <div className="services-title">
-            <div className="Volhead">What I Do</div>
+          <h2 className="Volhead">What I Do</h2>
           </div>
 
           <div className="services-grid">
@@ -361,7 +361,7 @@ function Home() {
           {...sectionReveal}
           transition={{ duration: 0.9, ease: "easeOut" }}
         >
-          <div className="Volhead">Let's Talk Everything</div>
+          <h2 className="Volhead">Let's Talk Everything</h2>
 
           {blogsLoading && <div className="recent-blogs-state">Loading recent blogs...</div>}
           {!blogsLoading && blogsError && <div className="recent-blogs-state">{blogsError}</div>}

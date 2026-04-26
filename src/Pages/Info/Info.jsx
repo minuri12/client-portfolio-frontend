@@ -161,7 +161,7 @@ function Info() {
         {...sectionReveal}
       >
         <div class="icon-section-dot"></div>
-        <div class="text-projectpage-overline">ABOUT ME</div>
+        <h2 class="text-projectpage-overline">ABOUT ME</h2>
       </motion.div>
       <br />
       <br />
@@ -250,7 +250,7 @@ function Info() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <div className="headGrapic">Tech Stack</div>
+          <h2 className="headGrapic">Tech Stack</h2>
           <div className="TechStack">
             <img src={html} className="Tech" alt="Logo" />
             <img src={css} className="Tech" alt="Logo" />

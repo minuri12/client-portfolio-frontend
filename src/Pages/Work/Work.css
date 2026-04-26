@@ -684,7 +684,7 @@ input:checked + .slider {
   color: #f2f2f280;
   letter-spacing: 0.2px;
   align-self: stretch;
-  padding-right: 32px;
+
   font-family: Neue Montreal, sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -1620,7 +1620,7 @@ tbody td {
   }
 
   .part_one.second:last-of-type {
-    margin-top: 50px;
+    margin-top: -29px;
   }
 
   .VolExperiance {

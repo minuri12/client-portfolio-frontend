@@ -607,7 +607,7 @@
 
 @media (max-width: 900px) {
   .info-content {
-    padding: 0 12px;
+    
   }
 
   .text-hero.info-hero {
@@ -792,7 +792,9 @@
   }
 
   .window-outline {
-    margin-bottom: 28px;
+    margin-bottom: 40px;
+        margin-top: 40px;
+    
   }
 
   .story-carousel-section {

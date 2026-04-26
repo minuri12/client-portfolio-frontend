@@ -267,7 +267,7 @@ body {
   color: white;
   
   flex: 1;
-  text-align: justify;
+ 
   font-size: 14px;
   font-weight: 300;
   
@@ -304,6 +304,7 @@ body {
 
   .LogoPro {
     display: ruby;
+    text-align: center;
   }
 
   .TitleScreen {

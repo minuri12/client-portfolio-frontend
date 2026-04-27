@@ -9,7 +9,6 @@
 .blog-detail-container {
   max-width: 900px;
   margin: 0 auto;
-
 }
 
 /* Back Button */
@@ -59,26 +58,6 @@
   display: flex;
   gap: 12px;
   align-items: center;
-}
-
-/* Back Button */
-.button-project-back {
-  grid-column-gap: 8px;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  background-color: #f2f2f226;
-  border: 1px solid #f2f2f20a;
-  border-radius: 100px;
-  align-self: center;
-  align-items: center;
-  padding: 10px 24px 10px 12px;
-  text-decoration: none;
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  display: flex;
-  color: white;
-  font-weight: 40px;
-  width: 100px;
-  cursor: pointer;
 }
 
 /* Text to Speech Button */
@@ -181,7 +160,13 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-/* Rich Text Content */
+/* ========================================
+   Rich Text Content - Blog Article Body
+   Force light text on dark background
+   Override any inline styles from CMS
+   ======================================== */
+
+/* Base color for all content */
 .rich-content {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -192,10 +177,18 @@
   word-break: break-word;
 }
 
-.rich-content * {
-  color: inherit;
+/* Force ALL elements inside rich-content to have light text */
+/* This uses high specificity to override inline styles */
+.rich-content p,
+.rich-content span,
+.rich-content div,
+.rich-content section,
+.rich-content article,
+.rich-content main {
+  color: rgba(255, 255, 255, 0.85) !important;
 }
 
+/* Headings - white color */
 .rich-content h1,
 .rich-content h2,
 .rich-content h3,
@@ -207,6 +200,7 @@
   line-height: 1.3;
   margin-top: 40px;
   margin-bottom: 16px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .rich-content h1 { font-size: 36px; }
@@ -216,8 +210,8 @@
 .rich-content h5 { font-size: 16px; }
 .rich-content h6 { font-size: 14px; }
 
-.rich-content p {
-  margin-bottom: 20px;
+/* List items */
+.rich-content li {
   color: rgba(255, 255, 255, 0.85) !important;
 }
 
@@ -227,24 +221,23 @@
   padding: 0;
 }
 
-.rich-content li {
-  margin-bottom: 8px;
-  color: rgba(255, 255, 255, 0.85) !important;
-}
-
+/* Bold and strong text */
 .rich-content strong,
 .rich-content b {
   color: #ffffff !important;
   font-weight: 600;
 }
 
+/* Italic and emphasized text */
 .rich-content em,
 .rich-content i {
   font-style: italic;
+  color: rgba(255, 255, 255, 0.85) !important;
 }
 
+/* Links - keep blue color */
 .rich-content a {
-  color: #8ab4f8;
+  color: #8ab4f8 !important;
   text-decoration: underline;
   transition: opacity 0.2s ease;
 }
@@ -253,6 +246,7 @@
   opacity: 0.75;
 }
 
+/* Blockquotes */
 .rich-content blockquote {
   border-left: 3px solid rgba(255, 255, 255, 0.3);
   margin: 32px 0;
@@ -261,6 +255,7 @@
   font-style: italic;
 }
 
+/* Code blocks */
 .rich-content code {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
@@ -286,6 +281,7 @@
   color: rgba(255, 255, 255, 0.85) !important;
 }
 
+/* Images */
 .rich-content img {
   max-width: 100%;
   border-radius: 12px;
@@ -293,12 +289,14 @@
   display: block;
 }
 
+/* Horizontal rules */
 .rich-content hr {
   border: none;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin: 40px 0;
 }
 
+/* Tables */
 .rich-content table {
   width: 100%;
   border-collapse: collapse;
@@ -319,7 +317,9 @@
   font-weight: 600;
 }
 
-/* Related Blogs Section */
+/* ========================================
+   Related Blogs Section
+   ======================================== */
 .related-blogs-section {
   padding-top: 60px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -369,7 +369,9 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-/* Responsive Design */
+/* ========================================
+   Responsive Design
+   ======================================== */
 @media (max-width: 768px) {
   .blog-detail-page {
     padding: 100px 0 60px;

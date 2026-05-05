@@ -86,7 +86,7 @@ function BlogDetail() {
   const sectionReveal = {
     initial: { opacity: 0, y: 50 },
     whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, amount: 0.2 },
+    viewport: { once: true, amount: 0.05 },
     transition: { duration: 0.8, ease: 'easeOut' },
   };
 
@@ -281,7 +281,7 @@ function BlogDetail() {
           className='blog-article'
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.05 }}
         >
           <h1 className='blog-article-title'>
@@ -289,7 +289,7 @@ function BlogDetail() {
           </h1>
 
           <div
-            className='blog-article-content rich-content'
+            className='blog-article-content rich-content' 
             dangerouslySetInnerHTML={{ __html: blog.content }}
           />
         </motion.div>

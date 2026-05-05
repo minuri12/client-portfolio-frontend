@@ -266,7 +266,8 @@ function BlogDetail() {
             </div>
           </div>
         </motion.div>
-
+        
+        {/* Changed the framer-motion viewport threshold from amount: 0.2 to amount: 0.05 */}
         <motion.div
           className='blog-hero-image'
           initial={{ opacity: 0, y: 50 }}
@@ -276,7 +277,7 @@ function BlogDetail() {
         >
           <img src={getCoverImage(blog.coverImage)} alt={blog.title} loading="lazy" />
         </motion.div>
-
+        
         <motion.div
           className='blog-article'
           initial={{ opacity: 0, y: 50 }}

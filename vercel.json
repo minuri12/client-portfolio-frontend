@@ -3,38 +3,51 @@
   "devCommand": "npm run start",
   "installCommand": "npm install",
   "framework": "create-react-app",
+
   "build": {
     "env": {
       "CI": "false",
       "REACT_APP_API_BASE_URL": "https://client-portfolio-backend.vercel.app"
     }
   },
+
   "env": {
     "CI": "false",
     "REACT_APP_API_BASE_URL": "https://client-portfolio-backend.vercel.app"
   },
+
   "rewrites": [
     {
-      "source": "/api/:path*",
-      "destination": "https://client-portfolio-backend.vercel.app/api/:path*"
+      "source": "/api/(.*)",
+      "destination": "https://client-portfolio-backend.vercel.app/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
+
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.minuri.me"
+        }
+      ],
+      "destination": "https://minuri.me/$1",
+      "permanent": true
+    }
+  ],
+
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
-        }
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
       ]
     },
     {
@@ -45,13 +58,6 @@
           "value": "text/plain; charset=utf-8"
         }
       ]
-    }
-  ],
-  "redirects": [
-    {
-      "source": "https://www.minuri.me/(.*)",
-      "destination": "https://minuri.me/$1",
-      "permanent": true
     }
   ]
 }

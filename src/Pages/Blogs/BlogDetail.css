@@ -37,6 +37,21 @@
   cursor: pointer;
 }
 
+.button-project-back,
+.button-project-back * {
+  cursor: pointer;
+}
+
+html.custom-cursor-active .button-project-back,
+html.custom-cursor-active .button-project-back * {
+  cursor: pointer !important;
+}
+
+.button-project-back:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.75);
+  outline-offset: 4px;
+}
+
 .text-button {
   color: white;
   font-size: 16px;

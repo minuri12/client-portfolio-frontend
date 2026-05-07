@@ -11,6 +11,12 @@ import blogThumb from '../../Assets/Project1.png';
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
+const scrollToPageTop = () => {
+  window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+};
+
 function BlogDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -26,6 +32,18 @@ function BlogDetail() {
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 8);
+  };
+
+  const handleBackKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleBack();
+    }
+  };
+
+  const handleRelatedBlogClick = (blogId) => {
+    scrollToPageTop();
+    navigate(`/blog/${blogId}`);
   };
 
   const handleTextToSpeech = () => {
@@ -91,7 +109,18 @@ function BlogDetail() {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    scrollToPageTop();
+    const frameId = window.requestAnimationFrame(scrollToPageTop);
+    const timeoutId = window.setTimeout(scrollToPageTop, 120);
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+      window.clearTimeout(timeoutId);
+    };
   }, [id]);
 
   const getCoverImage = (coverImage, optimize = true) => {
@@ -133,6 +162,7 @@ function BlogDetail() {
         setError('Failed to load blog. Please try again later.');
       } finally {
         setLoading(false);
+        window.setTimeout(scrollToPageTop, 0);
       }
     };
     fetchBlog();
@@ -147,7 +177,14 @@ function BlogDetail() {
             className='action-bar'
             {...sectionReveal}
           >
-            <div className='button-project-back' onClick={handleBack}>
+            <div
+              className='button-project-back'
+              role='button'
+              tabIndex={0}
+              data-cursor='pointer'
+              onClick={handleBack}
+              onKeyDown={handleBackKeyDown}
+            >
               <div>
                 <img src={Arrow} className='Arrow' alt='Arrow' />
               </div>
@@ -196,7 +233,14 @@ function BlogDetail() {
             className='action-bar'
             {...sectionReveal}
           >
-            <div className='button-project-back' onClick={handleBack}>
+            <div
+              className='button-project-back'
+              role='button'
+              tabIndex={0}
+              data-cursor='pointer'
+              onClick={handleBack}
+              onKeyDown={handleBackKeyDown}
+            >
               <div>
                 <img src={Arrow} className='Arrow' alt='Arrow' />
               </div>
@@ -232,7 +276,14 @@ function BlogDetail() {
           className='action-bar'
           {...sectionReveal}
         >
-          <div className='button-project-back' onClick={handleBack}>
+          <div
+            className='button-project-back'
+            role='button'
+            tabIndex={0}
+            data-cursor='pointer'
+            onClick={handleBack}
+            onKeyDown={handleBackKeyDown}
+          >
             <div>
               <img src={Arrow} className='Arrow' alt='Arrow' />
             </div>
@@ -309,7 +360,7 @@ function BlogDetail() {
                 <motion.div
                   key={relatedBlog._id}
                   className='related-blog-card'
-                  onClick={() => navigate(`/blog/${relatedBlog._id}`)}
+                  onClick={() => handleRelatedBlogClick(relatedBlog._id)}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   whileHover={{ y: -4, scale: 1.05 }}

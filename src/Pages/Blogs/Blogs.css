@@ -45,16 +45,18 @@
 
 .category-btn {
   background: transparent;
-  border: none;
+  border: 1px solid transparent;
   color: #ffffff;
   font-size: 24px;
   font-weight: 400;
   cursor: pointer;
-  padding: 0 0 8px;
+  width: 150px;
+  padding: 10px 20px;
   position: relative;
-  transition: opacity 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
   font-family: 'Open Sans', sans-serif;
   text-align: left;
+  border-radius: 20px;
 }
 
 .category-btn:hover {
@@ -62,17 +64,13 @@
 }
 
 .category-btn.active {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
   opacity: 1;
 }
 
 .category-btn.active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: #ffffff;
+  display: none;
 }
 
 /* Blog List */
@@ -132,7 +130,7 @@
 
 .blog-title {
   color: #ffffff;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 400;
   margin-bottom: 16px;
   line-height: 1.3;
@@ -141,7 +139,7 @@
 
 .blog-description {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   max-width: 100%;
   display: -webkit-box;
@@ -160,7 +158,7 @@
   }
 
   .blogs-main-title {
-    font-size: 28px;
+    font-size: 24px;
     margin-bottom: 30px;
   }
 

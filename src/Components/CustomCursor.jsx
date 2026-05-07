@@ -162,7 +162,10 @@ function CustomCursor() {
     };
 
     const onOut = (event) => {
-      if (event.target.closest(POINTER_SELECTOR)) {
+      const leavingPointerTarget = event.target.closest(POINTER_SELECTOR);
+      const enteringPointerTarget = event.relatedTarget?.closest?.(POINTER_SELECTOR);
+
+      if (leavingPointerTarget && leavingPointerTarget !== enteringPointerTarget) {
         setIsHover(false);
       }
     };

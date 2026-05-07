@@ -172,7 +172,15 @@ function Blogs() {
                       <motion.div
                         key={blog._id}
                         className='blog-card'
+                        role='button'
+                        tabIndex={0}
+                        data-cursor='pointer'
                         onClick={() => handleBlogClick(blog._id)}
+                        onKeyDown={(event) => {
+                          if (event.key === 'Enter' || event.key === ' ') {
+                            handleBlogClick(blog._id);
+                          }
+                        }}
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.15 }}

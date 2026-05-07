@@ -89,15 +89,34 @@
   display: flex;
   gap: 50px;
   cursor: pointer;
-  padding-bottom: 40px;
+  padding: 18px 18px 40px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease;
+  border-radius: 20px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
   width: 100%;
   max-width: 100%;
+  box-sizing: border-box;
 }
 
 .blog-card:hover {
+  background-color: rgba(255, 255, 255, 0.045);
+  cursor: pointer;
   transform: translateY(-4px);
+}
+
+.blog-card,
+.blog-card * {
+  cursor: pointer;
+}
+
+html.custom-cursor-active .blog-card,
+html.custom-cursor-active .blog-card * {
+  cursor: pointer !important;
+}
+
+.blog-card:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.75);
+  outline-offset: 4px;
 }
 
 .blog-card:last-child {
@@ -117,6 +136,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-image {
+  transform: scale(1.04);
 }
 
 .blog-content {

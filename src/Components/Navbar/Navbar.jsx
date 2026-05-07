@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import Logo from "../../Assets/Logo.png";
+import Logo from "../../Assets/LogoNav.png";
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -48,11 +48,10 @@ function Navbar() {
     <div className="section-nav">
       <div className="Navbar">
         <Link to="/home" className="logo-block Navbarfix" aria-label="Go to home page">
-          <img src={Logo} className="logomark" alt="Logo" />
-          <div className="LogoText">
-            <div className="text-logo">Minuri Senara</div>
-            <div className="text-underlogo">Digital Product Designer</div>
-          </div>
+          <img src={Logo} alt="Logo" />
+         
+            
+          
         </Link>
 
         {/* Navigation Links */}

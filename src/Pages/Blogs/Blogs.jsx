@@ -125,110 +125,114 @@ function Blogs() {
       <Navbar />
       <div className='blogs-container'>
         <motion.div
-        class="overline-wrapper"
+        className="overline-wrapper blogs-overline"
         {...sectionReveal}
       >
-        <div class="icon-section-dot"></div>
-        <h2 class="text-projectpage-overline">ARTICLES</h2>
+        <div className="icon-section-dot"></div>
+        <h2 className="text-projectpage-overline">ARTICLES</h2>
       </motion.div>
       <br />
       <br />
       <motion.div
-        class="text-hero info-hero"
+        class="text-hero info-hero inblog"
         {...sectionReveal}
       >
-       Let's Talk Everything
+       Thoughts about my life, projects, design journey, and <span>everything </span> in between.
         {/* <span class="text-info-hero-serif"> user experiences.</span> */}
       </motion.div>
         
-        <motion.div
-          className='blog-categories'
-          {...sectionReveal}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.05 }}
-        >
-          {categories.map((category) => (
-            <button
-              key={category}
-              className={`category-btn ${activeCategory === category ? 'active' : ''}`}
-              onClick={() => handleCategoryChange(category)}
-            >
-              {category}
-            </button>
-          ))}
-        </motion.div>
-
-        {loading && <div className='blogs-loading'>Loading blogs...</div>}
-        {error && <div className='blogs-error'>{error}</div>}
-
-        {!loading && !error && (
-          <>
-            <div className='blogs-list'>
-              {blogs.length === 0 ? (
-                <p className='blogs-empty'>No blogs found in this category.</p>
-              ) : (
-                blogs.map((blog, index) => (
-                  <motion.div
-                    key={blog._id}
-                    className='blog-card'
-                    onClick={() => handleBlogClick(blog._id)}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.15 }}
-                    transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.05 }}
-                  >
-                    <div className='blog-image-container'>
-                      <img src={getCoverImage(blog.coverImage)} alt={blog.title} className='blog-image' />
-                    </div>
-                    <div className='blog-content'>
-                      <h2 className='blog-title'>{blog.title}</h2>
-                      <p className='blog-description'>
-                        {getShortPreview(blog)}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))
-              )}
-            </div>
-
-            {totalPages > 1 && (
-              <motion.div
-                className='blogs-pagination'
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, ease: 'easeOut' }}
+        <div className='blogs-layout'>
+          <motion.div
+            className='blog-categories'
+            {...sectionReveal}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.05 }}
+          >
+            {categories.map((category) => (
+              <button
+                key={category}
+                className={`category-btn ${activeCategory === category ? 'active' : ''}`}
+                onClick={() => handleCategoryChange(category)}
               >
-                <button
-                  className='pagination-btn'
-                  onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                  disabled={currentPage === 1}
-                >
-                  ← Prev
-                </button>
+                {category}
+              </button>
+            ))}
+          </motion.div>
 
-                <div className='pagination-pages'>
-                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                    <button
-                      key={page}
-                      className={`pagination-page ${currentPage === page ? 'active' : ''}`}
-                      onClick={() => setCurrentPage(page)}
-                    >
-                      {page}
-                    </button>
-                  ))}
+          <div className='blogs-content-panel'>
+            {loading && <div className='blogs-loading'>Loading blogs...</div>}
+            {error && <div className='blogs-error'>{error}</div>}
+
+            {!loading && !error && (
+              <>
+                <div className='blogs-list'>
+                  {blogs.length === 0 ? (
+                    <p className='blogs-empty'>No blogs found in this category.</p>
+                  ) : (
+                    blogs.map((blog, index) => (
+                      <motion.div
+                        key={blog._id}
+                        className='blog-card'
+                        onClick={() => handleBlogClick(blog._id)}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.15 }}
+                        transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.05 }}
+                      >
+                        <div className='blog-image-container'>
+                          <img src={getCoverImage(blog.coverImage)} alt={blog.title} className='blog-image' />
+                        </div>
+                        <div className='blog-content'>
+                          <h2 className='blog-title'>{blog.title}</h2>
+                          <p className='blog-description'>
+                            {getShortPreview(blog)}
+                          </p>
+                        </div>
+                      </motion.div>
+                    ))
+                  )}
                 </div>
 
-                <button
-                  className='pagination-btn'
-                  onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                  disabled={currentPage === totalPages}
-                >
-                  Next →
-                </button>
-              </motion.div>
+                {totalPages > 1 && (
+                  <motion.div
+                    className='blogs-pagination'
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.6, ease: 'easeOut' }}
+                  >
+                    <button
+                      className='pagination-btn'
+                      onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                      disabled={currentPage === 1}
+                    >
+                      ← Prev
+                    </button>
+
+                    <div className='pagination-pages'>
+                      {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                        <button
+                          key={page}
+                          className={`pagination-page ${currentPage === page ? 'active' : ''}`}
+                          onClick={() => setCurrentPage(page)}
+                        >
+                          {page}
+                        </button>
+                      ))}
+                    </div>
+
+                    <button
+                      className='pagination-btn'
+                      onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                      disabled={currentPage === totalPages}
+                    >
+                      Next →
+                    </button>
+                  </motion.div>
+                )}
+              </>
             )}
-          </>
-        )}
+          </div>
+        </div>
       </div>
     </div>
   );

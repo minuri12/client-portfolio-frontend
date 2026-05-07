@@ -3,7 +3,7 @@
   align-self: flex-start;
   align-items: center;
   display: flex;
-  padding-top: 140px;
+  padding-top: 180px;
 }
 
 .info-content {
@@ -226,6 +226,8 @@
   z-index: 1; /* Places the gradient above the image */
   pointer-events: none; /* Allow clicks to pass through to video controls */
 }
+
+
 
 .MePlayToggle {
   position: absolute;
@@ -682,6 +684,8 @@
 .story-card-mobile {
   width: 100%;
 }
+
+
 
 @media (max-width: 768px) {
   .story-carousel-section {

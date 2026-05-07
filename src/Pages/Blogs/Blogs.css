@@ -96,12 +96,33 @@
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  position: relative;
 }
 
 .blog-card:hover {
   background-color: rgba(255, 255, 255, 0.045);
   cursor: pointer;
   transform: translateY(-4px);
+}
+
+.blog-card::after {
+  content: "→";
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 1;
+  opacity: 0;
+  transform: translate(4px, -4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.blog-card:hover::after,
+.blog-card:focus-visible::after {
+  opacity: 1;
+  transform: translate(0, 0);
 }
 
 .blog-card,

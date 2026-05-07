@@ -133,7 +133,7 @@
 }
 
 .blog-paragraph {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 24px;
@@ -151,7 +151,7 @@
 }
 
 .blog-subsection-title {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 400;
   line-height: 1.3;
   margin-top: 32px;
@@ -208,10 +208,10 @@
 
 .rich-content h1 { font-size: 36px; }
 .rich-content h2 { font-size: 28px; }
-.rich-content h3 { font-size: 22px; }
+.rich-content h3 { font-size: 24px; }
 .rich-content h4 { font-size: 18px; }
 .rich-content h5 { font-size: 16px; }
-.rich-content h6 { font-size: 14px; }
+.rich-content h6 { font-size: 16px; }
 
 /* List items */
 .rich-content li {
@@ -268,7 +268,7 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   padding: 2px 6px;
-  font-size: 14px;
+  font-size: 16px;
   font-family: 'Courier New', monospace;
   color: #f8c8a0 !important;
   -webkit-text-fill-color: #f8c8a0 !important;
@@ -286,7 +286,7 @@
 .rich-content pre code {
   background: transparent;
   padding: 0;
-  font-size: 14px;
+  font-size: 16px;
   color: rgba(255, 255, 255, 0.85) !important;
   -webkit-text-fill-color: rgba(255, 255, 255, 0.85) !important;
 }
@@ -374,7 +374,7 @@
 }
 
 .related-blog-title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   color: #ffffff;
   line-height: 1.3;
@@ -390,7 +390,7 @@
   }
 
   .blog-article-title {
-    font-size: 32px;
+    font-size: 24px;
   }
 
   .blog-section-title {
@@ -399,7 +399,7 @@
   }
 
   .blog-subsection-title {
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 28px;
   }
 
@@ -423,7 +423,7 @@
   }
 
   .back-to-blog {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 30px;
   }
 
@@ -439,7 +439,7 @@
   }
 
   .blog-section-title {
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 32px;
   }
 
@@ -449,7 +449,7 @@
   }
 
   .blog-paragraph {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.7;
     margin-bottom: 20px;
   }

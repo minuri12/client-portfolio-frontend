@@ -124,12 +124,22 @@ function Blogs() {
     <div className='blogs-page'>
       <Navbar />
       <div className='blogs-container'>
-        <motion.h1
-          className='blogs-main-title'
-          {...sectionReveal}
-        >
-          Let's Talk Everything
-        </motion.h1>
+        <motion.div
+        class="overline-wrapper"
+        {...sectionReveal}
+      >
+        <div class="icon-section-dot"></div>
+        <h2 class="text-projectpage-overline">ARTICLES</h2>
+      </motion.div>
+      <br />
+      <br />
+      <motion.div
+        class="text-hero info-hero"
+        {...sectionReveal}
+      >
+       Let's Talk Everything
+        {/* <span class="text-info-hero-serif"> user experiences.</span> */}
+      </motion.div>
         
         <motion.div
           className='blog-categories'

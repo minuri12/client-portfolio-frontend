@@ -3,14 +3,14 @@
   align-self: flex-start;
   align-items: center;
   display: flex;
-  padding-top: 200px;
+  padding-top: 140px;
 }
 
 .info-content {
   margin: 0 auto;
   max-width: 1200px;
   width: 100%;
-  padding: 0 34px;
+  padding: 0 40px;
   box-sizing: border-box;
 }
 
@@ -28,7 +28,7 @@
   letter-spacing: 1.5px;
   margin-top: 1px;
   font-family: Neue Montreal, sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 19px;
 }
@@ -37,13 +37,17 @@
   text-align: left;
   letter-spacing: -1px;
   text-shadow: 0 4px 10px #0057ff33, 0 -4px 10px #ff5a0026, 0 0 30px #fff3;
-  font-size: 32px;
+  font-size: 45px;
   font-weight: 400;
   line-height: 110%;
   color: white;
   width: 95%;
 }
+.text-hero.info-hero span {
+  font-family: "Kaushan Script", cursive;
 
+  font-style: normal;
+}
 .text-info-hero-serif {
   font-family: "Kaushan Script", cursive;
   font-style: normal;
@@ -64,7 +68,7 @@
     font-family: Inter, sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 100%;
     letter-spacing: 0%;
     color: #f2f2f2e6;
@@ -309,7 +313,7 @@
 
 .story-title {
   color: #fff;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 400;
   margin-bottom: 20px;
   font-family: Neue Montreal, sans-serif;
@@ -488,14 +492,14 @@
 
 .sf-title {
   font-family: Neue Montreal, sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   margin: 0 0 12px 0;
   color: #ffffff;
 }
 
 .sf-desc {
   color: rgba(242,242,242,0.9);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
   white-space: pre-wrap;
   margin: 0;
@@ -755,7 +759,7 @@
   }
 
   .chapter-title {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 8px;
   }
 
@@ -786,7 +790,7 @@
   .MePlayToggle {
     width: 58px;
     height: 58px;
-    font-size: 22px;
+    font-size: 24px;
   }
 }
 

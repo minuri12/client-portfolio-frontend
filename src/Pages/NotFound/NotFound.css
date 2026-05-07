@@ -51,7 +51,7 @@
 
 /* Error Title */
 .error-title {
-  font-size: 48px;
+  font-size: 45px;
   font-weight: 400;
   color: white;
   margin-bottom: 24px;
@@ -181,7 +181,7 @@
   }
 
   .error-title {
-    font-size: 32px;
+    font-size: 24px;
     margin-bottom: 16px;
   }
 
@@ -230,13 +230,13 @@
   }
 
   .error-description {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .btn-text {
     width: 180px;
     height: 42px;
-    font-size: 14px;
+    font-size: 16px;
     padding: 0 20px;
   }
 
@@ -257,7 +257,7 @@
   }
 
   .error-title {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .error-description {

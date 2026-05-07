@@ -169,8 +169,7 @@ function Info() {
         class="text-hero info-hero"
         {...sectionReveal}
       >
-        “ I’m a product designer who loves creating meaningful products that
-        inspire me and bring excitement to everyone who uses them. ”
+        I design, manage, and build <span>interactive</span> digital experiences that people genuinely enjoy. 
         {/* <span class="text-info-hero-serif"> user experiences.</span> */}
       </motion.div>
 

@@ -48,10 +48,9 @@ function Navbar() {
     <div className="section-nav">
       <div className="Navbar">
         <Link to="/home" className="logo-block Navbarfix" aria-label="Go to home page">
-          <img src={Logo} alt="Logo" />
-         
-            
-          
+          <div className="nav-logo-frame">
+            <img src={Logo} alt="Logo" />
+          </div>
         </Link>
 
         {/* Navigation Links */}

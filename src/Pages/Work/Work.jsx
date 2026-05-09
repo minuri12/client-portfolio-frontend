@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
@@ -18,8 +18,66 @@ import Project2 from "../../Assets/Project2.png";
 import Project3 from "../../Assets/Project3.png";
 import Project4 from "../../Assets/Project4.png";
 import behance from "../../Assets/behance.png";
+import PM from "../../Assets/PM.gif";
+import Graphic from "../../Assets/Graphic.gif";
+import UX from "../../Assets/UX.gif";
+import Code from "../../Assets/Code.gif";
 import "./Work.css";
 import { motion } from "framer-motion";
+
+const TARGET_TEXT = "Get In Touch";
+const CYCLES_PER_LETTER = 2;
+const SHUFFLE_TIME = 50;
+const CHARS = "!@#$%^&*():{};|,.<>/?";
+
+const ScrambleButton = () => {
+  const intervalRef = useRef(null);
+  const [text, setText] = useState(TARGET_TEXT);
+
+  const scramble = () => {
+    let pos = 0;
+    intervalRef.current = setInterval(() => {
+      const scrambled = TARGET_TEXT.split("")
+        .map((char, index) => {
+          if (pos / CYCLES_PER_LETTER > index) {
+            return char;
+          }
+          const randomCharIndex = Math.floor(Math.random() * CHARS.length);
+          return CHARS[randomCharIndex];
+        })
+        .join("");
+      setText(scrambled);
+      pos++;
+      if (pos >= TARGET_TEXT.length * CYCLES_PER_LETTER) {
+        stopScramble();
+      }
+    }, SHUFFLE_TIME);
+  };
+
+  const stopScramble = () => {
+    clearInterval(intervalRef.current || undefined);
+    setText(TARGET_TEXT);
+  };
+
+  return (
+    <a href="https://wa.me/94713775404?text=Hi%20Minuri%2C%20I%20would%20like%20to%20chat%20about%20your%20services." target="_blank" rel="noreferrer" className="contactbtn group" onMouseEnter={scramble} onMouseLeave={stopScramble}>
+      <div className="Touch relative overflow-hidden">
+        <span className="relative z-10">{text}</span>
+        <motion.span
+          initial={{ y: "100%" }}
+          animate={{ y: "-100%" }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "mirror",
+            duration: 1,
+            ease: "linear",
+          }}
+          className="duration-300 absolute inset-0 z-0 scale-125 bg-gradient-to-t from-white/0 from-40% via-white/20 to-white/0 to-60% opacity-0 transition-opacity group-hover:opacity-100"
+        />
+      </div>
+    </a>
+  );
+};
 
 function Home() {
 
@@ -27,6 +85,46 @@ function Home() {
   const [recentBlogs, setRecentBlogs] = useState([]);
   const [blogsLoading, setBlogsLoading] = useState(true);
   const [blogsError, setBlogsError] = useState("");
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 900);
+  const testimonialsWrapperRef = useRef(null);
+
+const testimonials = [
+  {
+    id: 1,
+    name: "Shanka Visal",
+    role: "Associate Software Engineer",
+    text: "Minuri is a highly talented UI/UX designer and developer. She brings strong passion, creativity, and user-focused thinking into every project. Her work is both visually impressive and meaningful, making her a valuable team member.",
+    linkedin: "https://www.linkedin.com/in/shankavisal/"
+  },
+  {
+    id: 2,
+    name: "Zulfa Zulfikar",
+    role: "Project Manager",
+    text: "Minuri played a key role as Design Lead in PearlHack 2.0. Her creativity, attention to detail, and consistency helped shape a strong event identity. She is reliable, collaborative, and delivers high-quality work even under tight deadlines.",
+    linkedin: "https://www.linkedin.com/in/zulfa-zulfikar-5a643521a/"
+  },
+  {
+    id: 3,
+    name: "Avishka Athapattu",
+    role: "Senior Software Engineer",
+    text: "Minuri showed strong dedication, fast learning, and teamwork during Project Trophy. She contributed valuable ideas and consistently delivered quality results, making a strong impact on the team.",
+    linkedin: "https://www.linkedin.com/in/avishka-athapattu-b9037a180/"
+  },
+  {
+    id: 4,
+    name: "Shavinda Wanniarachchi",
+    role: "Talent Acquisition",
+    text: "Minuri contributed as Member Coordinator and lead designer for IEEE StudPro 7.0. Her creativity, professionalism, and ability to deliver under pressure made her an essential part of the team.",
+    linkedin: "https://www.linkedin.com/in/shavinda-wanniarachchi/"
+  },
+  {
+    id: 5,
+    name: "Abishethvarman V",
+    role: "DevOps Engineer",
+    text: "Minuri demonstrated exceptional design skills, dedication, and balance between academics and volunteering. She consistently delivered high-quality work and proved to be a reliable and talented team member.",
+    linkedin: "https://www.linkedin.com/in/abishethvarman-v/"
+  }
+];
 
   const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
   const sectionReveal = {
@@ -79,6 +177,14 @@ function Home() {
   }, []);
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth <= 900);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0); // Scroll to the top of the page when the component mounts
   }, []);
 
@@ -125,6 +231,17 @@ function Home() {
     return imageUrl;
   };
 
+  const scrollTestimonials = (direction) => {
+    if (testimonialsWrapperRef.current) {
+      const card = testimonialsWrapperRef.current.querySelector('.testimonial-card'); // Get the first card to measure its width
+      const scrollAmount = card ? card.offsetWidth + 24 : 324; // Dynamic width + gap
+      testimonialsWrapperRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <div className="work-page">
       <Navbar />
@@ -162,9 +279,7 @@ function Home() {
                     <img src={instergram} className="logomark" alt="Logo" />{" "}
                   </a>
                 </div>
-                <a href="https://wa.me/94713775404?text=Hi%20Minuri%2C%20I%20would%20like%20to%20chat%20about%20your%20services." target="_blank" rel="noreferrer" className="contactbtn">
-                  <div className="Touch">Get In Touch</div>
-                </a>
+                <ScrambleButton />
               </div>
             </div>
             <h1 className="head_name">
@@ -210,9 +325,10 @@ function Home() {
           <div className="VolExperiance">
             <div className="carousel-container">
               <motion.div 
+                key={isMobileView ? "mobile-vol" : "desktop-vol"}
                 className="carousel-track"
-                animate={{ x: ["0%", "-50%"] }}
-                transition={{
+                animate={isMobileView ? { x: 0 } : { x: ["0%", "-50%"] }}
+                transition={isMobileView ? { duration: 0 } : {
                   x: {
                     repeat: Infinity,
                     repeatType: "loop",
@@ -266,32 +382,36 @@ function Home() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 />
-                {/* Duplicate images for seamless loop */}
-                <motion.img 
-                  src={YP} 
-                  className="volunteer volunteer-yp" 
-                  alt="YP - Young Professionals"
-                />
-                <motion.img 
-                  src={IEEE} 
-                  className="volunteer volunteer-ieee" 
-                  alt="IEEE"
-                />
-                <motion.img 
-                  src={WIE} 
-                  className="volunteer volunteer-wie" 
-                  alt="WIE - Women in Engineering"
-                />
-                <motion.img 
-                  src={SIGHT} 
-                  className="volunteer volunteer-sight" 
-                  alt="SIGHT"
-                />
-                <motion.img 
-                  src={SOCS} 
-                  className="volunteer volunteer-socs" 
-                  alt="SOCS"
-                />
+                {/* Duplicate images for seamless loop - Desktop Only */}
+                {!isMobileView && (
+                  <>
+                    <motion.img 
+                      src={YP} 
+                      className="volunteer volunteer-yp" 
+                      alt="YP - Young Professionals"
+                    />
+                    <motion.img 
+                      src={IEEE} 
+                      className="volunteer volunteer-ieee" 
+                      alt="IEEE"
+                    />
+                    <motion.img 
+                      src={WIE} 
+                      className="volunteer volunteer-wie" 
+                      alt="WIE - Women in Engineering"
+                    />
+                    <motion.img 
+                      src={SIGHT} 
+                      className="volunteer volunteer-sight" 
+                      alt="SIGHT"
+                    />
+                    <motion.img 
+                      src={SOCS} 
+                      className="volunteer volunteer-socs" 
+                      alt="SOCS"
+                    />
+                  </>
+                )}
               </motion.div>
             </div>
           </div>
@@ -469,17 +589,35 @@ function Home() {
                 title: "No-Code Product Creation",
                 desc: "Quickly creating apps and websites using no-code tools.",
               },
-            ].map((s) => (
+            ].map((s) => {
+              const icons = {
+                1: PM,
+                2: Graphic,
+                3: UX,
+                4: Code
+              };
+
+              return (
               <div key={s.id} className="service-card">
                 <div className="service-card-header">
-                  <div className="service-badge">{s.id}</div>
+                  {icons[s.id] && (
+                    <img src={icons[s.id]} alt={`${s.title} Animation`} style={{ width: '60px', height: '60px' }} />
+                  )}
                 </div>
 
                 <div className="service-title">{s.title}</div>
 
-                <div className="service-desc">{s.desc}</div>
+                <div className="service-desc">
+                  {s.desc}
+                  {s.id === 1 && (
+                    <div style={{ marginTop: '12px' }}>
+        
+                    </div>
+                  )}
+                </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </motion.section>
 
@@ -517,6 +655,53 @@ function Home() {
               <div className="headGrapic">View More</div>
             </Link>
           </div>
+        </motion.section>
+
+        {/* Section: People I've Worked With (Testimonials) */}
+        <motion.section
+          id="section-testimonials"
+          className="testimonials-section"
+          {...sectionReveal}
+        >
+          <h2 className="Volhead">People I’ve Worked With</h2>
+          <div className="testimonials-marquee-wrapper" ref={testimonialsWrapperRef}>
+            <div className="testimonials-track" key={isMobileView ? "mobile-test" : "desktop-test"}>
+              {(isMobileView ? testimonials : [...testimonials, ...testimonials]).map((t, index) => (
+                <div key={`${t.id}-${index}`} className="testimonial-card">
+                <div className="testimonial-quote">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C20.1216 16 21.017 15.1046 21.017 14V9C21.017 7.89543 20.1216 7 19.017 7H15.017C13.9124 7 13.017 7.89543 13.017 9V14M4.017 21L4.017 18C4.017 16.8954 4.9124 16 6.017 16H9.017C10.1216 16 11.017 15.1046 11.017 14V9C11.017 7.89543 10.1216 7 9.017 7H5.017C3.9124 7 3.017 7.89543 3.017 9V14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <p className="testimonial-text">"{t.text}"</p>
+                <div className="testimonial-author">
+                  <div className="author-info">
+                    <div className="author-name">{t.name}</div>
+                    <div className="author-role">{t.role}</div>
+                  </div>
+                  {t.linkedin && (
+                    <a href={t.linkedin} target="_blank" rel="noopener noreferrer" className="testimonial-linkedin" aria-label={`${t.name}'s LinkedIn Profile`}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                      </svg>
+                    </a>
+                  )}
+                </div>
+              </div>
+              ))}
+            </div>
+          </div>
+
+          {isMobileView && (
+            <div className="testimonial-controls-mobile">
+              <button className="nav-btn" onClick={() => scrollTestimonials("left")} aria-label="Previous testimonial">
+                <img src={Arrow} style={{ transform: "rotate(180deg)", width: "20px" }} alt="Prev" />
+              </button>
+              <button className="nav-btn" onClick={() => scrollTestimonials("right")} aria-label="Next testimonial">
+                <img src={Arrow} style={{ width: "20px" }} alt="Next" />
+              </button>
+            </div>
+          )}
         </motion.section>
 
         {/* Section 7: How I Can Help You */}
@@ -559,9 +744,7 @@ function Home() {
                     </div>
                   </a>
                 </div>
-                <a href="https://wa.me/94713775404?text=Hi%20Minuri%2C%20I%20would%20like%20to%20chat%20about%20your%20services." target="_blank" rel="noreferrer" className="contactbtn">
-                  <div className="Touch">Get In Touch</div>
-                </a>
+                <ScrambleButton />
               </div>
             </div>
           </div>

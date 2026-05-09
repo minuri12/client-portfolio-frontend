@@ -16,6 +16,9 @@ import Frame42 from "../../Assets/Me2.png";
 import instergram from "../../Assets/instagram.png";
 import Minuri3 from "../../Assets/Minuri3.png";
 import behance from "../../Assets/behance.png";
+import Mini_Logo from "../../Assets/Mini_Logo.png";
+import { Link } from "react-router-dom";
+import Footer from "../../Components/Footer/Footer";
 import "../Work/Work.css";
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -157,16 +160,16 @@ function Info() {
 
       <div className="info-content">
       <motion.div
-        class="overline-wrapper"
+        className="overline-wrapper"
         {...sectionReveal}
       >
-        <div class="icon-section-dot"></div>
-        <h2 class="text-projectpage-overline">ABOUT ME</h2>
+        <div className="icon-section-dot"></div>
+        <h2 className="text-projectpage-overline">ABOUT ME</h2>
       </motion.div>
       <br />
       <br />
       <motion.div
-        class="text-hero info-hero"
+        className="text-hero info-hero"
         {...sectionReveal}
       >
         I design, manage, and build <span>interactive</span> digital experiences that people genuinely enjoy. 
@@ -471,6 +474,8 @@ function Info() {
         </motion.div>
 
       </div>
+
+   
 
     </div>
   );

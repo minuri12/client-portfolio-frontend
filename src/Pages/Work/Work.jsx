@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
+import Footer from "../../Components/Footer/Footer";
 import Minuri from "../../Assets/Minuri.png";
 import Mini_Logo from "../../Assets/Mini_Logo.png";
 import instergram from "../../Assets/instagram.png";
@@ -129,11 +130,9 @@ function Home() {
       <Navbar />
 
       <div className="page-wrapper">
-        <br />
-
-
-
-        <motion.div
+        {/* Section 1: Main Content */}
+        <motion.section
+          id="section-1"
           className="main-content"
           {...sectionReveal}
           transition={{ duration: 1, ease: "easeOut" }}
@@ -192,9 +191,11 @@ function Home() {
               />
             </div>
           </div>
-        </motion.div>
+        </motion.section>
 
-        <motion.div
+        {/* Section 2: Volunteer Experience */}
+        <motion.section
+          id="section-2"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -294,10 +295,11 @@ function Home() {
               </motion.div>
             </div>
           </div>
-        </motion.div>
-        <br /> <br />
+        </motion.section>
 
-        <motion.div
+        {/* Section 3: What Makes Me Different */}
+        <motion.section
+          id="section-3"
           className="part_one second"
           {...sectionReveal}
           transition={{ duration: 1, ease: "easeOut" }}
@@ -318,13 +320,13 @@ function Home() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.section>
 
+        {/* Section 4: My Projects Header and 4 Cards */}
+        <section id="section-4" className="projects-container">
         <motion.div {...sectionReveal} transition={{ duration: 0.7, ease: "easeOut" }}>
           <h2 className="Volhead">My Projects</h2>
         </motion.div>
-        <br />
-
         <motion.div
           className="projectSection"
           {...sectionReveal}
@@ -428,9 +430,11 @@ function Home() {
             <div className="headGrapic">More Projects</div>
           </Link>
         </motion.div>
+        </section>
 
-        {/* Services Section - added after projects */}
-        <motion.div
+        {/* Section 5: What I Do */}
+        <motion.section
+          id="section-5"
           className="services-section"
           {...sectionReveal}
         >
@@ -477,9 +481,11 @@ function Home() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </motion.section>
 
-        <motion.div
+        {/* Section 6: Let's Talk Everything (Blogs) */}
+        <motion.section
+          id="section-6"
           className="recent-blogs-section"
           {...sectionReveal}
           transition={{ duration: 0.9, ease: "easeOut" }}
@@ -490,46 +496,32 @@ function Home() {
           {!blogsLoading && blogsError && <div className="recent-blogs-state">{blogsError}</div>}
 
           {!blogsLoading && !blogsError && (
-            <>
-              <div className="recent-blogs-grid">
-                {recentBlogs.map((blog) => (
-                  <Link to={`/blog/${blog._id}`} className="recent-blog-card" key={blog._id}>
-                    <div className="recent-blog-image-wrap">
-                      <img
-                        src={getCoverImage(blog.coverImage)}
-                        alt={blog.title}
-                        className="recent-blog-image"
-                      />
-                    </div>
-                    <div className="recent-blog-title">{blog.title}</div>
-                  </Link>
-                ))}
-              </div>
-
-              <div className="recent-blogs-more-wrap">
-                <Link to="/blogs" className="Grapicscard more-projects-card recent-blogs-more-btn">
-                  <div className="headGrapic">View More</div>
+            <div className="recent-blogs-grid">
+              {recentBlogs.map((blog) => (
+                <Link to={`/blog/${blog._id}`} className="recent-blog-card" key={blog._id}>
+                  <div className="recent-blog-image-wrap">
+                    <img
+                      src={getCoverImage(blog.coverImage)}
+                      alt={blog.title}
+                      className="recent-blog-image"
+                    />
+                  </div>
+                  <div className="recent-blog-title">{blog.title}</div>
                 </Link>
-              </div>
-            </>
+              ))}
+            </div>
           )}
-        </motion.div>
-        {/* <div className="GrapicSection">
-        <a
-          className="Grapicscard"
-          href="https://www.behance.net/minurihewage"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src={flyers} className="flyers" alt="Logo" />
-          <div className="headGrapic">Branding</div>
-        </a>
-      </div>   */}
-        <br />
-        <br />
-        <br />
 
-        <motion.div
+          <div className="recent-blogs-more-wrap">
+            <Link to="/blogs" className="Grapicscard more-projects-card recent-blogs-more-btn">
+              <div className="headGrapic">View More</div>
+            </Link>
+          </div>
+        </motion.section>
+
+        {/* Section 7: How I Can Help You */}
+        <motion.section
+          id="section-7"
           className="part_one second"
           {...sectionReveal}
           transition={{ duration: 1, ease: "easeOut" }}
@@ -573,13 +565,14 @@ function Home() {
               </div>
             </div>
           </div>
-        </motion.div>
-        <br />
-        <br />
-
+        </motion.section>
       </div>
+{/* Section 8: Footer */}
+ 
+      
     </div>
   );
 }
 
 export default Home;
+      

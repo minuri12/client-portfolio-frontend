@@ -16,6 +16,8 @@ import WhatsAppIcon from "./Assets/WhatsAppIcon.png";
 import CustomCursor from "./Components/CustomCursor";
 import Footer from "./Components/Footer/Footer";
 import CookieConsent from "react-cookie-consent";
+import PrivacyPolicy from "./Components/Footer/PrivacyPolicy"; // Corrected path
+import TermsConditions from "./Components/Footer/TermsConditions"; // Corrected path
 
 function AppContent() {
   const location = useLocation();
@@ -36,6 +38,8 @@ function AppContent() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blog/:id" element={<BlogDetail />} />
         <Route path="/more-projects" element={<MoreProjects />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-conditions" element={<TermsConditions />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 
@@ -80,4 +84,3 @@ function App() {
 }
 
 export default App;
-

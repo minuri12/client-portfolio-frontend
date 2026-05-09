@@ -1,27 +1,29 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
+import Mini_Logo from "../../Assets/Mini_Logo.png";
 import './Footer.css';
 
 function Footer() {
   return (
-    <div className="section-footer">
+    <footer id="section-8" className="section-footer">
       <div className="container-footer">
+        <div className="footer-top-wrapper">
+        
+          <div className="footer-links-column-wrapper">
+             </div>
+        </div>
         <div className="footer-bottom-wrapper">
-          <div className="footer-bottom-left">
-            <div className="text-footer-copyright">
-              © 2026 Minuri Senara. All Rights Reserved.
-            </div>
-            <div className="text-under-copyright">
-              Made with Love and Music (in every note, feel the heat).
-            </div>
+          <div className="footer-copyright-column">
+            <div className="text-footer-copyright">© 2024 Minuri Hewage.</div>
+            <div className="text-under-copyright">Designed with precision and care.</div>
           </div>
-          <div className="footer-bottom-right">
-            <div className="text-last-updated">
-              Last updated by Minuri on April 15, 2026
-            </div>
+          <div className="footer-legal-links">
+            <Link to="/privacy-policy" className="footer-legal-link">Privacy Policy</Link>
+            <Link to="/terms-conditions" className="footer-legal-link">Terms & Conditions</Link>
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
 

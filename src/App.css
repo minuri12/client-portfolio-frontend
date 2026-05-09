@@ -25,11 +25,17 @@ html.custom-cursor-active * {
 }
 
 html.custom-cursor-active a,
+html.custom-cursor-active a *,
 html.custom-cursor-active button,
+html.custom-cursor-active button *,
 html.custom-cursor-active [role="button"],
+html.custom-cursor-active [role="button"] *,
 html.custom-cursor-active label,
+html.custom-cursor-active label *,
 html.custom-cursor-active select,
-html.custom-cursor-active [data-cursor="pointer"] {
+html.custom-cursor-active select *,
+html.custom-cursor-active [data-cursor="pointer"],
+html.custom-cursor-active [data-cursor="pointer"] * {
   cursor: pointer !important;
 }
 

@@ -285,8 +285,8 @@ input:checked + .slider {
 }
 .Touch {
   height: 40px;
-  outline: 1px solid rgba(255, 255, 255, 0.08);
-  transition: outline 0.3s linear;
+  outline: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 3px 3px 5px rgba(12, 12, 12, 0.267);
   cursor: pointer;
   border-radius: 10px;
@@ -302,10 +302,12 @@ input:checked + .slider {
   overflow: hidden;
 }
 
-.Touch:hover,
 .Logo_Social1:hover,
 .Logo_Social2:hover {
-  outline-width: 4px;
+  background-color: rgba(255, 255, 255, 0.05);
+  outline: 1px solid #0af7ff;
+  color: #0af7ff;
+  box-shadow: 0 0 15px rgba(10, 247, 255, 0.15);
 }
 
 @keyframes buttonPulse {
@@ -1128,9 +1130,9 @@ tbody td {
 
 
 .Grapicscard {
-  height: 40px;
+  min-height: 40px;
   outline: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, outline 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 3px 3px 5px rgba(12, 12, 12, 0.267);
   cursor: pointer;
   border-radius: 10px;
@@ -1142,23 +1144,20 @@ tbody td {
   padding: 0 12px;
   white-space: nowrap;
   line-height: 1;
-  color: white !important;
-  background-color: white;
+  color: #111;
+  background-color: #fff;
   text-decoration: none !important;
-
 }
 .Grapicscard:hover {
-  transform: scale(1.05);
-  cursor: pointer;
-  background-color: transparent;
-  border: 1px solid #f2f2f20a;
-  color: white;
+  transform: translateY(-5px);
+  background-color: #0a0a0a;
+  outline: 1px solid #0af7ff;
+  box-shadow: 0 10px 30px rgba(10, 247, 255, 0.2);
   text-decoration: none;
 }
 
 .Grapicscard:hover * {
-  color: white;
-  font-weight: 400;
+  color: #0af7ff !important;
 }
 
 @keyframes vibrate {
@@ -1201,6 +1200,7 @@ tbody td {
 
 .LinkTest {
   text-decoration: none !important;
+  cursor: pointer !important;
 }
 
 .logo-block .logomark2 {

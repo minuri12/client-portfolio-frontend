@@ -369,14 +369,135 @@ input:checked + .slider {
 }
 
 .volunteer {
-  width: 90%;
-  overflow-x: hidden;
+  height: auto;
+  object-fit: contain;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.4s ease;
+  margin: 0 40px;
 }
 
+/* Mobile: reduce gap between logos and reduce width */
+@media (max-width: 768px) {
+  .volunteer {
+    margin: 0 10px;
+    max-width: 80px;
+  }
+}
+
+.volunteer-yp {
+  height: 71.43px;
+  width: auto;
+}
+
+.volunteer-ieee {
+  height: 68.43px;
+  width: auto;
+}
+
+.volunteer-wie {
+  height: 63.29px;
+  width: auto;
+}
+
+.volunteer-sight {
+  height: 68.43px;
+  width: auto;
+}
+
+.volunteer-socs {
+  height: 55.71px;
+  width: auto;
+}
+
+.volunteer:hover {
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+}
+
+/* Carousel container styles */
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background: linear-gradient(to right, #080808 0%, transparent 15%, transparent 85%, #080808 100%);
+  display: flex;
+  align-items: center;
+  min-height: 120px;
+}
+
+.carousel-container::before,
+.carousel-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel-container::before {
+  left: 0;
+  background: linear-gradient(to right, #080808 0%, transparent 100%);
+}
+
+.carousel-container::after {
+  right: 0;
+  background: linear-gradient(to left, #080808 0%, transparent 100%);
+}
+
+.carousel-track {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+}
+
+/* Single image carousel styles */
+.carousel-container-single {
+  width: 100%;
+  margin: 30px auto 100px auto;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-track-single {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.carousel-container-single::before,
+.carousel-container-single::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel-container-single::before {
+  left: 0;
+  background: linear-gradient(to right, #080808 0%, transparent 100%);
+}
+
+.carousel-container-single::after {
+  right: 0;
+  background: linear-gradient(to left, #080808 0%, transparent 100%);
+}
+
+.carousel-track-single {
+  display: flex;
+  width: fit-content;
+}
 
 .VolExperiance {
-  margin-top: 30px;
-  margin-bottom: 100px;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -384,7 +505,7 @@ input:checked + .slider {
 
 .Volhead {
   color: white;
-  margin-top: 100px;
+  margin-top: 60px;
   text-align: center;
 }
 
@@ -1258,7 +1379,14 @@ tbody td {
   }
 
   .volunteer {
-    width: 473px;
+    width: 200px;
+  }
+}
+
+/* iPad Air and iPad Pro sizes (820px - 1024px) */
+@media (max-width: 1024px) and (min-width: 820px) {
+  .volunteer {
+    margin: 0 10px;
   }
 }
 
@@ -1318,6 +1446,11 @@ tbody td {
   .card {
     width: 60%;
     margin: 10px;
+  }
+
+  /* Reduce volunteer logo card widths on tablet */
+  .volunteer {
+    margin: 0 15px;
   }
 
   /* "What Makes Me Different" section - Mobile/Tablet layout */
@@ -1496,17 +1629,18 @@ tbody td {
   .first_bar {
     width: 100%;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: 20px;
+    gap: 15px;
   }
-
   .button_section {
     display: flex;
     gap: 12px;
     align-items: center;
     flex-wrap: nowrap;
     flex-shrink: 0;
+    justify-content: flex-start;
   }
 
   .Touch {

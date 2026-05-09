@@ -4,7 +4,11 @@ import Navbar from "../../Components/Navbar/Navbar";
 import Minuri from "../../Assets/Minuri.png";
 import Mini_Logo from "../../Assets/Mini_Logo.png";
 import instergram from "../../Assets/instagram.png";
-import Volunteer from "../../Assets/Volunteer.png";
+import YP from "../../Assets/YP.png";
+import IEEE from "../../Assets/IEEE.png";
+import WIE from "../../Assets/WIE.png";
+import SIGHT from "../../Assets/SIGHT.png";
+import SOCS from "../../Assets/SOCS.png";
 import Minuri2 from "../../Assets/Minuri2.png";
 import Minuri3 from "../../Assets/Minuri3.png";
 import Arrow from "../../Assets/right-arrow.png";
@@ -29,6 +33,33 @@ function Home() {
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true, amount: 0.2 },
     transition: { duration: 0.8, ease: "easeOut" },
+  };
+
+  const volunteerTitleAnimation = {
+    initial: { opacity: 0, y: 30, scale: 0.95 },
+    whileInView: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      textShadow: ["0 0 20px rgba(255,255,255,0)", "0 0 40px rgba(255,255,255,0.3)", "0 0 20px rgba(255,255,255,0)"]
+    },
+    viewport: { once: true, amount: 0.3 },
+    transition: { duration: 1, ease: "easeOut" },
+  };
+
+  // Carousel animation - continuous left to right movement
+  const carouselAnimation = {
+    animate: {
+      x: ["0%", "-50%"],
+    },
+    transition: {
+      x: {
+        repeat: Infinity,
+        repeatType: "loop",
+        duration: 25,
+        ease: "linear",
+      },
+    },
   };
 
 
@@ -110,7 +141,7 @@ function Home() {
           <div className="part_one ">
             <div className="first_bar">
               <div className="logo-block">
-                <img src={Mini_Logo} className="logomark2" alt="Logo" />
+             
                 <div className="LogoText">
                   <div className="text-logo">Hey, I’m Minuri.</div>
                   <div className="text-underlogo">Digital Product Designer</div>
@@ -164,13 +195,105 @@ function Home() {
         </motion.div>
 
         <motion.div
-          {...sectionReveal}
-          transition={{ duration: 1, ease: "easeOut" }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
         >
-          <h2 className="Volhead">Volunteer Experience</h2>
+          <motion.h2 
+            className="Volhead"
+            {...volunteerTitleAnimation}
+          >
+            Volunteer Experience
+          </motion.h2>
           <div className="VolExperiance">
-            <img src={Volunteer} className="volunteer" alt="Logo" />
-          </div>{" "}
+            <div className="carousel-container">
+              <motion.div 
+                className="carousel-track"
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{
+                  x: {
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: 25,
+                    ease: "linear",
+                  },
+                }}
+              >
+                <motion.img 
+                  src={YP} 
+                  className="volunteer volunteer-yp" 
+                  alt="YP - Young Professionals"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                />
+                <motion.img 
+                  src={IEEE} 
+                  className="volunteer volunteer-ieee" 
+                  alt="IEEE"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.1 }}
+                />
+                <motion.img 
+                  src={WIE} 
+                  className="volunteer volunteer-wie" 
+                  alt="WIE - Women in Engineering"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                />
+                <motion.img 
+                  src={SIGHT} 
+                  className="volunteer volunteer-sight" 
+                  alt="SIGHT"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                />
+                <motion.img 
+                  src={SOCS} 
+                  className="volunteer volunteer-socs" 
+                  alt="SOCS"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                />
+                {/* Duplicate images for seamless loop */}
+                <motion.img 
+                  src={YP} 
+                  className="volunteer volunteer-yp" 
+                  alt="YP - Young Professionals"
+                />
+                <motion.img 
+                  src={IEEE} 
+                  className="volunteer volunteer-ieee" 
+                  alt="IEEE"
+                />
+                <motion.img 
+                  src={WIE} 
+                  className="volunteer volunteer-wie" 
+                  alt="WIE - Women in Engineering"
+                />
+                <motion.img 
+                  src={SIGHT} 
+                  className="volunteer volunteer-sight" 
+                  alt="SIGHT"
+                />
+                <motion.img 
+                  src={SOCS} 
+                  className="volunteer volunteer-socs" 
+                  alt="SOCS"
+                />
+              </motion.div>
+            </div>
+          </div>
         </motion.div>
         <br /> <br />
 
@@ -238,7 +361,7 @@ function Home() {
                       <div className="text-projectcard-title">MoodWave</div>
                       <div className="text-projectcard-description">
                         Check the emotions of the music.
-                      </div>
+                      T</div>
                     </div>
                     <div>
                       <img src={Arrow} className="Arrow" alt="Logo" />

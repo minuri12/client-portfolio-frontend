@@ -146,19 +146,21 @@ function Blogs() {
         
         <div className='blogs-layout'>
           <motion.div
-            className='blog-categories'
+            className='blogs-sidebar'
             {...sectionReveal}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.05 }}
           >
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={`category-btn ${activeCategory === category ? 'active' : ''}`}
-                onClick={() => handleCategoryChange(category)}
-              >
-                {category}
-              </button>
-            ))}
+            <div className='blog-categories'>
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  className={`category-btn ${activeCategory === category ? 'active' : ''}`}
+                  onClick={() => handleCategoryChange(category)}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
           </motion.div>
 
           <div className='blogs-content-panel'>

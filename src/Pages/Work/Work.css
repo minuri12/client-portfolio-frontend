@@ -421,7 +421,7 @@ input:checked + .slider {
   position: relative;
   margin-top: 30px;
   margin-bottom: 30px;
-  background: linear-gradient(to right, #080808 0%, transparent 15%, transparent 85%, #080808 100%);
+  background: linear-gradient(to right, #000000 0%, transparent 15%, transparent 85%, #000000 100%);
   display: flex;
   align-items: center;
   min-height: 120px;
@@ -440,12 +440,12 @@ input:checked + .slider {
 
 .carousel-container::before {
   left: 0;
-  background: linear-gradient(to right, #080808 0%, transparent 100%);
+  background: linear-gradient(to right, #000000 0%, transparent 100%);
 }
 
 .carousel-container::after {
   right: 0;
-  background: linear-gradient(to left, #080808 0%, transparent 100%);
+  background: linear-gradient(to left, #000000 0%, transparent 100%);
 }
 
 .carousel-track {
@@ -484,12 +484,12 @@ input:checked + .slider {
 
 .carousel-container-single::before {
   left: 0;
-  background: linear-gradient(to right, #080808 0%, transparent 100%);
+  background: linear-gradient(to right, #000000 0%, transparent 100%);
 }
 
 .carousel-container-single::after {
   right: 0;
-  background: linear-gradient(to left, #080808 0%, transparent 100%);
+  background: linear-gradient(to left, #000000 0%, transparent 100%);
 }
 
 .carousel-track-single {

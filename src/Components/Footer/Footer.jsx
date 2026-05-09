@@ -8,9 +8,16 @@ function Footer() {
     <footer id="section-8" className="section-footer">
       <div className="container-footer">
         <div className="footer-top-wrapper">
-        
-          <div className="footer-links-column-wrapper">
-             </div>
+         
+       
+            
+            <div className="footer-link-column">
+              
+            
+             
+              
+            
+          </div>
         </div>
         <div className="footer-bottom-wrapper">
           <div className="footer-copyright-column">

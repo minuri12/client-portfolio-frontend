@@ -126,7 +126,7 @@ function Home() {
   };
 
   return (
-    <div>
+    <div className="work-page">
       <Navbar />
 
       <div className="page-wrapper">
@@ -571,6 +571,8 @@ function Home() {
  
       
     </div>
+    
+
   );
 }
 

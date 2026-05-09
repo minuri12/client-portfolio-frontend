@@ -1,8 +1,6 @@
 /* Blog Detail Page Styles */
 .blog-detail-page {
   background: #000000;
-  min-height: 100vh;
-  padding: 100px 0 80px;
   color: #ffffff;
 }
 
@@ -66,6 +64,13 @@ html.custom-cursor-active .button-project-back * {
   align-items: center;
   margin-bottom: 40px;
   margin-top: 20px;
+}
+
+.blog-detail-container {
+  margin-top: 80px;
+}
+@media (max-width: 900px) {
+  .blog-detail-container { margin-top: 60px; }
 }
 
 /* Right side button group */

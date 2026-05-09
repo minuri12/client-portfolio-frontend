@@ -1,9 +1,7 @@
 .overline-wrapper {
   grid-column-gap: 12px;
   align-self: flex-start;
-  align-items: center;
   display: flex;
-  padding-top: 100px;
 }
 
 .info-content {
@@ -11,6 +9,14 @@
   max-width: 1200px;
   width: 100%;
   padding: 0 40px;
+  margin-top: 80px; /* 80px gap from the bottom of Navbar */
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 900px) {
+  .info-content {
+    margin-top: 60px; /* 60px gap for mobile */
+  }
   box-sizing: border-box;
 }
 
@@ -815,7 +821,7 @@
   }
 
   .overline-wrapper {
-    padding-top: 136px;
+    padding-top: 0; /* Handled by parent padding-top */
   }
 
   .Aboutpart {

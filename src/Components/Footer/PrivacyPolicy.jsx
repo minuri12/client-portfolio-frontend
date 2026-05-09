@@ -71,7 +71,7 @@ function PrivacyPolicy() {
           }
         `}
       </style>
-      <div className="page-wrapper" style={{ marginTop: "100px" }}>
+      <div className="page-wrapper privacy-policy-page">
         <motion.div className="overline-wrapper" {...sectionReveal}>
           <div className="icon-section-dot"></div>
           <h2 className="text-projectpage-overline">LEGAL</h2>

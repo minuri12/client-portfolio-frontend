@@ -153,12 +153,12 @@ function Info() {
   };
 
   return (
-    <div>
+    <div className="info-page">
       <div className="section-nav">
         <Navbar />
       </div>
 
-      <div className="info-content">
+      <div className="info-content" style={{ marginTop: "80px" }}>
       <motion.div
         className="overline-wrapper"
         {...sectionReveal}

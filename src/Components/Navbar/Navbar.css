@@ -74,7 +74,7 @@
   width: 24px;
   height: 4px;
   margin-bottom: -2px;
-  margin-left: 43px;
+  margin-left: 48px;
   box-shadow: 0 2px 25px 2px #fff;
 }
 
@@ -220,11 +220,11 @@ a {
 }
 
 .nav-indicator-glow.info {
-  margin-left: 131px;
+  margin-left: 142px;
 }
 
 .nav-indicator-glow.blogs {
-  margin-left: 239px;
+  margin-left: 230px;
 }
 
 .chip-socials-wrapper {

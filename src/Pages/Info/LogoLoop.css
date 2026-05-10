@@ -1,0 +1,42 @@
+.logo-loop-container {
+  overflow: hidden;
+  height: 100%;
+  width: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-loop-track {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  animation: scroll-vertical var(--speed) linear infinite;
+  will-change: transform;
+}
+
+.logo-loop-track.down {
+  animation-direction: reverse;
+}
+
+.logo-item {
+  height: var(--logo-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-item img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+@keyframes scroll-vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-50% - (var(--gap) / 2)));
+  }
+}

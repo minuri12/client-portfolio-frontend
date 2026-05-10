@@ -17,7 +17,6 @@
   .info-content {
     margin-top: 60px; /* 60px gap for mobile */
   }
-  box-sizing: border-box;
 }
 
 .icon-section-dot {
@@ -129,6 +128,15 @@
   margin-right: 0px;
 }
 
+.tech-marquee-window {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  padding: 30px 0;
+}
+
 .Meholder {
   position: relative;
   width: 100%;
@@ -174,46 +182,22 @@
 }
 
 .Tech {
-  width: 55px;
+  height: 40px;
+  width: auto;
   margin: 10px;
 }
 
-.figma {
-  height: 45px;
-  width: auto;
-}
-
-.webflow {
-  height: clamp(30px, 4.5vw, 50px);
-  width: auto;
-}
-
-.atliasan {
-  height: clamp(28px, 4.2vw, 45px);
-  width: auto;
-}
-
-.jira {
-  height: clamp(28px, 4.2vw, 45px);
-  width: auto;
-}
-
 .TechStack {
-  justify-content: center;
-  align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 30px;
   overflow: hidden;
 }
 
 .TechStack .Tech {
   margin: 0;
-}
-
-.TechStack .last-tech {
-  margin-left: 12px;
 }
 
 .Meholder::after {
@@ -397,17 +381,18 @@
   gap: 50px;
   min-width: 0;
   width: 100%;
+  padding: 20px 0;
 }
 
 .story-card {
   display: flex;
   align-items: flex-start;
   background: #0d0d0d;
-  border: 1px solid rgba(242, 242, 242, 0.1);
+  border: 1.5px solid rgba(242, 242, 242, 0.15);
   border-radius: 20px;
   padding: 30px;
-  height: 490px;
-  min-height: 470px;
+  height: 100%;
+  min-height: 100%;
   min-width: 0;
   width: 100%;
   flex: 1;
@@ -509,24 +494,6 @@
   max-width: 100%;
 }
 
-/* Right-side translucent blurred box (design accent) */
-.right-floating-box {
-  position: absolute;
-  top: 11px;
-  right: 8.33px;
-  width: 327.33038330078125px;
-  height: 417px;
-  border-radius: 12px;
-  background: #FFFFFF08; /* semi-transparent white */
-  backdrop-filter: blur(48.599998474121094px);
-  -webkit-backdrop-filter: blur(48.599998474121094px);
-  opacity: 1;
-  pointer-events: none; /* decorative only */
-  box-shadow: 0 8px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.06);
-  z-index: 50; /* ensure it's above other content */
-}
-
 @media only screen and (max-width: 1220px) {
   .info-content {
     padding: 0 20px;
@@ -540,10 +507,6 @@
 }
 
 @media (max-width: 900px) {
-  .info-content {
-    
-  }
-
   .text-hero.info-hero {
     width: 100%;
   }
@@ -561,36 +524,16 @@
   }
 
   .Tech {
-    height: auto;
-    width: 45px;
-  }
-
-  .webflow {
-    height: 42px;
-  }
-
-  .atliasan,
-  .jira {
-    height: 38px;
+    height: 40px;
+    width: auto;
   }
 
   .Grapicscard1{
     padding: 20PX;
   }
-  
-
-  /* hide the decorative floating box on smaller screens */
-  .right-floating-box {
-    display: none;
-  }
 }
 
 @media (max-width: 900px) {
-  /* hide floating panel on tablet/mobile */
-  .story-floating-box {
-    display: none;
-  }
-
   .story-chapters {
     flex-direction: column;
     gap: 20px;
@@ -716,17 +659,6 @@
 @media (max-width: 480px) {
   .info-content {
     padding: 0 5px;
-  }
-
-  .webflow {
-    width: 30px;
-    height: 36px;
-  }
-
-  .atliasan,
-  .jira {
-    width: 30px;
-    height: 32px;
   }
 
   .overline-wrapper {

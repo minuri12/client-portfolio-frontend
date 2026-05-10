@@ -32,7 +32,6 @@
   text-align: left;
   letter-spacing: 1.5px;
   margin-top: 1px;
-  font-family: Neue Montreal, sans-serif;
   font-size: 12px;
   font-weight: 500;
   line-height: 19px;
@@ -49,12 +48,9 @@
   width: 95%;
 }
 .text-hero.info-hero span {
-  font-family: "Kaushan Script", cursive;
-
   font-style: normal;
 }
 .text-info-hero-serif {
-  font-family: "Kaushan Script", cursive;
   font-style: normal;
 }
 
@@ -63,14 +59,12 @@
   letter-spacing: 0.8px;
 
   flex: 1;
-  font-family: ;
   font-size: 18px;
   
 }
 
 /* Styles for 'What I Care About' section */
   .care-heading {
-    font-family: Inter, sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 18px;
@@ -85,7 +79,6 @@
     padding-left: 20px;
     margin-top: 25px;
 
-    font-family: Inter, sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
@@ -100,7 +93,7 @@
 
 .Aboutpart {
   display: flex;
-  align-items: center;
+  
   margin-top: 100px;
   gap: 50px;
 }
@@ -189,25 +182,6 @@
 .TechStack .Tech {
   margin: 0;
 }
-
-.Meholder::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.3) 40%,
-    rgba(0, 0, 0, 0.5) 70%,
-    rgb(0, 0, 0) 100%
-  ); /* Adjust gradient colors as needed */
-  z-index: 1; /* Places the gradient above the image */
-  pointer-events: none; /* Allow clicks to pass through to video controls */
-}
-
-
 
 .MePlayToggle {
   position: absolute;
@@ -373,23 +347,30 @@
   width: 100%;
 }
 
+/* Remove the global blue hover effect from Work.css for cards on the Info page */
+.info-page .card:hover {
+  background: none !important;
+}
+
 .story-card {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  background: #0d0d0d;
-  border: 1.5px solid rgba(242, 242, 242, 0.15);
-  border-radius: 20px;
-  padding: 30px;
   height: 100%;
   min-height: 100%;
   min-width: 0;
   width: 100%;
   flex: 1;
-  transition: all 0.3s ease;
+  background: linear-gradient(to right, #040404, #080808);
+  border: 1px solid #FFFFFF14;
+  border-radius: 24px;
+  padding: 32px;
+  gap: 20px;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
 }
 
 .sf-title {
-  font-family: Neue Montreal, sans-serif;
   font-size: 18px;
   margin: 0 0 12px 0;
   color: #ffffff;
@@ -449,16 +430,15 @@
 .chapter-title {
   color: #fff;
   font-size: 24px;
-  font-weight: 400;
+
   margin-bottom: 15px;
-  font-family: Neue Montreal, sans-serif;
 }
 
 .chapter-description {
   color: rgb(255, 255, 255);
   font-size: 18px;
 
-  font-weight: 100;
+
   text-align: justify;
   margin: 0;
   padding: 0;
@@ -469,8 +449,7 @@
 
 .chapter-summary {
   color: rgba(242, 242, 242, 0.8);
-  font-family: Inter, sans-serif;
-  font-weight: 100;
+
   font-style: italic;
   font-size: 24px;
   line-height: 100%;
@@ -617,7 +596,6 @@
   .chapter-description {
     font-size: 16px;
     line-height: 24px;
-    font-family: Neue Montreal, sans-serif;
     
     display: block;
     -webkit-box-orient: vertical;
@@ -629,7 +607,6 @@
     font-size: 18px;
     margin-top: 20px;
     line-height: 24px;
-    font-family: Neue Montreal, sans-serif;
     font-weight: 100;
     font-style: italic;
     display: block;
@@ -698,7 +675,6 @@
     transform: translateX(-50%);
     color: rgba(242, 242, 242, 0.3);
     font-size: 12px;
-    font-family: Inter, sans-serif;
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s ease;

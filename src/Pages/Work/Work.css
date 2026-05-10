@@ -368,13 +368,10 @@ input:checked + .slider {
 }
 
 .head_name span {
-  font-family: "Kaushan Script", cursive;
-
   font-style: normal;
 }
 
 .Bigtext1 span {
-  font-family: "Kaushan Script", cursive;
   font-style: normal;
   margin-left: 20px;
   margin-right: 20px;
@@ -816,7 +813,6 @@ input:checked + .slider {
   letter-spacing: 0;
   text-shadow: 0 -2px 10px #fff3;
   justify-content: space-between;
-  font-family: Neue Montreal, sans-serif;
   font-size: 24px;
   font-weight: 500;
   line-height: 100%;
@@ -829,7 +825,6 @@ input:checked + .slider {
   letter-spacing: 0.2px;
   align-self: stretch;
 
-  font-family: Neue Montreal, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
@@ -963,7 +958,6 @@ tbody td {
 .text-footer-links-overline {
   opacity: 0.5;
   letter-spacing: 1.5px;
-  font-family: Neue Montreal, sans-serif;
   font-size: 9px;
   font-weight: 500;
   line-height: 13px;
@@ -972,12 +966,10 @@ tbody td {
   opacity: 0.5;
   letter-spacing: 0.2px;
   text-transform: none;
-  font-family: Neue Montreal, sans-serif;
 }
 
 .text-footer-copyright {
   letter-spacing: 0.2px;
-  font-family: Neue Montreal, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -986,7 +978,6 @@ tbody td {
 .text-last-updated {
   opacity: 0.5;
   letter-spacing: 0.2px;
-  font-family: Neue Montreal, sans-serif;
   font-size: 12px;
   font-weight: 300;
   line-height: 20px;
@@ -1066,7 +1057,6 @@ tbody td {
   letter-spacing: 0;
   text-shadow: 0 -2px 10px rgba(255, 255, 255, 0.233);
   justify-content: center;
-  font-family: Neue Montreal, sans-serif;
 
   line-height: 100%;
   display: flex;
@@ -1456,7 +1446,6 @@ tbody td {
   font-size: 18px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
-  font-family: 'Open Sans', sans-serif;
   flex-grow: 1;
   font-style: italic;
 }

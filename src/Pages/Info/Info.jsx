@@ -25,6 +25,7 @@ import { useEffect, useRef, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../Components/Navbar/Navbar";
 import Stack from "./Stack";
+import { InteractiveHoverButton } from "../Work/InteractiveHoverButton";
 
 const TARGET_TEXT = "Get In Touch";
 const CYCLES_PER_LETTER = 2;
@@ -132,11 +133,7 @@ const testimonials = [ // This is used by the testimonials section
 
 // Static Data moved outside to prevent re-creation on every render
 const storyChapters = [
-  {
-    id: 0,
-    title: "story-content",
-    isSpecial: true,
-  },
+  
   {
     id: 1,
     title: "The Beginning",
@@ -186,17 +183,7 @@ const toggleVideoPlayback = (ref) => {
 };
 
 const VideoWindow = ({ videoRef, isPlaying, onToggle, label }) => (
-  <motion.div 
-    className="window-outline"
-    animate={{
-      y: [0, -15, 0],
-    }}
-    transition={{
-      duration: 5,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }}
-  >
+  <div className="window-outline">
     <div className="Meholder">
       <video
         ref={videoRef}
@@ -231,7 +218,7 @@ const VideoWindow = ({ videoRef, isPlaying, onToggle, label }) => (
         )}
       </button>
     </div>
-  </motion.div>
+  </div>
 );
 
 function Info() {
@@ -307,7 +294,7 @@ function Info() {
     >
        <div className="story-text" style={chapter.isSpecial ? { textAlign: 'center', width: '100%', justifyContent: 'center', alignItems: 'center' } : {}}>
         {chapter.isSpecial ? (
-          <h2 style={{ color: 'white', fontSize: '24px', fontWeight: '500', fontFamily: 'Neue Montreal, sans-serif' }}>{chapter.title}</h2>
+          <h2 style={{ color: 'white', fontSize: '24px', fontWeight: '500' }}>{chapter.title}</h2>
         ) : (
           <>
             <h3 className="chapter-title">
@@ -373,7 +360,7 @@ function Info() {
           user-centered solutions, experimenting with new technologies, and
           continuously improving my skills to create impactful digital
           experiences.
-          <br />
+
           <br />
           <div className="care-heading">What I Care About:</div>
           <ul className="care-list">
@@ -384,6 +371,19 @@ function Info() {
             <li>Delivering designs on time</li>
             <li>Working with kind and open-minded people</li>
           </ul>
+                    <br />          <br />
+          <div className="">
+                      <a 
+                        href="https://wa.me/94713775404?text=Hi%20Minuri%2C%20I%20would%20like%20to%20chat%20about%20your%20services." 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="LinkTest" 
+                        data-cursor="pointer"
+                        style={{ textDecoration: 'none' }}
+                      >
+                        <InteractiveHoverButton>Let's Talk</InteractiveHoverButton>
+                      </a>
+                    </div>
         </div>
       </motion.div>
  <motion.section
@@ -436,7 +436,7 @@ function Info() {
             Know about me 
           </h2>
 
-          <div className="story-chapters">
+          <div className="story-chapters" style={!isMobileView ? { marginTop: "40px" } : {}}>
             <div className="story-carousel-container">
               <div className="story-content" style={!isMobileView ? { flexDirection: 'row', alignItems: 'stretch', gap: '40px', justifyContent: 'center' } : {}}>
                 {/* Mobile view: Show all chapters stacked vertically */}
@@ -453,7 +453,7 @@ function Info() {
                       >
                         <div className="story-text" style={chapter.isSpecial ? { textAlign: 'center', width: '100%', padding: '40px 0', justifyContent: 'center', alignItems: 'center' } : {}}>
                           {chapter.isSpecial ? (
-                            <h2 style={{ color: 'white', fontSize: '24px', fontWeight: '500', fontFamily: 'Neue Montreal, sans-serif' }}>{chapter.title}</h2>
+                            <h2 style={{ color: 'white', fontSize: '24px', fontWeight: '500' }}>{chapter.title}</h2>
                           ) : (
                             <>
                               <h3 className="chapter-title">
@@ -494,18 +494,19 @@ function Info() {
       </motion.div>
 
       <motion.div className="what-i-use-section" {...sectionReveal}>
-        <h2 style={{ color: 'white', fontSize: '24px', marginBottom: '30px', fontWeight: '500', fontFamily: 'Neue Montreal, sans-serif', textAlign: 'center' }}>
+        <h2 style={{ color: 'white', fontSize: '24px', marginBottom: '30px', fontWeight: '500', textAlign: 'center' }}>
           What I Use
         </h2>
         <div className="carousel-container">
           <motion.div 
-            className="carousel-track"
+            className="tech-marquee-track"
+            style={{ display: 'flex', width: 'fit-content', alignItems: 'center' }}
             animate={{ x: ["0%", "-50%"] }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 25, // Adjust speed as needed
+                duration: 20,
                 ease: "linear",
               },
             }}
@@ -523,13 +524,11 @@ function Info() {
         </div>
       </motion.div>
 
-        <br />
-        <br />
-        <br />
         <motion.div
           className="part_one second"
           {...sectionReveal}
           transition={{ duration: 1, ease: "easeOut" }}
+          style={{ marginTop: "80px" }}
         >
           <div className="row">
             <div className="imgholder">

@@ -186,7 +186,17 @@ const toggleVideoPlayback = (ref) => {
 };
 
 const VideoWindow = ({ videoRef, isPlaying, onToggle, label }) => (
-  <div className="window-outline">
+  <motion.div 
+    className="window-outline"
+    animate={{
+      y: [0, -15, 0],
+    }}
+    transition={{
+      duration: 5,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  >
     <div className="Meholder">
       <video
         ref={videoRef}
@@ -221,7 +231,7 @@ const VideoWindow = ({ videoRef, isPlaying, onToggle, label }) => (
         )}
       </button>
     </div>
-  </div>
+  </motion.div>
 );
 
 function Info() {
@@ -481,15 +491,35 @@ function Info() {
               </div>
             </div>
         </div>
-        
-        <div className="tech-stack-section" style={{ marginBottom: "60px", display: 'flex', justifyContent: 'center', width: '100%' }}>
-          <div className="window-outline" style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
-            <div className="TechStack" style={{ padding: '20px' }}>
-              {techLogos.map((logo, index) => (
-                <img key={index} src={logo.src} className="Tech" alt={logo.alt} />
-              ))}
-            </div>
-          </div>
+      </motion.div>
+
+      <motion.div className="what-i-use-section" {...sectionReveal}>
+        <h2 style={{ color: 'white', fontSize: '24px', marginBottom: '30px', fontWeight: '500', fontFamily: 'Neue Montreal, sans-serif', textAlign: 'center' }}>
+          What I Use
+        </h2>
+        <div className="carousel-container">
+          <motion.div 
+            className="carousel-track"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 25, // Adjust speed as needed
+                ease: "linear",
+              },
+            }}
+          >
+            {[...techLogos, ...techLogos].map((logo, index) => (
+              <img 
+                key={index} 
+                src={logo.src} 
+                className="Tech" 
+                alt={logo.alt} 
+                style={{ margin: '0 30px' }} 
+              />
+            ))}
+          </motion.div>
         </div>
       </motion.div>
 

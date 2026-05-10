@@ -285,6 +285,20 @@
   }
 }
 
+.story-talk-image-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.story-talk-image {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 .MePlayToggle:hover {
   transform: translate(-50%, -50%) scale(1.1);
   background: rgba(0, 0, 0, 0.6);
@@ -314,36 +328,12 @@
   display: flex;
 }
 
-.story-header {
-  text-align: left;
-  margin-bottom: 40px;
-}
-
-.story-title {
-  color: #fff;
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 20px;
-  font-family: Neue Montreal, sans-serif;
-}
-
 .story-chapters {
   display: flex;
   align-items: flex-start;
   justify-content: center;
   gap: 40px;
   margin-bottom: 30px;
-}
-
-.chapter-indicator {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.chapter-indicator.vertical {
-  flex-direction: column;
-  gap: 15px;
 }
 
 .nav-btn {
@@ -400,20 +390,6 @@
   background: rgba(242, 242, 242, 0.06);
 }
 
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: rgba(242, 242, 242, 0.3);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.dot.active {
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
 .story-content {
   display: flex;
   justify-content: space-between;
@@ -426,7 +402,7 @@
 .story-card {
   display: flex;
   align-items: flex-start;
-  background: rgba(242, 242, 242, 0.05);
+  background: #0d0d0d;
   border: 1px solid rgba(242, 242, 242, 0.1);
   border-radius: 20px;
   padding: 30px;
@@ -436,66 +412,6 @@
   width: 100%;
   flex: 1;
   transition: all 0.3s ease;
-}
-
-/* Floating panel that mirrors the requested translucent box, placed on the right of the story section */
-.story-floating-box {
-  flex-shrink: 0;
-  width: clamp(200px, 25vw, 327px);
-  height: auto;
-  min-height: 490px;
-  border-radius: 12px;
-  background: #FFFFFF0D; /* updated semi-transparent white per design */
-  backdrop-filter: blur(48.599998474121094px);
-  -webkit-backdrop-filter: blur(48.599998474121094px);
-  opacity: 1;
-  z-index: 60;
-  padding: 28px 24px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.06);
-  color: #fff;
-  overflow: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: box-shadow 0.6s ease;
-}
-
-.story-floating-box::before {
-  content: "";
-  position: absolute;
-  top: 0; 
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  background: radial-gradient(circle at 50% 0, var(--card-light-color), #22222200 60%);
-  z-index: 0; 
-  pointer-events: none;
-  transition: background 0.6s ease;
-  opacity: 0.5; /* Reduced opacity */
-}
-
-/* Large number styling inside the floating box */
-.sf-big-number {
-  font-family: Inter, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: clamp(80px, 15vw, 200px);
-  line-height: 100%;
-  letter-spacing: 0%;
-  color: #FFFFFF0D; /* use requested translucent white for text */
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  background: transparent;
-  position: relative;
-  z-index: 2;
 }
 
 .sf-title {
@@ -547,7 +463,13 @@
   gap: 15px;
   height: 100%;
   overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
   padding-right: 8px;
+}
+
+.story-text::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
 }
 
 .chapter-title {
@@ -741,19 +663,6 @@
     margin-bottom: 20px;
   }
 
-  .story-controls {
-    flex-direction: row;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .chapter-indicator.vertical {
-    flex-direction: row;
-    gap: 10px;
-  }
-
   .nav-btn {
     width: 36px;
     height: 36px;
@@ -880,15 +789,6 @@
 
   .story-controls {
     gap: 12px;
-  }
-
-  .chapter-indicator.vertical {
-    gap: 8px;
-  }
-
-  .dot {
-    width: 10px;
-    height: 10px;
   }
 
   .chapter-title {

@@ -20,24 +20,68 @@ import Mini_Logo from "../../Assets/Mini_Logo.png";
 import { Link } from "react-router-dom";
 import Footer from "../../Components/Footer/Footer";
 import "../Work/Work.css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../Components/Navbar/Navbar";
+import Stack from "./Stack";
+
+const toggleVideoPlayback = (ref) => {
+  if (!ref.current) return;
+
+  if (ref.current.paused) {
+    ref.current.play();
+  } else {
+    ref.current.pause();
+  }
+};
+
+const VideoWindow = ({ videoRef, isPlaying, onToggle, label }) => (
+  <div className="window-outline">
+    <div className="Meholder">
+      <video
+        ref={videoRef}
+        className="MeVideo"
+        loop
+        playsInline
+        preload="metadata"
+        poster={VideoThumbnail}
+        aria-label={label}
+        onPlay={() => onToggle(true)}
+        onPause={() => onToggle(false)}
+        onClick={() => toggleVideoPlayback(videoRef)}
+      >
+        <source src={MeVideo} type="video/mp4" />
+      </video>
+
+      <button
+        type="button"
+        className={`MePlayToggle ${isPlaying ? "playing" : ""}`}
+        onClick={() => toggleVideoPlayback(videoRef)}
+        aria-label={isPlaying ? "Pause video" : "Play video"}
+      >
+        {isPlaying ? (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="4" width="4" height="16" rx="1" fill="currentColor"/>
+            <rect x="14" y="4" width="4" height="16" rx="1" fill="currentColor"/>
+          </svg>
+        ) : (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 5.14v13.72a1 1 0 001.5.86l11-6.86a1 1 0 000-1.72l-11-6.86a1 1 0 00-1.5.86z" fill="currentColor"/>
+          </svg>
+        )}
+      </button>
+    </div>
+  </div>
+);
 
 function Info() {
 
   const [currentChapter, setCurrentChapter] = useState(0);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const [lightColor, setLightColor] = useState("rgba(255, 255, 255, 0.4)");
+  const [isAboutVideoPlaying, setIsAboutVideoPlaying] = useState(false);
+  const [isStoryVideoPlaying, setIsStoryVideoPlaying] = useState(false);
   const [isMobileView, setIsMobileView] = useState(() => window.innerWidth <= 768);
-  const [swipeDirection, setSwipeDirection] = useState(null);
-  const videoRef = useRef(null);
-  const storyCardRef = useRef(null);
-
-  useEffect(() => {
-    const colors = ["rgba(255, 0, 0, 0.4)", "rgba(255, 255, 0, 0.35)", "rgba(255, 255, 255, 0.4)"];
-    setLightColor(colors[Math.floor(Math.random() * colors.length)]);
-  }, [currentChapter]);
+  const aboutVideoRef = useRef(null);
+  const storyVideoRef = useRef(null);
 
   // Story chapters data
   const storyChapters = [
@@ -79,49 +123,6 @@ function Info() {
     }
   ];
 
-  const nextChapter = () => {
-    if (currentChapter < storyChapters.length - 1) {
-      setSwipeDirection("left");
-      setTimeout(() => {
-        setCurrentChapter((prev) => prev + 1);
-        setSwipeDirection(null);
-      }, 100);
-    }
-  };
-
-  const prevChapter = () => {
-    if (currentChapter > 0) {
-      setSwipeDirection("right");
-      setTimeout(() => {
-        setCurrentChapter((prev) => prev - 1);
-        setSwipeDirection(null);
-      }, 100);
-    }
-  };
-
-  const handleDragEnd = (event, info) => {
-    const threshold = 50; // Minimum swipe distance
-    const velocity = Math.abs(info.velocity.x);
-    
-    if (velocity > 300) { // Minimum velocity for swipe
-      if (info.offset.x > threshold && currentChapter > 0) {
-        // Swiped right - go to previous chapter
-        setSwipeDirection("right");
-        setTimeout(() => {
-          setCurrentChapter((prev) => prev - 1);
-          setSwipeDirection(null);
-        }, 100);
-      } else if (info.offset.x < -threshold && currentChapter < storyChapters.length - 1) {
-        // Swiped left - go to next chapter
-        setSwipeDirection("left");
-        setTimeout(() => {
-          setCurrentChapter((prev) => prev + 1);
-          setSwipeDirection(null);
-        }, 100);
-      }
-    }
-  };
-
   useEffect(() => {
     document.title = "Info";
   }, []);
@@ -135,22 +136,32 @@ function Info() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const toggleVideoPlayback = () => {
-    if (!videoRef.current) return;
-
-    if (videoRef.current.paused) {
-      videoRef.current.play();
-    } else {
-      videoRef.current.pause();
-    }
-  };
-
   const sectionReveal = {
     initial: { opacity: 0, y: 50 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true, amount: 0.2 },
     transition: { duration: 0.8, ease: "easeOut" },
   };
+
+  const chapterCards = useMemo(() => storyChapters.map((chapter) => (
+    <div 
+      className="story-card" 
+      key={chapter.id}
+      style={{ height: '100%', width: '100%', cursor: 'inherit', display: 'flex', alignItems: 'center' }}
+    >
+       <div className="story-text">
+        <h3 className="chapter-title">
+          Chapter {String(chapter.id).padStart(2, "0")}
+        </h3>
+        <p className="chapter-description">
+          {chapter.description}
+        </p>
+        <p className="chapter-summary">
+          {`"${chapter.summary}"`}
+        </p>
+      </div>
+    </div>
+  )), []);
 
   return (
     <div className="info-page">
@@ -181,6 +192,13 @@ function Info() {
         {...sectionReveal}
         transition={{ duration: 1, ease: "easeOut" }}
       >
+        <VideoWindow 
+          videoRef={aboutVideoRef} 
+          isPlaying={isAboutVideoPlaying} 
+          onToggle={setIsAboutVideoPlaying}
+          label="Video portrait of Minuri in About section"
+        />
+
         <div className="AboutText">
           I’m Minuri. I have experience in design and coding, and I love
           creating things that are meaningful, not just visually appealing. I
@@ -205,44 +223,6 @@ function Info() {
             <li>Working with kind and open-minded people</li>
           </ul>
         </div>
-
-        <div className="window-outline">
-          <div className="Meholder">
-            <video
-              ref={videoRef}
-              className="MeVideo"
-              loop
-              playsInline
-              preload="metadata"
-              poster={VideoThumbnail}
-              aria-label="Video portrait of Minuri"
-              onPlay={() => setIsVideoPlaying(true)}
-              onPause={() => setIsVideoPlaying(false)}
-              onClick={toggleVideoPlayback}
-            >
-              <source src={MeVideo} type="video/mp4" />
-            </video>
-
-            <button
-              type="button"
-              className={`MePlayToggle ${isVideoPlaying ? "playing" : ""}`}
-              onClick={toggleVideoPlayback}
-              aria-label={isVideoPlaying ? "Pause video" : "Play video"}
-            >
-              {isVideoPlaying ? (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="6" y="4" width="4" height="16" rx="1" fill="currentColor"/>
-                  <rect x="14" y="4" width="4" height="16" rx="1" fill="currentColor"/>
-                </svg>
-              ) : (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8 5.14v13.72a1 1 0 001.5.86l11-6.86a1 1 0 000-1.72l-11-6.86a1 1 0 00-1.5.86z" fill="currentColor"/>
-                </svg>
-              )}
-            </button>
-          </div>
-        </div>
-        {/* Decorative box removed from Aboutpart; moved to story section below */}
       </motion.div>
 
       <motion.div className="GrapicSection" {...sectionReveal}>
@@ -278,10 +258,6 @@ function Info() {
       </motion.div>
 
       <motion.div className="story-carousel-section" {...sectionReveal} transition={{ duration: 1, ease: "easeOut" }}>
-        <div className="story-header">
-          <h2 className="story-title">Read My Story</h2>
-        </div>
-
           <div className="story-chapters">
             <div className="story-carousel-container">
               <div className="story-content">
@@ -313,114 +289,29 @@ function Info() {
                   </div>
                 ) : (
                   // Desktop view: Show one chapter at a time with carousel
-                  <motion.div
-                    ref={storyCardRef}
-                    className="story-card"
-                    drag={isMobileView ? "x" : false}
-                    dragConstraints={{ left: 0, right: 0 }}
-                    dragElastic={0.7}
-                    onDragEnd={isMobileView ? handleDragEnd : undefined}
-                    initial={false}
-                    animate={{
-                      x: swipeDirection === "left" ? -30 : swipeDirection === "right" ? 30 : 0,
-                      opacity: swipeDirection ? 0.7 : 1,
-                      rotate: swipeDirection === "left" ? -2 : swipeDirection === "right" ? 2 : 0,
-                    }}
-                    transition={{ duration: 0.2 }}
-                    style={{
-                      cursor: isMobileView ? "grab" : "default",
-                      touchAction: isMobileView ? "pan-y" : "auto",
-                    }}
-                  >
-                    <AnimatePresence mode="wait" initial={false}>
-                      <motion.div
-                        key={storyChapters[currentChapter].id}
-                        className="story-text"
-                        initial={{ opacity: 0, y: 14 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -14 }}
-                        transition={{ duration: 0.35, ease: "easeInOut" }}
-                      >
-                        <h3 className="chapter-title">
-                          Chapter {String(storyChapters[currentChapter].id).padStart(2, "0")}
-                        </h3>
-                        <p className="chapter-description">
-                          {storyChapters[currentChapter].description}
-                        </p>
-                        <p className="chapter-summary">
-                          {`"${storyChapters[currentChapter].summary}"`}
-                        </p>
-                      </motion.div>
-                    </AnimatePresence>
-                  </motion.div>
-                )}
-
-                {/* Desktop-only controls */}
-                {!isMobileView && (
-                  <div className="story-controls">
-                    <button
-                      className={`nav-btn prev ${currentChapter === 0 ? "disabled" : ""}`}
-                      onClick={currentChapter === 0 ? undefined : prevChapter}
-                      disabled={currentChapter === 0}
-                      aria-label="Previous chapter"
-                    >
-                      ↑
-                    </button>
-
-                    <div className="chapter-indicator vertical">
-                      {storyChapters.map((_, index) => (
-                        <div
-                          key={index}
-                          className={`dot ${index === currentChapter ? "active" : ""}`}
-                          onClick={() => setCurrentChapter(index)}
-                        />
-                      ))}
+                  <>
+                    <VideoWindow 
+                      videoRef={storyVideoRef} 
+                      isPlaying={isStoryVideoPlaying} 
+                      onToggle={setIsStoryVideoPlaying}
+                      label="Video portrait of Minuri in Story section"
+                    />
+                    <div style={{ width: '100%', maxWidth: '600px', height: '550px', position: 'relative' }}>
+                      <Stack
+                        randomRotation={true}
+                        sensitivity={180}
+                        sendToBackOnClick={true}
+                        onTopCardChange={setCurrentChapter}
+                        cards={chapterCards}
+                        autoplay={isStoryVideoPlaying}
+                        autoplayDelay={5000}
+                        pauseOnHover={true}
+                      />
                     </div>
-
-                    <button
-                      className={`nav-btn next ${currentChapter === storyChapters.length - 1 ? "disabled" : ""}`}
-                      onClick={
-                        currentChapter === storyChapters.length - 1
-                          ? undefined
-                          : nextChapter
-                      }
-                      disabled={currentChapter === storyChapters.length - 1}
-                      aria-label="Next chapter"
-                    >
-                      ↓
-                    </button>
-                  </div>
+                  </>
                 )}
               </div>
             </div>
-
-          {/* Floating panel that shows the current chapter details on the right */}
-          <aside 
-            className="story-floating-box" 
-            aria-live="polite"
-            style={{
-              "--card-light-color": lightColor,
-              overflow: "hidden", // necessary for the pseudo-element moving light
-              position: "relative"
-            }}
-          >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={storyChapters[currentChapter]?.id ?? currentChapter}
-                className="sf-big-number"
-                initial={{ x: -40, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: 40, opacity: 0 }}
-                transition={{ duration: 0.45, ease: "easeOut" }}
-              >
-                {(
-                  (storyChapters[currentChapter]?.id ?? currentChapter + 1)
-                )
-                  .toString()
-                  .padStart(2, "0")}
-              </motion.div>
-            </AnimatePresence>
-          </aside>
         </div>
       </motion.div>
 

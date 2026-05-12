@@ -144,24 +144,27 @@ function Blogs() {
         {/* <span class="text-info-hero-serif"> user experiences.</span> */}
       </motion.div>
         
-        <div className='blogs-layout'>
-          <motion.div
-            className='blogs-sidebar'
-            {...sectionReveal}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.05 }}
-          >
-            <div className='blog-categories'>
+        <div className="blogs-layout">
+          <aside className="blogs-sidebar">
+            <motion.nav 
+              className="blog-categories"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               {categories.map((category) => (
                 <button
                   key={category}
                   className={`category-btn ${activeCategory === category ? 'active' : ''}`}
                   onClick={() => handleCategoryChange(category)}
                 >
+                  <span className="category-dot"></span>
                   {category}
                 </button>
               ))}
-            </div>
-          </motion.div>
+            </motion.nav>
+          </aside>
 
           <div className='blogs-content-panel'>
             {loading && <div className='blogs-loading'>Loading blogs...</div>}

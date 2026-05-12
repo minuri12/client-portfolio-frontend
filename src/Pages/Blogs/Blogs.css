@@ -7,6 +7,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  /* Ensure no overflow:hidden here */
   overflow: visible;
   margin-top: 80px;
 }
@@ -43,6 +44,7 @@
   position: -webkit-sticky;
   position: sticky;
   top: 130px;
+  align-self: flex-start;
   height: fit-content;
   z-index: 10;
 }
@@ -88,14 +90,9 @@
 /* Blog List */
 .blogs-content-panel {
   min-width: 0;
-  overflow: hidden;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-/* Hide scrollbar for blogs-content-panel (Chrome, Safari, Opera) */
-.blogs-content-panel::-webkit-scrollbar {
-  display: none;
+  flex: 1;
+  /* No overflow settings here to allow window scroll */
+  overflow: visible; 
 }
 
 .blogs-list {
@@ -276,15 +273,17 @@ html.custom-cursor-active .blog-card * {
 
 @media (max-width: 900px) {
   .blogs-layout {
-    grid-template-columns: 1fr;
-    gap: 36px;
-    height: auto;
-    min-height: 0;
-    overflow: visible;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .blogs-sidebar {
+    position: static;
+    width: 100%;
   }
 
   .blog-categories {
-    position: static;
+    width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;

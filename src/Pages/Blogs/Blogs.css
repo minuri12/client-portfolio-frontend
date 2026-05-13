@@ -1,15 +1,17 @@
 /* Blogs Page Styles */
 .blogs-page {
   background: #000000;
+  overflow: visible !important;
 }
 
 .blogs-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  /* Ensure no overflow:hidden here */
-  overflow: visible;
   margin-top: 80px;
+  /* Explicitly ensure overflow is visible to allow sticky behavior */
+  overflow: visible !important;
+  display: block;
 }
 
 @media (max-width: 900px) {
@@ -34,8 +36,9 @@
 .blogs-layout {
   display: flex;
   margin-top: 80px;
-  align-items: flex-start;
-  min-height: 100vh;
+  align-items: flex-start; /* Crucial: prevents sidebar from stretching to full height */
+  overflow: visible !important;
+  position: relative;
 }
 
 .blogs-sidebar {
@@ -43,10 +46,10 @@
   flex-shrink: 0;
   position: -webkit-sticky;
   position: sticky;
-  top: 130px;
+  top: 150px; /* Adjusted to sit 30px below the 120px Navbar */
   align-self: flex-start;
   height: fit-content;
-  z-index: 10;
+  z-index: 100;
 }
 
 /* Category Navigation */
@@ -55,13 +58,14 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 22px;
+
 }
 
 .category-btn {
   background: transparent;
   border: 1px solid transparent;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 400;
   cursor: pointer;
   width: 150px;
@@ -78,9 +82,12 @@
 }
 
 .category-btn.active {
-  background-color: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.28);
-  opacity: 1;
+      background-color: rgb(255 255 255);
+    border-color: rgba(255, 255, 255, 0.28);
+    opacity: 1;
+    border-radius: 1000px;
+    color: black;
+    font-weight: 600;
 }
 
 .category-btn.active::after {
@@ -106,9 +113,9 @@
   display: flex;
   gap: 50px;
   cursor: pointer;
-  padding: 18px 18px 40px;
+  padding: 50px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
+
   transition: transform 0.3s ease, background-color 0.3s ease;
   width: 100%;
   max-width: 100%;
@@ -120,6 +127,8 @@
   background-color: rgba(255, 255, 255, 0.045);
   cursor: pointer;
   transform: translateY(-4px);
+  border: none;
+  border-radius: 16px;
 }
 
 .blog-card::after {

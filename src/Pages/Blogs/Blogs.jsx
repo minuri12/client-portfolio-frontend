@@ -32,6 +32,11 @@ function Blogs() {
     document.title = 'Blogs';
   }, []);
 
+  // Scroll to top when category or page changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [activeCategory, currentPage]);
+
   useEffect(() => {
     const fetchBlogs = async () => {
       setLoading(true);

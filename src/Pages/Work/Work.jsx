@@ -164,6 +164,7 @@ const testimonials = [
 
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Home";
   }, []);
 
@@ -182,10 +183,6 @@ const testimonials = [
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    window.scrollTo(0, 0); // Scroll to the top of the page when the component mounts
   }, []);
 
   useEffect(() => {

@@ -232,6 +232,7 @@ function Info() {
   const testimonialsWrapperRef = useRef(null);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Info";
   }, []);
 
@@ -448,6 +449,8 @@ function Info() {
                         className="story-card story-card-mobile"
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
+                        whileHover={{ y: -5, scale: 1.01 }}
+                        whileTap={{ scale: 0.98 }}
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                       >

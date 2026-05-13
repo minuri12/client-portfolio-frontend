@@ -1,7 +1,8 @@
 body {
   font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
-  padding: 160px;
+  
 }
 
 h1,
@@ -11,6 +12,7 @@ h4,
 h5,
 h6 {
   font-family: "Archivo", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
 }
 
@@ -126,7 +128,7 @@ html.custom-cursor-active [data-cursor="pointer"] * {
 
 @media (max-width: 1536px) {
   body {
-    padding: 100px;
+  
   }
 }
 

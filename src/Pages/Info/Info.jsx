@@ -333,8 +333,7 @@ function Info() {
         className="text-hero info-hero"
         {...sectionReveal}
       >
-        I design, manage, and build <span>interactive</span> digital experiences that people genuinely enjoy. 
-        {/* <span class="text-info-hero-serif"> user experiences.</span> */}
+        I design, manage, and build <span>interactive</span> digital experiences that people genuinely enjoy.
       </motion.div>
 
       <motion.div

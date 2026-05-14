@@ -369,10 +369,12 @@ input:checked + .slider {
 }
 
 .head_name span {
+  font-family: 'Kaushan Script', cursive;
   font-style: normal;
 }
 
 .Bigtext1 span {
+  font-family: 'Kaushan Script', cursive;
   font-style: normal;
   margin-left: 20px;
   margin-right: 20px;
@@ -735,6 +737,10 @@ input:checked + .slider {
   backdrop-filter: blur(10px); /* For frosted glass effect */
   background-size: 200% 200%;
   animation: moveGradient 20s ease infinite; /* Animation */
+  /* Ensure consistent height and flexible content distribution */
+  display: flex;
+  flex-direction: column;
+  min-height: 380px; /* Set a consistent minimum height for desktop */
   overflow: hidden;
 }
 

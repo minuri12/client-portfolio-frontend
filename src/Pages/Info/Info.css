@@ -2,6 +2,7 @@
   grid-column-gap: 12px;
   align-self: flex-start;
   display: flex;
+  align-items: baseline;
 }
 
 .info-content {
@@ -48,6 +49,7 @@
   width: 95%;
 }
 .text-hero.info-hero span {
+  font-family: 'Kaushan Script', cursive;
   font-style: normal;
 }
 .text-info-hero-serif {

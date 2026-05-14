@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import styles from './MoreProjects.module.css';
 import { motion } from 'framer-motion';
 import axios from 'axios';
 import Navbar from '../../Components/Navbar/Navbar';
+import Arrow from '../../Assets/right-arrow.png'; // Import Arrow icon
 
 // Fallback thumbnail image
 import blogThumb from '../../Assets/Project1.png';
@@ -103,7 +104,7 @@ function MoreProjects() {
         {...sectionReveal}
       >
         <div className="icon-section-dot"></div>
-        <h2 className="text-projectpage-overline">ABOUT ME</h2>
+        <h2 className="text-projectpage-overline">My Projects</h2>
       </motion.div>
       <br />
       <br />
@@ -111,7 +112,7 @@ function MoreProjects() {
         className="text-hero info-hero"
         {...sectionReveal}
       >
-        I design, manage, and build <span>interactive</span> digital experiences that people genuinely enjoy.
+        Discover projects I’ve <span>crafted </span>    in UI/UX, development, AI, and digital experiences.
       </motion.div>
 
             {loading && <div className={styles.loading}>Loading projects...</div>}
@@ -126,24 +127,37 @@ function MoreProjects() {
                         </div>
                     ) : (
                         <div className={styles.projectsGrid}>
-                            {blogs.map((blog, index) => (
-                                <motion.div
+                            {blogs.map((blog, index) => {
+                                const hoverClasses = ['', 'card1', 'card2', 'card3'];
+                                return (
+                                <motion.div // This motion.div will now act as the .card container
                                     key={blog._id}
-                                    className={styles.projectCard}
-                                    onClick={() => handleBlogClick(blog._id)}
+                                    className={`card ${styles.moreProjectsCard} ${hoverClasses[index % hoverClasses.length]}`} // Use global 'card' and local override
                                     initial={{ opacity: 0, y: 50 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0.15 }}
                                     transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.05 }}
                                 >
-                                    <div className={styles.projectImageContainer}>
-                                        <img src={getCoverImage(blog.coverImage)} alt={blog.title} className={styles.projectImage} />
-                                    </div>
-                                    <div className={styles.projectContent}>
-                                        <h2 className={styles.projectTitle}>{blog.title}</h2>
-                                    </div>
+                                    <Link to={`/blog/${blog._id}`} className="LinkTest">
+                                        <div className="project-card-outline">
+                                            <div className="project-card-outline2">
+                                                <div className="CardHead">
+                                                    <div>
+                                                        <div className="text-projectcard-title">{blog.title}</div>
+                                                        {/* Assuming blog object doesn't have a description field, or it's not needed here */}
+                                                    </div>
+                                                    <div>
+                                                        <img src={Arrow} className="Arrow" alt="Arrow Icon" />
+                                                    </div>
+                                                </div>
+                                                <div className="Project_img">
+                                                    <img src={getCoverImage(blog.coverImage)} className="Arrow32" alt={blog.title} />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </Link>
                                 </motion.div>
-                            ))}
+                            )})}
                         </div>
                     )}
 

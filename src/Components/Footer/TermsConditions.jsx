@@ -18,7 +18,7 @@ function TermsConditions() {
   };
 
   return (
-    <div>
+    <div className="terms-conditions-page">
       <Navbar />
       <style>
         {`
@@ -71,7 +71,7 @@ function TermsConditions() {
           }
         `}
       </style>
-      <div className="page-wrapper terms-conditions-page">
+      <div className="page-wrapper">
         <motion.div className="overline-wrapper" {...sectionReveal}>
           <div className="icon-section-dot"></div>
           <h2 className="text-projectpage-overline">LEGAL</h2>
@@ -193,8 +193,8 @@ function TermsConditions() {
           ` }}
         >
         </motion.div>
+        <Footer />
       </div>
-   
     </div>
   );
 }

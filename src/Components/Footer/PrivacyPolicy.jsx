@@ -18,7 +18,7 @@ function PrivacyPolicy() {
   };
 
   return (
-    <div>
+    <div className="privacy-policy-page">
       <Navbar />
       <style>
         {`
@@ -71,7 +71,7 @@ function PrivacyPolicy() {
           }
         `}
       </style>
-      <div className="page-wrapper privacy-policy-page">
+      <div className="page-wrapper">
         <motion.div className="overline-wrapper" {...sectionReveal}>
           <div className="icon-section-dot"></div>
           <h2 className="text-projectpage-overline">LEGAL</h2>

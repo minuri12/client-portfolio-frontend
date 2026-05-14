@@ -247,6 +247,7 @@ function PrivacyPolicy() {
           ` }}
         >
         </motion.div>
+        <Footer />
       </div>
    
     </div>

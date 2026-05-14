@@ -3,8 +3,8 @@
   
   display: flex;
   position: relative;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 0;
+  margin-right: 0;
   color: white;
 }
 
@@ -59,8 +59,9 @@
   max-width: 100%;
   display: flex;
   margin: 0;
-  padding: 0 40px;
+  padding: 0;
   box-sizing: border-box;
+  margin-bottom: 80px;
 }
 
 .footer-bottom-wrapper {
@@ -70,6 +71,7 @@
   align-self: stretch;
   align-items: flex-end;
   display: flex;
+    margin-bottom: 80px;
 }
 
 .footer-bottom-left,

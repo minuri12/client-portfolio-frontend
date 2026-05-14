@@ -718,12 +718,9 @@ const testimonials = [
             </div>
           </div>
         </motion.section>
+        <Footer />
       </div>
-{/* Section 8: Footer */}
- 
-      
     </div>
-    
 
   );
 }

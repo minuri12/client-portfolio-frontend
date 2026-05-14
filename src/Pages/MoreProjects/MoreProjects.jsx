@@ -4,6 +4,7 @@ import styles from './MoreProjects.module.css';
 import { motion } from 'framer-motion';
 import axios from 'axios';
 import Navbar from '../../Components/Navbar/Navbar';
+import Footer from '../../Components/Footer/Footer';
 import Arrow from '../../Assets/right-arrow.png'; // Import Arrow icon
 
 // Fallback thumbnail image
@@ -200,6 +201,7 @@ function MoreProjects() {
                     )}
                 </>
             )}
+            <Footer />
             </motion.div>
         </div>
     );

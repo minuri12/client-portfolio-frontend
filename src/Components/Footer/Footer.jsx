@@ -4,6 +4,8 @@ import Mini_Logo from "../../Assets/Mini_Logo.png";
 import './Footer.css';
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer id="section-8" className="section-footer">
       <div className="container-footer">
@@ -20,8 +22,8 @@ function Footer() {
           </div>
         </div>
         <div className="footer-bottom-wrapper">
-          <div className="footer-copyright-column">
-            <div className="text-footer-copyright">© 2024 Minuri Hewage.</div>
+          <div className="footer-copyright-column"> 
+            <div className="text-footer-copyright">© {currentYear} Minuri Hewage.</div>
             <div className="text-under-copyright">Designed with precision and care.</div>
           </div>
           <div className="footer-legal-links">

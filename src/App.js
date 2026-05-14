@@ -43,8 +43,6 @@ function AppContent() {
         <Route path="*" element={<NotFound />} />
       </Routes>
 
-      {!isLoadingPage && <Footer />}
-
       {!isLoadingPage && (
         <a
           href="https://wa.me/94713775404?text=Hi%20Minuri%2C%20I%20would%20like%20to%20chat%20about%20your%20services."

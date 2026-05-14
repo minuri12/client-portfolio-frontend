@@ -538,10 +538,8 @@ function Info() {
           </div>
         </motion.div>
 
+        <Footer />
       </div>
-
-   
-
     </div>
   );
 }

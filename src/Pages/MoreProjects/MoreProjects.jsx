@@ -20,6 +20,13 @@ function MoreProjects() {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
 
+    const sectionReveal = {
+        initial: { opacity: 0, y: 50 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.2 },
+        transition: { duration: 0.8, ease: "easeOut" },
+    };
+
     useEffect(() => {
         window.scrollTo(0, 0);
         document.title = 'More Projects';
@@ -91,7 +98,21 @@ function MoreProjects() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 1.5, ease: "easeOut" }}
             >
-                <h2 className={styles.Volhead}>More Projects</h2>
+               <motion.div
+        className="overline-wrapper"
+        {...sectionReveal}
+      >
+        <div className="icon-section-dot"></div>
+        <h2 className="text-projectpage-overline">ABOUT ME</h2>
+      </motion.div>
+      <br />
+      <br />
+      <motion.div
+        className="text-hero info-hero"
+        {...sectionReveal}
+      >
+        I design, manage, and build <span>interactive</span> digital experiences that people genuinely enjoy.
+      </motion.div>
 
             {loading && <div className={styles.loading}>Loading projects...</div>}
             {error && <div className={styles.error}>{error}</div>}

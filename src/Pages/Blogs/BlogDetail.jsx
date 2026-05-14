@@ -318,64 +318,65 @@ function BlogDetail() {
           </div>
         </motion.div>
         
-        {/* Changed the framer-motion viewport threshold from amount: 0.2 to amount: 0.05 */}
-        <motion.div
-          className='blog-hero-image'
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.05 }}
-        >
-          <img src={getCoverImage(blog.coverImage)} alt={blog.title} loading="lazy" />
-        </motion.div>
-        
-        <motion.div
-          className='blog-article'
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.05 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.05 }}
-        >
-          <h1 className='blog-article-title'>
-            {blog.title}
-          </h1>
-
-          <div
-            className='blog-article-content rich-content' 
-            dangerouslySetInnerHTML={{ __html: blog.content }}
-          />
-        </motion.div>
-
-        {relatedBlogs.length > 0 && (
+        <div className="blog-main-layout">
           <motion.div
-            className='related-blogs-section'
+            className='blog-article'
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.05 }}
           >
-            <h2 className='related-blogs-title'>Let's Talk Everything</h2>
-            <div className='related-blogs-grid'>
-              {relatedBlogs.map((relatedBlog, index) => (
-                <motion.div
-                  key={relatedBlog._id}
-                  className='related-blog-card'
-                  onClick={() => handleRelatedBlogClick(relatedBlog._id)}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ y: -4, scale: 1.05 }}
-                  viewport={{ once: true, amount: 0.15 }}
-                  transition={{ duration: 0.6, ease: 'easeOut', delay: 0.25 + index * 0.06 }}
-                >
-                  <div className='related-blog-image'>
-                    <img src={getCoverImage(relatedBlog.coverImage)} alt={relatedBlog.title} loading="lazy" />
-                  </div>
-                  <h3 className='related-blog-title'>{relatedBlog.title}</h3>
-                </motion.div>
-              ))}
-            </div>
+            <motion.div
+              className='blog-hero-image'
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.05 }}
+            >
+              <img src={getCoverImage(blog.coverImage)} alt={blog.title} loading="lazy" />
+            </motion.div>
+
+            <h1 className='blog-article-title'>
+              {blog.title}
+            </h1>
+
+            <div
+              className='blog-article-content rich-content' 
+              dangerouslySetInnerHTML={{ __html: blog.content }}
+            />
           </motion.div>
-        )}
+
+          {relatedBlogs.length > 0 && (
+            <motion.div
+              className='related-blogs-section'
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+            >
+              <h2 className='related-blogs-title'>Relevant Articles</h2>
+              <div className='related-blogs-grid'>
+                {relatedBlogs.map((relatedBlog, index) => (
+                  <motion.div
+                    key={relatedBlog._id}
+                    className='related-blog-card'
+                    onClick={() => handleRelatedBlogClick(relatedBlog._id)}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{ y: -4, scale: 1.05 }}
+                    viewport={{ once: true, amount: 0.15 }}
+                    transition={{ duration: 0.6, ease: 'easeOut', delay: 0.25 + index * 0.06 }}
+                  >
+                    <div className='related-blog-image'>
+                      <img src={getCoverImage(relatedBlog.coverImage)} alt={relatedBlog.title} loading="lazy" />
+                    </div>
+                    <h3 className='related-blog-title'>{relatedBlog.title}</h3>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -250,7 +250,7 @@ function Projects() {
       <div className="line2">""</div>
       <br />
       <br />
-      <div class="text-projectpage-heading next-project">Next project:</div>
+      <div className="text-projectpage-heading next-project">Next project:</div>
       <br />
       <br />
       <div className="card nextpro card2">

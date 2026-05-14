@@ -250,10 +250,10 @@ function Projects() {
       <div className="line2">""</div>
       <br />
       <br />
-      <div class="text-projectpage-heading next-project">Next project:</div>
+      <div className="text-projectpage-heading next-project">Next project:</div>
       <br />
       <br />
-      <div className="card nextpro card3">
+      <div className="card nextpro card1" style={{ width: '100%', margin: '0 auto' }}>
         <Link to="/projects" className="LinkTest">
           <div className="project-card-outline">
             <div className="project-card-outline2">

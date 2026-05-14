@@ -27,53 +27,20 @@ import { motion } from "framer-motion";
 import { InteractiveHoverButton } from "./InteractiveHoverButton";
 
 const TARGET_TEXT = "Get In Touch";
-const CYCLES_PER_LETTER = 2;
-const SHUFFLE_TIME = 50;
-const CHARS = "!@#$%^&*():{};|,.<>/?";
 
 const ScrambleButton = () => {
-  const intervalRef = useRef(null);
-  const [text, setText] = useState(TARGET_TEXT);
-
-  const scramble = () => {
-    let pos = 0;
-    intervalRef.current = setInterval(() => {
-      const scrambled = TARGET_TEXT.split("")
-        .map((char, index) => {
-          if (pos / CYCLES_PER_LETTER > index) {
-            return char;
-          }
-          const randomCharIndex = Math.floor(Math.random() * CHARS.length);
-          return CHARS[randomCharIndex];
-        })
-        .join("");
-      setText(scrambled);
-      pos++;
-      if (pos >= TARGET_TEXT.length * CYCLES_PER_LETTER) {
-        stopScramble();
-      }
-    }, SHUFFLE_TIME);
-  };
-
-  const stopScramble = () => {
-    clearInterval(intervalRef.current || undefined);
-    setText(TARGET_TEXT);
-  };
-
   return (
     <a
       href="https://wa.me/94713775404?text=Hi%20Minuri%2C%20I%20would%20like%20to%20chat%20about%20your%20services."
       target="_blank"
       rel="noreferrer"
       className="contactbtn group"
-      onMouseEnter={scramble}
-      onMouseLeave={stopScramble}
     >
       <motion.div
         whileTap={{ scale: 0.95 }}
         className="Touch relative overflow-hidden"
       >
-        <span className="relative z-10">{text}</span>
+        <span className="relative z-10">{TARGET_TEXT}</span>
       </motion.div>
     </a>
   );
@@ -548,7 +515,7 @@ const testimonials = [
           transition={{ duration: 0.7, ease: "easeOut" }}
           style={{ marginTop: "56px" }}
         >
-          <Link to="/more-projects" className="LinkTest" data-cursor="pointer">
+          <Link to="/more-projects" className="Centerbtn " data-cursor="pointer">
             <InteractiveHoverButton>More Projects</InteractiveHoverButton>
           </Link>
         </motion.div>
@@ -653,7 +620,7 @@ const testimonials = [
           )}
 
           <div className="recent-blogs-more-wrap">
-            <Link to="/blogs" className="LinkTest" data-cursor="pointer">
+            <Link to="/blogs" className="Centerbtn " data-cursor="pointer">
               <InteractiveHoverButton>View More</InteractiveHoverButton>
             </Link>
           </div>

@@ -248,7 +248,7 @@ input:checked + .slider {
   height: 40px;
   height: 40px;
   outline: 1px solid rgba(255, 255, 255, 0.08);
-  transition: outline 0.3s linear;
+  transition: background-color 0.3s ease, outline 0.3s ease;
   box-shadow: 3px 3px 5px rgba(12, 12, 12, 0.267);
   border-radius: 10px;
   justify-content: center;
@@ -261,6 +261,7 @@ input:checked + .slider {
 .Logo_Social1 img {
   justify-content: center;
   align-items: center;
+  transition: filter 0.3s ease;
   width: 20px;
 }
 
@@ -269,7 +270,7 @@ input:checked + .slider {
   height: 40px;
   height: 40px;
   outline: 1px solid rgba(255, 255, 255, 0.08);
-  transition: outline 0.3s linear;
+  transition: background-color 0.3s ease, outline 0.3s ease;
   box-shadow: 3px 3px 5px rgba(12, 12, 12, 0.267);
   border-radius: 10px;
   align-items: center;
@@ -283,6 +284,7 @@ input:checked + .slider {
   justify-content: center;
   align-items: center;
   width: 20px;
+  transition: filter 0.3s ease;
 }
 .Touch {
   height: 40px;
@@ -305,27 +307,56 @@ input:checked + .slider {
 
 .Logo_Social1:hover,
 .Logo_Social2:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  outline: 1px solid #0af7ff;
-  color: #0af7ff;
-  box-shadow: 0 0 15px rgba(10, 247, 255, 0.15);
+  background-color: #ffffff;
+}
+
+.Logo_Social1:hover img,
+.Logo_Social2:hover img {
+  filter: brightness(0);
 }
 
 @keyframes buttonPulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
-  }
-  100% {
+  0%, 100% {
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    /* Removed continuous scaling as per user request "Not zoom in zoom out one" */
+    /* The button will now only have a glow pulse, no size change from this animation */
+    box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
   }
 }
 
+@keyframes shimmerSweep {
+  0% { left: -100%; }
+  25%, 100% { left: 100%; }
+}
+
 .contactbtn .Touch {
-  animation: buttonPulse 2s infinite;
+  animation: buttonPulse 2s infinite ease-in-out;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  /* Ensure smooth transition for hover effects */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contactbtn .Touch:hover {
+  transform: scale(1.02); /* Subtle scale on hover */
+}
+
+.contactbtn .Touch::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: skewX(-20deg);
+  animation: shimmerSweep 4s infinite linear;
+  pointer-events: none;
 }
 
 /* Remove animation and extra borders from icon-only buttons (Behance & Instagram) */

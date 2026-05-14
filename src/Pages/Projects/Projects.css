@@ -168,11 +168,7 @@
   width: 100%;
 }
 
-.nextpro {
-  width: 100%;
-}
-
-.section-banner {
+ .section-banner {
   z-index: 1;
   flex-direction: column;
   align-items: center;
@@ -250,7 +246,15 @@ body {
 }
 
 .LinkTest {
-  text-decoration: underline;
+  text-decoration: none;
+
+  
+  width: 100%;
+}
+
+.Centerbtn {
+  display: flex;
+  text-decoration: none;
 }
 
 .cover {
@@ -278,8 +282,11 @@ body {
     padding: 0 16px 48px;
   }
 
-  .nextpro {
-    display: contents;
+  .card.nextpro {
+    width: auto !important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+    margin-top: 32px !important;
   }
   .cover {
     height: 230px;

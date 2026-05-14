@@ -1,5 +1,6 @@
 .MoreProjects {
-    padding: 0 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     background: #000000;
 }
 
@@ -7,13 +8,13 @@
     font-size: 2.5rem;
     font-weight: 400;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 0;
     margin-bottom: 3rem;
     color: #ffffff;
     font-family: 'Open Sans', sans-serif;
 }
 
-.MoreProjects > div:first-of-type { /* Target the motion.div wrapper */
+.contentWrapper { /* Target the motion.div wrapper */
     margin-top: 80px; /* 80px gap from the bottom of Navbar */
     padding: 0 2rem; /* Add back horizontal padding */
     color: #ffffff;
@@ -210,8 +211,8 @@
         font-size: 2rem;
         margin-bottom: 2rem;
     }
-    .MoreProjects > div:first-of-type {
-        margin-top: 60px; /* 60px gap for mobile */
+    .contentWrapper {
+        margin-top: 80px; /* Updated to 80px gap as requested */
         padding: 0 1.5rem;
     }
 
@@ -235,15 +236,16 @@
 
 @media (max-width: 480px) {
     .MoreProjects {
-        padding: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     .Volhead {
         font-size: 1.5rem;
         margin-bottom: 1.5rem;
     }
-    .MoreProjects > div:first-of-type {
-        margin-top: 60px; /* 60px gap for mobile */
+    .contentWrapper {
+        margin-top: 80px; /* Updated to 80px gap as requested */
         padding: 0 1rem;
     }
 

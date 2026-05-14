@@ -34,7 +34,8 @@
 .info-page,
 .blogs-page,
 .privacy-policy-page,
-.blog-detail-page {
+.blog-detail-page,
+.more-projects-page {
   padding-top: 120px;
 }
 
@@ -1423,6 +1424,7 @@ tbody td {
 .testimonial-card {
   background: linear-gradient(to right, #040404, #080808); /* Match service card gradient */
   border: 1px solid #FFFFFF14; /* Match service card border */
+  border: 1.5px solid rgba(255, 255, 255, 0.12); /* Match service card border */
   border-radius: 24px;
   padding: 32px;
   display: flex;

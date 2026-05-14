@@ -81,8 +81,11 @@ function MoreProjects() {
 
     return (
         <div className={`${styles.MoreProjects} more-projects-page`}>
-            <Navbar />
+            <div className="section-nav">
+                <Navbar />
+            </div>
             <motion.div
+                className={styles.contentWrapper}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}

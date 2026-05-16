@@ -1769,7 +1769,7 @@ tbody td {
 
 /* Tablet portrait / mobile landscape */
 @media (max-width: 768px) {
-  .page-wrapper { padding: 0 16px; }
+  .page-wrapper { padding: 0 0px; }
 
   .recent-blogs-section {
     margin-top: 0px;
@@ -1973,7 +1973,7 @@ tbody td {
 
 /* Small mobile */
 @media (max-width: 480px) {
-  .page-wrapper { padding: 0 16px; }
+  .page-wrapper { padding: 0 0px; }
 
   .pagecontent {
     padding-top: 108px;

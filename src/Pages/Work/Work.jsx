@@ -53,7 +53,7 @@ function Home() {
   const [blogsLoading, setBlogsLoading] = useState(true);
   const [blogsError, setBlogsError] = useState("");
   const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 900);
-  const [isSmallMobile, setIsSmallMobile] = useState(window.innerWidth <= 375);
+  const [isSmallMobile, setIsSmallMobile] = useState(window.innerWidth <= 768);
   const [activeIndex, setActiveIndex] = useState(0);
   const testimonialsWrapperRef = useRef(null);
 
@@ -149,7 +149,7 @@ const testimonials = [
   useEffect(() => {
     const handleResize = () => {
       setIsMobileView(window.innerWidth <= 900);
-      setIsSmallMobile(window.innerWidth <= 375);
+      setIsSmallMobile(window.innerWidth <= 768);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

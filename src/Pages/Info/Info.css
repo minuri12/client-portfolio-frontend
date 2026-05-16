@@ -709,7 +709,7 @@
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 768px) {
 
   element.style {
     margin-top: 30px;

@@ -194,7 +194,7 @@ function Info() {
   const [isAboutVideoPlaying, setIsAboutVideoPlaying] = useState(false);
   const [isStoryVideoPlaying, setIsStoryVideoPlaying] = useState(false);
   const [isMobileView, setIsMobileView] = useState(() => window.innerWidth <= 900);
-  const [isSmallMobile, setIsSmallMobile] = useState(() => window.innerWidth <= 375);
+  const [isSmallMobile, setIsSmallMobile] = useState(() => window.innerWidth <= 768);
   const [activeIndex, setActiveIndex] = useState(0);
   const aboutVideoRef = useRef(null); // Used by VideoWindow
   const storyVideoRef = useRef(null);
@@ -208,7 +208,7 @@ function Info() {
   useEffect(() => {
     const handleResize = () => {
       setIsMobileView(window.innerWidth <= 900);
-      setIsSmallMobile(window.innerWidth <= 375);
+      setIsSmallMobile(window.innerWidth <= 768);
     };
 
     window.addEventListener("resize", handleResize);

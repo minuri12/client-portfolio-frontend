@@ -2063,7 +2063,7 @@ tbody td {
   display: none;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 768px) {
   .slider-wrapper {
     display: flex;
     flex-direction: row;

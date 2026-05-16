@@ -2133,4 +2133,8 @@ tbody td {
   .chapter-description {
     font-size: 16px;
   }
+
+  #section-7 {
+    margin-top: 50px !important;
+  }
 }

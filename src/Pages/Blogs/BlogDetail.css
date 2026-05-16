@@ -437,54 +437,65 @@ html.custom-cursor-active .button-project-back * {
    ======================================== */
 @media (max-width: 768px) {
   .blog-detail-page {
-    padding: 100px 0 60px;
+    padding: 60px 0 60px;
+  }
+
+  .blog-detail-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+  }
+
+  .action-bar {
+    margin-top: 10px;
+    margin-bottom: 20px;
   }
 
   .blog-main-layout {
     flex-direction: column;
-    gap: 40px;
+    gap: 32px;
+  }
+
+  .blog-article {
+    max-width: 100%;
+    width: 100%;
+    margin-top: 50px;
   }
 
   .related-blogs-section {
     width: 100%;
     position: static;
-    padding-top: 40px;
+    padding-top: 32px;
     padding-left: 0;
     border-left: none;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .related-blogs-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .blog-article-title {
     font-size: 24px;
   }
 
-  .blog-section-title {
-    font-size: 24px;
-    margin-top: 36px;
-  }
-
-  .blog-subsection-title {
-    font-size: 18px;
-    margin-top: 28px;
-  }
-
-  .blog-paragraph {
-    font-size: 18px;
-  }
-
-  .related-blogs-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  .blog-hero-image {
+    border-radius: 16px;
   }
 
   .related-blog-title {
-    font-size: 18px;
+    font-size: 16px;
+  }
+
+  .button-project-back {
+    padding: 8px 16px 8px 10px;
+  }
+
+  .rich-content {
+    font-size: 16px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 }
 
@@ -505,7 +516,7 @@ html.custom-cursor-active .button-project-back * {
   }
 
   .blog-article-title {
-    font-size: 26px;
+    font-size: 24px;
     margin-bottom: 24px;
   }
 

@@ -217,6 +217,7 @@
 @media (max-width: 768px) {
     .MoreProjects {
         padding: 1.5rem;
+        padding-top: 160px !important; /* Navbar height (120px) + 40px gap */
     }
 
     .Volhead {
@@ -224,10 +225,10 @@
         margin-bottom: 2rem;
     }
     .contentWrapper {
-        margin-top: 0; /* Handled by parent page padding-top */
+        margin-top: 0 !important;
         margin-left: 0;
         margin-right: 0;
-        padding: 0 1.5rem;
+        padding: 0 !important;
     }
 
     .moreProjectsCard :global(.project-card-outline2) {
@@ -242,6 +243,7 @@
     .projectsGrid {
         grid-template-columns: 1fr;
         gap: 16px;
+        margin-top: 50px !important;
     }
 
     .pagination {
@@ -251,8 +253,9 @@
 
 @media (max-width: 480px) {
     .MoreProjects {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-top: 160px !important; /* Navbar height (120px) + 40px gap */
     }
 
     .Volhead {
@@ -260,10 +263,10 @@
         margin-bottom: 1.5rem;
     }
     .contentWrapper { /* Handled by parent page padding-top */
-        margin-top: 0;
+        margin-top: 0 !important;
         margin-left: 0;
         margin-right: 0;
-        padding: 0 1rem;
+        padding: 0 !important;
     }
 
     .moreProjectsCard :global(.project-card-outline2) {
@@ -278,6 +281,7 @@
     .projectsGrid {
         gap: 12px;
         padding: 0;
+        margin-top: 50px !important;
     }
 
 }

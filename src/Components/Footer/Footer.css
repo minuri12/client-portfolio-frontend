@@ -143,3 +143,13 @@
     padding: 8px 4px;
   }
 }
+
+/* Tablet responsive styles (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container-footer {
+    padding: 0 40px;
+  }
+  .footer-bottom-wrapper {
+    grid-column-gap: 24px;
+  }
+}

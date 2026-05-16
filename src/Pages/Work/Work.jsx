@@ -53,6 +53,7 @@ function Home() {
   const [blogsLoading, setBlogsLoading] = useState(true);
   const [blogsError, setBlogsError] = useState("");
   const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 900);
+  const [isTabletView, setIsTabletView] = useState(window.innerWidth >= 768 && window.innerWidth <= 1024);
   const [isSmallMobile, setIsSmallMobile] = useState(window.innerWidth <= 768);
   const [activeIndex, setActiveIndex] = useState(0);
   const testimonialsWrapperRef = useRef(null);
@@ -149,6 +150,7 @@ const testimonials = [
   useEffect(() => {
     const handleResize = () => {
       setIsMobileView(window.innerWidth <= 900);
+      setIsTabletView(window.innerWidth >= 768 && window.innerWidth <= 1024);
       setIsSmallMobile(window.innerWidth <= 768);
     };
     window.addEventListener("resize", handleResize);
@@ -180,7 +182,7 @@ const testimonials = [
   }, [API_BASE_URL]);
 
   useEffect(() => {
-    if (!isMobileView) return;
+    if (!isMobileView && !isTabletView) return;
 
     const serviceCards = document.querySelectorAll("#section-5 .service-card");
     const projectCards = document.querySelectorAll("#section-4 .card");
@@ -223,7 +225,7 @@ const testimonials = [
         card.style.filter = "";
       });
     };
-  }, [isMobileView]);
+  }, [isMobileView, isTabletView]);
 
   const getCoverImage = (coverImage, optimize = true) => {
     if (!coverImage) return Project1;

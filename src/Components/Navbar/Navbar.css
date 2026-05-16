@@ -448,3 +448,15 @@ a {
     margin-right: 0;
   }
 }
+
+/* Tablet responsive styles (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .Navbar {
+    margin: 30px 40px;
+  }
+
+  .nav-pill-wrapper {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}

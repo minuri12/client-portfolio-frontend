@@ -545,3 +545,19 @@ html.custom-cursor-active .button-project-back * {
     gap: 20px;
   }
 }
+
+/* Tablet responsive styles (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .blog-detail-container {
+    padding: 0 40px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .blog-main-layout {
+    gap: 40px;
+  }
+  .related-blogs-section {
+    width: 280px;
+    padding-left: 20px;
+  }
+}

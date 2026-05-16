@@ -389,3 +389,16 @@ html.custom-cursor-active .blog-card * {
 .blogs-error {
   color: #ff6b6b;
 }
+
+/* Tablet responsive styles (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .blogs-container {
+    padding: 0 40px;
+  }
+  .blogs-layout {
+    gap: 30px;
+  }
+  .blogs-sidebar {
+    width: 160px;
+  }
+}

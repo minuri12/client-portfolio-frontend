@@ -753,7 +753,7 @@ input:checked + .slider {
   outline-offset: -1px;
 
   border-radius: 24px;
-  outline: 1px solid rgba(242, 242, 242, 0.3);
+  outline: 1px solid rgba(146, 146, 146, 0.3);
   align-self: stretch;
   padding: 8px;
   position: relative;
@@ -765,14 +765,9 @@ input:checked + .slider {
 
 .project-card-outline2 {
   outline-offset: -1px;
-  background: linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.164),
-      rgba(255, 255, 255, 0) 70%
-    ),
-    rgba(242, 242, 242, 0.02);
+  background: linear-gradient(145deg, rgb(35 35 35), #000000 70%), rgb(0 0 0);
   border-radius: 24px;
-  outline: 1px solid rgba(242, 242, 242, 0.3);
+  outline: 1px solid rgba(255, 255, 255, 0.08);
   align-self: stretch;
   padding: 8px;
   position: relative;

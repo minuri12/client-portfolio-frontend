@@ -14,7 +14,6 @@ import MoreProjects from "./Pages/MoreProjects/MoreProjects";
 import NotFound from "./Pages/NotFound/NotFound";
 import WhatsAppIcon from "./Assets/WhatsAppIcon.png";
 import CustomCursor from "./Components/CustomCursor";
-import Footer from "./Components/Footer/Footer";
 import CookieConsent from "react-cookie-consent";
 import PrivacyPolicy from "./Components/Footer/PrivacyPolicy"; // Corrected path
 import TermsConditions from "./Components/Footer/TermsConditions"; // Corrected path
@@ -44,15 +43,17 @@ function AppContent() {
       </Routes>
 
       {!isLoadingPage && (
-        <a
-          href="https://wa.me/94713775404?text=Hi%20Minuri%2C%20I%20would%20like%20to%20chat%20about%20your%20services."
-          target="_blank"
-          rel="noreferrer"
-          className="whatsapp-float"
-          aria-label="Open WhatsApp chat"
-        >
-          <img src={WhatsAppIcon} alt="WhatsApp" className="whatsapp-float-icon" />
-        </a>
+        <>
+          <a
+            href="https://wa.me/94713775404?text=Hi%20Minuri%2C%20I%20would%20like%20to%20chat%20about%20your%20services."
+            target="_blank"
+            rel="noreferrer"
+            className="whatsapp-float"
+            aria-label="Open WhatsApp chat"
+          >
+            <img src={WhatsAppIcon} alt="WhatsApp" className="whatsapp-float-icon" />
+          </a>
+        </>
       )}
       <CookieConsent
         location="bottom"

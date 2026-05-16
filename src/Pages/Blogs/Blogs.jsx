@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Blogs.css';
 import Navbar from '../../Components/Navbar/Navbar';
+import Footer from '../../Components/Footer/Footer';
 import { motion } from 'framer-motion';
 
 // Fallback thumbnail image
@@ -254,6 +255,7 @@ function Blogs() {
             )}
           </div>
         </div>
+        <Footer />
       </div>
     </div>
   );

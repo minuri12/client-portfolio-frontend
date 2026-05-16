@@ -3,6 +3,7 @@ import Arrow from "../../Assets/right-arrow.png";
 import { Link } from "react-router-dom";
 import Project3 from "../../Assets/Project3.png";
 import Procover2 from "../../Assets/Project2Cover.png";
+import Footer from "../../Components/Footer/Footer";
 import ProImg from "../../Assets/ProImg.png";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -273,6 +274,7 @@ function Projects() {
         </Link>
       </div>
 
+      <Footer />
       </div>
     </div>
   );

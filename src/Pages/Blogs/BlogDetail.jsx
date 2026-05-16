@@ -4,6 +4,7 @@ import axios from 'axios';
 import './BlogDetail.css';
 import { motion } from 'framer-motion';
 import Navbar from '../../Components/Navbar/Navbar';
+import Footer from '../../Components/Footer/Footer';
 import Arrow from '../../Assets/right-arrow.png';
 
 // Fallback image
@@ -377,6 +378,7 @@ function BlogDetail() {
             </motion.div>
           )}
         </div>
+        <Footer />
       </div>
     </div>
   );

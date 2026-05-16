@@ -2,6 +2,7 @@ import "./Projects.css";
 import { useEffect } from "react";
 import Arrow from "../../Assets/right-arrow.png";
 import Procover1 from "../../Assets/Project1Cover.png";
+import Footer from "../../Components/Footer/Footer";
 import ProImg from "../../Assets/ProImg.png";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -280,6 +281,7 @@ function Projects() {
         </Link>
       </div>
 
+      <Footer />
       </div>
     </div>
   );

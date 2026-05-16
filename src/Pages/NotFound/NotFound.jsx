@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
+import Footer from "../../Components/Footer/Footer";
 import { motion } from "framer-motion";
 import "./NotFound.css";
 
@@ -55,6 +56,7 @@ function NotFound() {
           >
           </motion.div>
         </motion.div>
+        <Footer />
       </div>
     </div>
   );

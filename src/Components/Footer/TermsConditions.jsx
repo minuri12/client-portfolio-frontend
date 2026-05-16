@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
-import Footer from "../../Components/Footer/Footer";
 import { motion } from "framer-motion";
 import "../../Pages/Work/Work.css";
+import Footer from "../../Components/Footer/Footer";
 
 function TermsConditions() {
   useEffect(() => {

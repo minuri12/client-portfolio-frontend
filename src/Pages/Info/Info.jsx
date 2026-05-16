@@ -19,8 +19,8 @@ import Arrow from "../../Assets/right-arrow.png";
 import behance from "../../Assets/behance.png";
 import Mini_Logo from "../../Assets/Mini_Logo.png";
 import { Link } from "react-router-dom";
-import Footer from "../../Components/Footer/Footer";
 import "../Work/Work.css";
+import Footer from "../../Components/Footer/Footer";
 import { useEffect, useRef, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../Components/Navbar/Navbar";
@@ -552,7 +552,6 @@ function Info() {
             </div>
           </div>
         </motion.div>
-
         <Footer />
       </div>
     </div>

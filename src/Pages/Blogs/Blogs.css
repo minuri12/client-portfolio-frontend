@@ -239,7 +239,11 @@ html.custom-cursor-active .blog-card * {
 
   .category-btn {
     font-size: 16px;
-     width: 80px;
+    width: 80px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .blog-card {

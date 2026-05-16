@@ -155,7 +155,7 @@ input:checked + .slider {
 
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 3px 3px 5px rgba(12, 12, 12, 0.267);
-  border-radius: 48px;
+  border-radius: 24px;
   display: flex;
   flex: none;
   flex-direction: column;
@@ -192,7 +192,7 @@ input:checked + .slider {
   align-items: flex-start;
   align-self: start;
   background-color: rgb(13, 13, 13);
-  border-radius: 50px;
+  border-radius: 24px;
   display: flex;
   flex: none;
   flex-direction: column;
@@ -790,7 +790,7 @@ input:checked + .slider {
 .card:hover .project-card-outline2 {
   background: linear-gradient(
     to bottom,
-    rgba(5, 146, 228, 0.432),
+    rgb(5, 146, 228),
     #0a0a0a 90%
   );
 }
@@ -798,7 +798,7 @@ input:checked + .slider {
 .card1:hover .project-card-outline2 {
   background: linear-gradient(
     to bottom,
-    rgba(228, 139, 5, 0.726),
+    rgb(228, 139, 5),
     #0a0a0a 90%
   );
 }
@@ -806,7 +806,7 @@ input:checked + .slider {
 .card2:hover .project-card-outline2 {
   background: linear-gradient(
     to bottom,
-    rgba(0, 4, 49, 0.788),
+    rgb(0, 4, 49),
     #0a0a0a 90%
   );
 }
@@ -814,7 +814,7 @@ input:checked + .slider {
 .card3:hover .project-card-outline2 {
   background: linear-gradient(
     to bottom,
-    rgba(179, 7, 127, 0.534),
+    rgb(179, 7, 127),
     #0a0a0a 90%
   );
 }

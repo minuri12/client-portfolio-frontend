@@ -1474,17 +1474,14 @@ tbody td {
   width: 400px;
 }
 
-.testimonial-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.2);
-}
+
 
 .testimonial-quote {
   color: rgba(255, 255, 255, 0.2);
 }
 
 .testimonial-text {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
   flex-grow: 1;
@@ -2055,5 +2052,64 @@ tbody td {
 
   .VolExperiance {
     margin-bottom: 50px;
+  }
+}
+
+.slider-wrapper {
+  display: contents;
+}
+
+.mobile-arrow {
+  display: none;
+}
+
+@media (max-width: 375px) {
+  .slider-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 44px;
+    gap: 5px;
+  }
+
+  .mobile-arrow {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    flex-shrink: 0;
+    padding: 0 5px;
+    user-select: none;
+  }
+
+  .testimonials-marquee-wrapper {
+    margin-top: 0 !important;
+    overflow: hidden !important;
+    flex: 1;
+  }
+
+  .testimonials-track {
+    display: flex !important;
+    animation: none !important;
+    transform: translateX(var(--slider-translate, 0%)) !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    width: 100% !important;
+    transition: transform 0.5s ease;
+  }
+
+  .testimonial-card {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    margin: 0 !important;
+    scroll-snap-align: none !important;
+  }
+
+  .testimonial-controls-mobile {
+    display: none !important;
   }
 }

@@ -194,6 +194,8 @@ function Info() {
   const [isAboutVideoPlaying, setIsAboutVideoPlaying] = useState(false);
   const [isStoryVideoPlaying, setIsStoryVideoPlaying] = useState(false);
   const [isMobileView, setIsMobileView] = useState(() => window.innerWidth <= 900);
+  const [isSmallMobile, setIsSmallMobile] = useState(() => window.innerWidth <= 375);
+  const [activeIndex, setActiveIndex] = useState(0);
   const aboutVideoRef = useRef(null); // Used by VideoWindow
   const storyVideoRef = useRef(null);
   const testimonialsWrapperRef = useRef(null);
@@ -206,6 +208,7 @@ function Info() {
   useEffect(() => {
     const handleResize = () => {
       setIsMobileView(window.innerWidth <= 900);
+      setIsSmallMobile(window.innerWidth <= 375);
     };
 
     window.addEventListener("resize", handleResize);
@@ -359,35 +362,47 @@ function Info() {
           {...sectionReveal}
         >
           <h2 className="Volhead">People I’ve Worked With</h2>
-          <div className="testimonials-marquee-wrapper" ref={testimonialsWrapperRef}>
-            <div className="testimonials-track" key={isMobileView ? "mobile-test" : "desktop-test"}>
-              {(isMobileView ? testimonials : [...testimonials, ...testimonials]).map((t, index) => (
-                <div key={`${t.id}-${index}`} className="testimonial-card">
-                <div className="testimonial-quote">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C20.1216 16 21.017 15.1046 21.017 14V9C21.017 7.89543 20.1216 7 19.017 7H15.017C13.9124 7 13.017 7.89543 13.017 9V14M4.017 21L4.017 18C4.017 16.8954 4.9124 16 6.017 16H9.017C10.1216 16 11.017 15.1046 11.017 14V9C11.017 7.89543 10.1216 7 9.017 7H5.017C3.9124 7 3.017 7.89543 3.017 9V14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <p className="testimonial-text">"{t.text}"</p>
-                <div className="testimonial-author">
-                  <div className="author-info">
-                    <div className="author-name">{t.name}</div>
-                    <div className="author-role">{t.role}</div>
+          <div className="slider-wrapper">
+            {isSmallMobile && (
+              <button className="mobile-arrow" onClick={() => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}>‹</button>
+            )}
+            <div className="testimonials-marquee-wrapper" ref={testimonialsWrapperRef}>
+              <div 
+                className="testimonials-track" 
+                key={isSmallMobile ? "small-mobile-test" : (isMobileView ? "mobile-test" : "desktop-test")}
+                style={isSmallMobile ? { "--slider-translate": `-${activeIndex * 100}%` } : {}}
+              >
+                {(isMobileView ? testimonials : [...testimonials, ...testimonials]).map((t, index) => (
+                  <div key={`${t.id}-${index}`} className="testimonial-card">
+                  <div className="testimonial-quote">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C20.1216 16 21.017 15.1046 21.017 14V9C21.017 7.89543 20.1216 7 19.017 7H15.017C13.9124 7 13.017 7.89543 13.017 9V14M4.017 21L4.017 18C4.017 16.8954 4.9124 16 6.017 16H9.017C10.1216 16 11.017 15.1046 11.017 14V9C11.017 7.89543 10.1216 7 9.017 7H5.017C3.9124 7 3.017 7.89543 3.017 9V14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                   </div>
-                  {t.linkedin && (
-                    <a href={t.linkedin} target="_blank" rel="noopener noreferrer" className="testimonial-linkedin" aria-label={`${t.name}'s LinkedIn Profile`}>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                      </svg>
-                    </a>
-                  )}
+                  <p className="testimonial-text">"{t.text}"</p>
+                  <div className="testimonial-author">
+                    <div className="author-info">
+                      <div className="author-name">{t.name}</div>
+                      <div className="author-role">{t.role}</div>
+                    </div>
+                    {t.linkedin && (
+                      <a href={t.linkedin} target="_blank" rel="noopener noreferrer" className="testimonial-linkedin" aria-label={`${t.name}'s LinkedIn Profile`}>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                      </a>
+                    )}
+                  </div>
                 </div>
+                ))}
               </div>
-              ))}
             </div>
+            {isSmallMobile && (
+              <button className="mobile-arrow" onClick={() => setActiveIndex((prev) => (prev + 1) % testimonials.length)}>›</button>
+            )}
           </div>
 
-          {isMobileView && (
+          {isMobileView && !isSmallMobile && (
             <div className="testimonial-controls-mobile">
               <button className="nav-btn" onClick={() => scrollTestimonials("left")} aria-label="Previous testimonial">
                 <img src={Arrow} style={{ transform: "rotate(180deg)", width: "20px" }} alt="Prev" />

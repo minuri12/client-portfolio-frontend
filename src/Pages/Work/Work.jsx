@@ -179,10 +179,11 @@ const testimonials = [
   useEffect(() => {
     if (!isMobileView) return;
 
-    const cards = document.querySelectorAll("#section-5 .service-card");
+    const serviceCards = document.querySelectorAll("#section-5 .service-card");
+    const projectCards = document.querySelectorAll("#section-4 .card");
     let rafId;
 
-    const updateCards = () => {
+    const updateStack = (cards) => {
       const viewportHeight = window.innerHeight;
       const topOffset = 130; // Sticky distance from top (accounts for Navbar + gap)
 
@@ -202,20 +203,22 @@ const testimonials = [
         card.style.transform = `scale(${1 - progress * 0.05})`;
         card.style.filter = `brightness(${1 - progress * 0.1})`;
       });
-
-      rafId = requestAnimationFrame(updateCards);
     };
 
-    rafId = requestAnimationFrame(updateCards);
+    const runAnimation = () => {
+      updateStack(serviceCards);
+      updateStack(projectCards);
+      rafId = requestAnimationFrame(runAnimation);
+    };
+
+    rafId = requestAnimationFrame(runAnimation);
 
     return () => {
       cancelAnimationFrame(rafId);
-      document
-        .querySelectorAll("#section-5 .service-card")
-        .forEach((card) => {
-          card.style.transform = "";
-          card.style.filter = "";
-        });
+      [...serviceCards, ...projectCards].forEach((card) => {
+        card.style.transform = "";
+        card.style.filter = "";
+      });
     };
   }, [isMobileView]);
 
@@ -446,12 +449,20 @@ const testimonials = [
 
         {/* Section 4: My Projects Header and 4 Cards */}
         <section id="section-4" className="projects-container">
-        <motion.div {...sectionReveal} transition={{ duration: 0.7, ease: "easeOut" }}>
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           <h2 className="Volhead">My Projects</h2>
         </motion.div>
         <motion.div
-          className="projectSection"
-          {...sectionReveal}
+          className="projects-grid"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="card card1">
             <Link to="/projects" className="LinkTest">
@@ -498,10 +509,8 @@ const testimonials = [
               </div>
             </Link>
           </div>
-        </motion.div>
 
-        <motion.div className="projectSection" {...sectionReveal}>
-          <div className="card">
+          <div className="card" data-index="2">
             <Link to="/projects-3" className="LinkTest">
               <div className="project-card-outline">
                 <div className="project-card-outline2">

@@ -2121,4 +2121,16 @@ tbody td {
     margin-bottom: 0 !important;
     padding-bottom: 10px !important;
   }
+
+  .text-hero.info-hero {
+    font-size: 24px;
+  }
+
+  .AboutText {
+    font-size: 16px;
+  }
+
+  .chapter-description {
+    font-size: 16px;
+  }
 }

@@ -286,7 +286,7 @@ function Info() {
         <Navbar />
       </div>
 
-      <div className="info-content" style={{ marginTop: "80px" }}>
+      <div className="info-content">
       <motion.div
         className="overline-wrapper"
         {...sectionReveal}

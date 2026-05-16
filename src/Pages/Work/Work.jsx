@@ -289,10 +289,9 @@ const testimonials = [
           <div className="VolExperiance">
             <div className="carousel-container">
               <motion.div 
-                key={isMobileView ? "mobile-vol" : "desktop-vol"}
                 className="carousel-track"
-                animate={isMobileView ? { x: 0 } : { x: ["0%", "-50%"] }}
-                transition={isMobileView ? { duration: 0 } : {
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{
                   x: {
                     repeat: Infinity,
                     repeatType: "loop",
@@ -346,36 +345,32 @@ const testimonials = [
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 />
-                {/* Duplicate images for seamless loop - Desktop Only */}
-                {!isMobileView && (
-                  <>
-                    <motion.img 
-                      src={YP} 
-                      className="volunteer volunteer-yp" 
-                      alt="YP - Young Professionals"
-                    />
-                    <motion.img 
-                      src={IEEE} 
-                      className="volunteer volunteer-ieee" 
-                      alt="IEEE"
-                    />
-                    <motion.img 
-                      src={WIE} 
-                      className="volunteer volunteer-wie" 
-                      alt="WIE - Women in Engineering"
-                    />
-                    <motion.img 
-                      src={SIGHT} 
-                      className="volunteer volunteer-sight" 
-                      alt="SIGHT"
-                    />
-                    <motion.img 
-                      src={SOCS} 
-                      className="volunteer volunteer-socs" 
-                      alt="SOCS"
-                    />
-                  </>
-                )}
+                {/* Duplicate images for seamless loop */}
+                <motion.img 
+                  src={YP} 
+                  className="volunteer volunteer-yp" 
+                  alt="YP - Young Professionals"
+                />
+                <motion.img 
+                  src={IEEE} 
+                  className="volunteer volunteer-ieee" 
+                  alt="IEEE"
+                />
+                <motion.img 
+                  src={WIE} 
+                  className="volunteer volunteer-wie" 
+                  alt="WIE - Women in Engineering"
+                />
+                <motion.img 
+                  src={SIGHT} 
+                  className="volunteer volunteer-sight" 
+                  alt="SIGHT"
+                />
+                <motion.img 
+                  src={SOCS} 
+                  className="volunteer volunteer-socs" 
+                  alt="SOCS"
+                />
               </motion.div>
             </div>
           </div>
@@ -447,7 +442,7 @@ const testimonials = [
                       <div className="text-projectcard-title">MoodWave</div>
                       <div className="text-projectcard-description">
                         Check the emotions of the music.
-                      T</div>
+                      </div>
                     </div>
                     <div>
                       <img src={Arrow} className="Arrow" alt="Logo" />

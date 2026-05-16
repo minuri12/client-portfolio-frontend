@@ -17,6 +17,18 @@
   cursor: pointer;
 }
 
+.button-project-back:hover {
+  background-color: #ffffff;
+}
+
+.button-project-back:hover .text-button {
+  color: #000000;
+}
+
+.button-project-back:hover img {
+  filter: brightness(0);
+}
+
 .button-project-back img {
   transform: scaleX(-1);
   width: 20px;

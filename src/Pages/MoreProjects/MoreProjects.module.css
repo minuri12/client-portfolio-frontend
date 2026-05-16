@@ -15,7 +15,7 @@
 }
 
 .contentWrapper { /* Target the motion.div wrapper */
-    margin-top: 80px; /* 80px gap from the bottom of Navbar */
+    margin-top: 0; /* Handled by parent page padding-top */
     margin-left: 120px;
     margin-right: 120px;
     padding: 0 2rem; /* Add back horizontal padding */
@@ -173,17 +173,38 @@
     cursor: pointer;
     margin-bottom: 1rem;
     color: #ffffff;
+    padding: 10px 24px 10px 12px;
+    border-radius: 100px;
+    background-color: #f2f2f226;
+    border: 1px solid #f2f2f20a;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    width: fit-content;
+    text-decoration: none;
+}
+
+.button-project-back:hover {
+    background-color: #ffffff;
+}
+
+.button-project-back:hover .text-button {
+    color: #000000;
 }
 
 .Arrow {
     width: 20px;
     height: 20px;
     margin-right: 10px;
+    transition: filter 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.button-project-back:hover .Arrow {
+    filter: brightness(0);
 }
 
 .text-button {
     font-size: 1rem;
     color: #ffffff;
+    transition: color 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 /* Responsive Design */
@@ -203,7 +224,7 @@
         margin-bottom: 2rem;
     }
     .contentWrapper {
-        margin-top: 80px; /* Updated to 80px gap as requested */
+        margin-top: 0; /* Handled by parent page padding-top */
         margin-left: 0;
         margin-right: 0;
         padding: 0 1.5rem;
@@ -238,8 +259,8 @@
         font-size: 1.5rem;
         margin-bottom: 1.5rem;
     }
-    .contentWrapper {
-        margin-top: 80px; /* Updated to 80px gap as requested */
+    .contentWrapper { /* Handled by parent page padding-top */
+        margin-top: 0;
         margin-left: 0;
         margin-right: 0;
         padding: 0 1rem;

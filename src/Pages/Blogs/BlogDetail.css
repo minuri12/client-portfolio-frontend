@@ -32,6 +32,18 @@
   cursor: pointer;
 }
 
+.button-project-back:hover {
+  background-color: #ffffff;
+}
+
+.button-project-back:hover .text-button {
+  color: #000000;
+}
+
+.button-project-back:hover img {
+  filter: brightness(0);
+}
+
 .button-project-back img {
   transform: scaleX(-1);
   width: 20px;
@@ -58,6 +70,7 @@ html.custom-cursor-active .button-project-back * {
   font-size: 16px;
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
+  transition: color 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 /* Action Bar - Contains Back button and TTS button */

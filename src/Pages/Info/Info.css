@@ -16,7 +16,7 @@
 
 @media only screen and (max-width: 900px) {
   .info-content {
-    margin-top: 60px; /* 60px gap for mobile */
+    margin-top: 40px; /* 40px gap from the end of the Navbar */
   }
 }
 
@@ -626,7 +626,7 @@
 
 @media (max-width: 480px) {
   .info-content {
-    padding: 0 5px;
+    padding: 0 0px; /* Improved padding for 375px width */
   }
 
   .overline-wrapper {

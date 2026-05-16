@@ -1810,7 +1810,7 @@ tbody td {
   }
 
   .service-title {
-    font-size: 18px;
+    font-size: 20px;
     margin-top: 16px;
     height: auto;
   }
@@ -1973,7 +1973,7 @@ tbody td {
 
 /* Small mobile */
 @media (max-width: 480px) {
-  .page-wrapper { padding: 0 0px; }
+  .page-wrapper { padding: 0 16px; }
 
   .pagecontent {
     padding-top: 108px;
@@ -1985,7 +1985,7 @@ tbody td {
 
   .services-grid {
     gap: 16px;
-    padding: 0 16px;
+    padding: 0 0px;
   }
 
   .service-card {
@@ -2005,12 +2005,12 @@ tbody td {
   }
 
   .service-title {
-    font-size: 18px;
+    font-size: 20px;
     margin-top: 14px;
   }
 
   .service-desc {
-    font-size: 15px;
+    font-size: 16px;
     margin-top: 10px;
     line-height: 1.5;
   }

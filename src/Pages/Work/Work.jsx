@@ -184,7 +184,7 @@ const testimonials = [
 
     const updateCards = () => {
       const viewportHeight = window.innerHeight;
-      const topOffset = viewportHeight * 0.1;
+      const topOffset = 130; // Sticky distance from top (accounts for Navbar + gap)
 
       cards.forEach((card, index) => {
         if (index === cards.length - 1) return;

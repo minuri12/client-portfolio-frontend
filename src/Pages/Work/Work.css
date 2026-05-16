@@ -1801,7 +1801,7 @@ tbody td {
 
   #section-5 .service-card {
     position: sticky;
-    top: 10vh;
+    top: 130px; /* Fixed distance from top to clear the Navbar */
     width: 100%;
     transform-origin: center top;
     /* NO will-change: transform — it silently breaks sticky */
@@ -1994,7 +1994,7 @@ tbody td {
   }
 
   .services-section {
-    padding: 50px 0px;
+    padding: 0px 0px;
   }
 
   .services-grid {

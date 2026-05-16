@@ -2171,14 +2171,27 @@ tbody td {
   }
 
   .services-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 24px;
+    display: block !important;
+    gap: 0 !important;
     padding: 0;
   }
 
   .service-card {
+    position: sticky !important;
+    top: 130px !important;
     width: 100% !important;
+    transform-origin: center top !important;
+    margin-bottom: 5vh !important;
+    z-index: 1;
+  }
+
+  .service-card:nth-child(1) { z-index: 1; }
+  .service-card:nth-child(2) { z-index: 2; }
+  .service-card:nth-child(3) { z-index: 3; }
+  .service-card:nth-child(4) { z-index: 4; }
+
+  .service-card:last-child {
+    margin-bottom: 0 !important;
   }
 
   .head_name {

@@ -1793,16 +1793,30 @@ tbody td {
     padding: 60px 0px;
   }
 
-  .services-grid {
-    gap: 20px;
-    padding: 0 20px;
+  #section-5 .services-grid {
+    display: block;        /* block is safer for sticky children */
+    padding: 0 0px;
+    gap: 0;
   }
 
-  .service-card {
+  #section-5 .service-card {
+    position: sticky;
+    top: 10vh;
     width: 100%;
-    max-width: 400px;
-    padding: 28px 16px;
+    transform-origin: center top;
+    /* NO will-change: transform — it silently breaks sticky */
+    margin-bottom: 5vh;    /* small — next card peeks below, then slides over */
   }
+
+  #section-5 .service-card:last-child {
+    margin-bottom: 0;
+  }
+
+  /* z-index so later cards visually cover earlier ones */
+  #section-5 .service-card:nth-child(1) { z-index: 1; }
+  #section-5 .service-card:nth-child(2) { z-index: 2; }
+  #section-5 .service-card:nth-child(3) { z-index: 3; }
+  #section-5 .service-card:nth-child(4) { z-index: 4; }
 
   .service-badge {
     width: 44px;
@@ -1840,7 +1854,7 @@ tbody td {
   }
 
   body {
-    overflow-x: hidden;
+    overflow-x: clip; /* 'clip' trims horizontal overflow without creating a scroll container — sticky still works */
   }
 
   .main-head {

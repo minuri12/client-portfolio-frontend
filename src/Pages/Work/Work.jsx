@@ -176,6 +176,49 @@ const testimonials = [
     fetchRecentBlogs();
   }, [API_BASE_URL]);
 
+  useEffect(() => {
+    if (!isMobileView) return;
+
+    const cards = document.querySelectorAll("#section-5 .service-card");
+    let rafId;
+
+    const updateCards = () => {
+      const viewportHeight = window.innerHeight;
+      const topOffset = viewportHeight * 0.1;
+
+      cards.forEach((card, index) => {
+        if (index === cards.length - 1) return;
+
+        const nextCard = cards[index + 1];
+        const nextRect = nextCard.getBoundingClientRect();
+
+        const dist = nextRect.top - topOffset;
+        const range = viewportHeight - topOffset;
+
+        let progress = 1 - dist / range;
+        if (progress < 0) progress = 0;
+        if (progress > 1) progress = 1;
+
+        card.style.transform = `scale(${1 - progress * 0.05})`;
+        card.style.filter = `brightness(${1 - progress * 0.1})`;
+      });
+
+      rafId = requestAnimationFrame(updateCards);
+    };
+
+    rafId = requestAnimationFrame(updateCards);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      document
+        .querySelectorAll("#section-5 .service-card")
+        .forEach((card) => {
+          card.style.transform = "";
+          card.style.filter = "";
+        });
+    };
+  }, [isMobileView]);
+
   const getCoverImage = (coverImage, optimize = true) => {
     if (!coverImage) return Project1;
     
@@ -442,7 +485,7 @@ const testimonials = [
                       <div className="text-projectcard-title">MoodWave</div>
                       <div className="text-projectcard-description">
                         Check the emotions of the music.
-                      </div>
+                      T</div>
                     </div>
                     <div>
                       <img src={Arrow} className="Arrow" alt="Logo" />
@@ -520,7 +563,10 @@ const testimonials = [
         <motion.section
           id="section-5"
           className="services-section"
-          {...sectionReveal}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="services-title">
           <h2 className="Volhead">What I Do</h2>

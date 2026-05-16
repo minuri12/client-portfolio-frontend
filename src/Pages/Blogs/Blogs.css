@@ -35,7 +35,7 @@
 
 .blogs-layout {
   display: flex;
-  margin-top: 80px;
+  margin-top: 50px;
   align-items: flex-start; /* Crucial: prevents sidebar from stretching to full height */
   overflow: visible !important;
   position: relative;
@@ -238,13 +238,15 @@ html.custom-cursor-active .blog-card * {
   }
 
   .category-btn {
-    font-size: 24px;
+    font-size: 16px;
+     width: 80px;
   }
 
   .blog-card {
     flex-direction: column;
     gap: 20px;
     width: 100%;
+     padding: 0px;
   }
 
   .blog-image-container {
@@ -257,7 +259,7 @@ html.custom-cursor-active .blog-card * {
   }
 
   .blog-description {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   /* Pagination - Single row on mobile (hide page numbers) */

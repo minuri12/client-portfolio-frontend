@@ -1067,7 +1067,7 @@ tbody td {
   flex: 1;
   justify-content: space-between;
   align-self: stretch;
-  align-items: flex-end;
+
   display: flex;
 }
 
@@ -2111,5 +2111,14 @@ tbody td {
 
   .testimonial-controls-mobile {
     display: none !important;
+  }
+
+  .section-footer {
+    margin-top: 10px !important;
+  }
+
+  .part_one.second {
+    margin-bottom: 0 !important;
+    padding-bottom: 10px !important;
   }
 }

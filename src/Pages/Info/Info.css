@@ -566,7 +566,7 @@
     padding: 20px;
     width: 100%;
     min-width: 0;
-    height: auto;
+    height: 420px; /* Uniform height for all smartphones */
     min-height: auto;
     max-height: none;
   }
@@ -611,7 +611,7 @@
     line-height: 24px;
     font-weight: 100;
     font-style: italic;
-    display: block;
+    display: none;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: none;
     overflow: visible;
@@ -634,7 +634,7 @@
   }
 
   .Aboutpart {
-    margin-top: 48px;
+    margin-top: 0px;
     gap: 24px;
   }
 
@@ -660,7 +660,6 @@
   .story-card {
     padding: 16px;
     border-radius: 16px;
-    height: auto;
     min-height: auto;
     max-height: none;
     user-select: none;
@@ -670,7 +669,7 @@
 
   /* Mobile swipe hint */
   .story-card::after {
-    content: "← Swipe →";
+   
     position: absolute;
     bottom: 16px;
     left: 50%;
@@ -706,7 +705,7 @@
     font-size: 15px;
     margin-top: 16px;
     line-height: 22px;
-    display: block;
+    display: none;
     -webkit-line-clamp: none;
     overflow: visible;
   }
@@ -715,6 +714,7 @@
 @media (max-width: 375px) {
   .text-hero.info-hero {
     font-size: 24px;
+    line-height: 1.3;
   }
 
   .AboutText {
@@ -724,5 +724,47 @@
 
   .chapter-description {
     font-size: 16px;
+  }
+
+  .story-cards-stacked {
+    display: block; /* Ensure sticky positioning functions correctly for children */
+  }
+
+  .story-card-mobile {
+    position: sticky;
+    top: 130px;
+    width: 100%;
+    transform-origin: center top;
+    height: auto !important;
+    min-height: 520px !important; /* Matches cards visually while allowing Card 1 to grow */
+    box-sizing: border-box !important;
+    overflow: visible !important;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5vh; /* Replaces flex gap with margin for sticky stack */
+  }
+
+  .story-card-mobile * {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Layering for the story chapters to overlap correctly */
+  .story-card-mobile:nth-child(1) { z-index: 1; }
+  .story-card-mobile:nth-child(2) { z-index: 2; }
+  .story-card-mobile:nth-child(3) { z-index: 3; }
+  .story-card-mobile:nth-child(4) { z-index: 4; }
+
+  .talk-button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .talk-button-wrapper .LinkTest {
+    margin: 0 auto;
+    text-align: center;
   }
 }

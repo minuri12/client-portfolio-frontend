@@ -215,6 +215,52 @@ function Info() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Reusing the exact scroll animation logic from the Works page for Know About Me cards
+  useEffect(() => {
+    if (!isSmallMobile) return;
+
+    const cards = document.querySelectorAll(".story-card-mobile");
+    let rafId;
+
+    const updateStack = (cardElements) => {
+      const viewportHeight = window.innerHeight;
+      const topOffset = 130; // Sticky distance from top (accounts for Navbar + gap)
+
+      cardElements.forEach((card, index) => {
+        if (index === cardElements.length - 1) return;
+
+        const nextCard = cardElements[index + 1];
+        const nextRect = nextCard.getBoundingClientRect();
+
+        const dist = nextRect.top - topOffset;
+        const range = viewportHeight - topOffset;
+
+        let progress = 1 - dist / range;
+        if (progress < 0) progress = 0;
+        if (progress > 1) progress = 1;
+
+        // Identical scaling and brightness adjustments as implemented in Work.jsx
+        card.style.transform = `scale(${1 - progress * 0.05})`;
+        card.style.filter = `brightness(${1 - progress * 0.1})`;
+      });
+    };
+
+    const runAnimation = () => {
+      updateStack(cards);
+      rafId = requestAnimationFrame(runAnimation);
+    };
+
+    rafId = requestAnimationFrame(runAnimation);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      cards.forEach((card) => {
+        card.style.transform = "";
+        card.style.filter = "";
+      });
+    };
+  }, [isSmallMobile]);
+
   const sectionReveal = {
     initial: { opacity: 0, y: 50 },
     whileInView: { opacity: 1, y: 0 },
@@ -342,7 +388,7 @@ function Info() {
             <li>Working with kind and open-minded people</li>
           </ul>
                     <br />          <br />
-          <div className="">
+          <div className="talk-button-wrapper">
                       <a 
                         href="https://wa.me/94713775404?text=Hi%20Minuri%2C%20I%20would%20like%20to%20chat%20about%20your%20services." 
                         target="_blank" 

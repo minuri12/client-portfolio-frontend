@@ -300,7 +300,7 @@ html.custom-cursor-active .blog-card * {
   .blog-categories {
     width: 100%;
     flex-direction: row;
-    flex-wrap: wrap;
+   flex-wrap: wrap; 
     align-items: center;
   }
 
@@ -401,4 +401,21 @@ html.custom-cursor-active .blog-card * {
   .blogs-sidebar {
     width: 160px;
   }
+}
+
+@media (max-width: 820px) {
+    .blog-categories {
+        width: 100%;
+        flex-direction: row;
+                flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    .blog-card {
+    display: flex;
+    gap: 50px;
+    cursor: pointer;
+    padding: 50px;
+  padding-left: 0px;
+padding-right: 0px;}
 }

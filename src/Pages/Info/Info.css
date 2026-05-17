@@ -208,6 +208,26 @@
   animation: pulse-attention 2s infinite;
 }
 
+/* Story Cards Stacking Effect for all screen sizes */
+.story-card-mobile {
+  position: sticky;
+  top: 130px;
+  width: 100%;
+  transform-origin: center top;
+  height: auto !important;
+  min-height: 520px !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5vh;
+}
+
+.story-card-mobile:nth-child(1) { z-index: 1; }
+.story-card-mobile:nth-child(2) { z-index: 2; }
+.story-card-mobile:nth-child(3) { z-index: 3; }
+.story-card-mobile:nth-child(4) { z-index: 4; }
+
 .MePlayToggle.playing {
   opacity: 0;
   pointer-events: none;

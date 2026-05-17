@@ -467,57 +467,38 @@ function Info() {
           <div className="story-chapters" style={!isMobileView ? { marginTop: "40px" } : {}}>
             <div className="story-carousel-container">
               <div className="story-content" style={!isMobileView ? { flexDirection: 'row', alignItems: 'stretch', gap: '40px', justifyContent: 'center' } : {}}>
-                {/* Mobile view: Show all chapters stacked vertically */}
-                {isMobileView ? (
-                  <div className="story-cards-stacked">
-                    {storyChapters.map((chapter, index) => (
-                      <motion.div
-                        key={chapter.id}
-                        className="story-card story-card-mobile"
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        whileHover={{ y: -5, scale: 1.01 }}
-                        whileTap={{ scale: 0.98 }}
-                        viewport={{ once: true, amount: 0.2 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                      >
-                        <div className="story-text" style={chapter.isSpecial ? { textAlign: 'center', width: '100%', padding: '40px 0', justifyContent: 'center', alignItems: 'center' } : {}}>
-                          {chapter.isSpecial ? (
-                            <h2 style={{ color: 'white', fontSize: '24px', fontWeight: '500' }}>{chapter.title}</h2>
-                          ) : (
-                            <>
-                              <h3 className="chapter-title">
-                                Chapter {String(chapter.id).padStart(2, "0")}
-                              </h3>
-                              <p className="chapter-description">
-                                {chapter.description}
-                              </p>
-                              <p className="chapter-summary">
-                                {`"${chapter.summary}"`}
-                              </p>
-                            </>
-                          )}
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                ) : (
-                  // Desktop view: Show one chapter at a time with carousel
-                  <>
-                    <div style={{ width: '100%', height: '450px', position: 'relative', margin: '0 auto' }}>
-                      <Stack
-                        randomRotation={false}
-                        sensitivity={180}
-                        sendToBackOnClick={true}
-                        onTopCardChange={setCurrentChapter}
-                        cards={chapterCards}
-                        autoplay={true}
-                        autoplayDelay={5000}
-                        pauseOnHover={true}
-                      />
-                    </div>
-                  </>
-                )}
+                <div className="story-cards-stacked">
+                  {storyChapters.map((chapter, index) => (
+                    <motion.div
+                      key={chapter.id}
+                      className="story-card story-card-mobile"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      whileHover={{ y: -5, scale: 1.01 }}
+                      whileTap={{ scale: 0.98 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                    >
+                      <div className="story-text" style={chapter.isSpecial ? { textAlign: 'center', width: '100%', padding: '40px 0', justifyContent: 'center', alignItems: 'center' } : {}}>
+                        {chapter.isSpecial ? (
+                          <h2 style={{ color: 'white', fontSize: '24px', fontWeight: '500' }}>{chapter.title}</h2>
+                        ) : (
+                          <>
+                            <h3 className="chapter-title">
+                              Chapter {String(chapter.id).padStart(2, "0")}
+                            </h3>
+                            <p className="chapter-description">
+                              {chapter.description}
+                            </p>
+                            <p className="chapter-summary">
+                              {`"${chapter.summary}"`}
+                            </p>
+                          </>
+                        )}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
         </div>

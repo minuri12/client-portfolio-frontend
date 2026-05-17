@@ -1529,6 +1529,13 @@ tbody td {
     font-size: 33px;
   }
 
+  .second {
+  padding: 40px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
   .Date-time-section {
     font-size: 18px;
     text-align: left;
@@ -1557,8 +1564,8 @@ tbody td {
   }
 
   .head_name {
-    font-size: 34px;
-    text-align: center;
+    font-size: 44px;
+  
   }
 
   .seconDes {
@@ -1567,7 +1574,7 @@ tbody td {
   }
 
   .description {
-    font-size: 16px;
+    font-size: 18px;
     color: #ffffff;
    
     text-align: left;
@@ -1601,7 +1608,7 @@ tbody td {
   .row {
     height: auto;
     align-content: center;
-    text-align: center;
+   
     display: flex;
     flex-direction: column;
   }

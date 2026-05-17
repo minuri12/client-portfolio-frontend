@@ -1067,7 +1067,7 @@ tbody td {
   flex: 1;
   justify-content: space-between;
   align-self: stretch;
-  align-items: end;
+  align-items: center;
 
   display: flex;
 }

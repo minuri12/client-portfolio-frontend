@@ -15,7 +15,7 @@
 }
 
 .contentWrapper { /* Target the motion.div wrapper */
-    margin-top: 0; /* Handled by parent page padding-top */
+    margin-top: 120px;
     margin-left: 120px;
     margin-right: 120px;
     padding: 0 2rem; /* Add back horizontal padding */
@@ -78,7 +78,7 @@
     align-items: stretch;
     gap: 24px;
     margin-top: 100px;
-    padding: 0 1rem;
+    padding: 0 0rem;
 }
 
 .loading,
@@ -211,6 +211,17 @@
 @media (max-width: 1024px) {
     .projectsGrid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Target specifically 820px (iPad Air/Pro) to reduce card height as requested */
+@media (max-width: 820px) and (min-width: 769px) {
+    .moreProjectsCard :global(.project-card-outline2) {
+        height: 400px; /* Reduced from 480px */
+    }
+
+    .moreProjectsCard :global(.Arrow32) {
+        height: 260px; /* Reduced from 320px */
     }
 }
 

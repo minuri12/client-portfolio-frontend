@@ -195,6 +195,7 @@ function Info() {
   const [isStoryVideoPlaying, setIsStoryVideoPlaying] = useState(false);
   const [isMobileView, setIsMobileView] = useState(() => window.innerWidth <= 900);
   const [isSmallMobile, setIsSmallMobile] = useState(() => window.innerWidth <= 768);
+  const [isTestimonialMobile, setIsTestimonialMobile] = useState(() => window.innerWidth < 820);
   const [activeIndex, setActiveIndex] = useState(0);
   const aboutVideoRef = useRef(null); // Used by VideoWindow
   const storyVideoRef = useRef(null);
@@ -209,6 +210,7 @@ function Info() {
     const handleResize = () => {
       setIsMobileView(window.innerWidth <= 900);
       setIsSmallMobile(window.innerWidth <= 768);
+      setIsTestimonialMobile(window.innerWidth < 820);
     };
 
     window.addEventListener("resize", handleResize);
@@ -415,10 +417,10 @@ function Info() {
             <div className="testimonials-marquee-wrapper" ref={testimonialsWrapperRef}>
               <div 
                 className="testimonials-track" 
-                key={isSmallMobile ? "small-mobile-test" : (isMobileView ? "mobile-test" : "desktop-test")}
+                key={isSmallMobile ? "small-mobile-test" : (isTestimonialMobile ? "mobile-test" : "desktop-test")}
                 style={isSmallMobile ? { "--slider-translate": `-${activeIndex * 100}%` } : {}}
               >
-                {(isMobileView ? testimonials : [...testimonials, ...testimonials]).map((t, index) => (
+                {(isTestimonialMobile ? testimonials : [...testimonials, ...testimonials]).map((t, index) => (
                   <div key={`${t.id}-${index}`} className="testimonial-card">
                   <div className="testimonial-quote">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -448,7 +450,7 @@ function Info() {
             )}
           </div>
 
-          {isMobileView && !isSmallMobile && (
+          {isTestimonialMobile && !isSmallMobile && (
             <div className="testimonial-controls-mobile">
               <button className="nav-btn" onClick={() => scrollTestimonials("left")} aria-label="Previous testimonial">
                 <img src={Arrow} style={{ transform: "rotate(180deg)", width: "20px" }} alt="Prev" />

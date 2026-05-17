@@ -1403,6 +1403,12 @@ tbody td {
 }
 
 @media (max-width: 900px) {
+  .carousel-container {
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 819px) {
   .testimonial-controls-mobile {
     display: flex;
   }
@@ -1434,9 +1440,6 @@ tbody td {
     padding: 24px 14px;
   }
 
-  .carousel-container {
-    padding: 20px 0;
-  }
   .testimonials-marquee-wrapper::before,
   .testimonials-marquee-wrapper::after {
     display: none !important; /* Remove shadows on mobile for full card width */

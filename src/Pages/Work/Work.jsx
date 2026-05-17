@@ -55,6 +55,7 @@ function Home() {
   const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 900);
   const [isTabletView, setIsTabletView] = useState(window.innerWidth >= 768 && window.innerWidth <= 1024);
   const [isSmallMobile, setIsSmallMobile] = useState(window.innerWidth <= 768);
+  const [isTestimonialMobile, setIsTestimonialMobile] = useState(window.innerWidth < 820);
   const [activeIndex, setActiveIndex] = useState(0);
   const testimonialsWrapperRef = useRef(null);
 
@@ -152,6 +153,7 @@ const testimonials = [
       setIsMobileView(window.innerWidth <= 900);
       setIsTabletView(window.innerWidth >= 768 && window.innerWidth <= 1024);
       setIsSmallMobile(window.innerWidth <= 768);
+      setIsTestimonialMobile(window.innerWidth < 820);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -695,10 +697,10 @@ const testimonials = [
             <div className="testimonials-marquee-wrapper" ref={testimonialsWrapperRef}>
               <div 
                 className="testimonials-track" 
-                key={isSmallMobile ? "small-mobile-test" : (isMobileView ? "mobile-test" : "desktop-test")}
+                key={isSmallMobile ? "small-mobile-test" : (isTestimonialMobile ? "mobile-test" : "desktop-test")}
                 style={isSmallMobile ? { "--slider-translate": `-${activeIndex * 100}%` } : {}}
               >
-                {(isMobileView ? testimonials : [...testimonials, ...testimonials]).map((t, index) => (
+                {(isTestimonialMobile ? testimonials : [...testimonials, ...testimonials]).map((t, index) => (
                   <div key={`${t.id}-${index}`} className="testimonial-card">
                   <div className="testimonial-quote">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -728,7 +730,7 @@ const testimonials = [
             )}
           </div>
 
-          {isMobileView && !isSmallMobile && (
+          {isTestimonialMobile && !isSmallMobile && (
             <div className="testimonial-controls-mobile">
               <button className="nav-btn" onClick={() => scrollTestimonials("left")} aria-label="Previous testimonial">
                 <img src={Arrow} style={{ transform: "rotate(180deg)", width: "20px" }} alt="Prev" />

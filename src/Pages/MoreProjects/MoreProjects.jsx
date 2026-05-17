@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './MoreProjects.module.css';
 import { motion } from 'framer-motion';
 import axios from 'axios';
@@ -15,7 +15,6 @@ const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const PAGE_SIZE = 6;
 
 function MoreProjects() {
-    const navigate = useNavigate();
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -71,10 +70,6 @@ function MoreProjects() {
         return imageUrl;
     };
 
-
-    const handleBlogClick = (blogId) => {
-        navigate(`/blog/${blogId}`);
-    };
 
     const handleNextPage = () => {
         if (currentPage < totalPages) {

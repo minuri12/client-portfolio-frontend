@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import Minuri from "../../Assets/Minuri.png";
-import Mini_Logo from "../../Assets/Mini_Logo.png";
 import instergram from "../../Assets/instagram.png";
 import YP from "../../Assets/YP.png";
 import IEEE from "../../Assets/IEEE.png";
@@ -116,23 +115,6 @@ const testimonials = [
     viewport: { once: true, amount: 0.3 },
     transition: { duration: 1, ease: "easeOut" },
   };
-
-  // Carousel animation - continuous left to right movement
-  const carouselAnimation = {
-    animate: {
-      x: ["0%", "-50%"],
-    },
-    transition: {
-      x: {
-        repeat: Infinity,
-        repeatType: "loop",
-        duration: 25,
-        ease: "linear",
-      },
-    },
-  };
-
-
 
   useEffect(() => {
     window.scrollTo(0, 0);

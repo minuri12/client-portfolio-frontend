@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import BlurText from "./BlurText"; // Import the new BlurText component
-import { motion } from "framer-motion"; // Import motion from framer-motion
 
 function Loading() {
   // State to manage when the animation is complete and we can transition

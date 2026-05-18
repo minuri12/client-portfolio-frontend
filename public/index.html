@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- SEO Utility: Visually Hidden but Readable by Screen Readers/Crawlers -->
+    <style>
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
       (function(c,l,a,r,i,t,y){
@@ -19,37 +33,30 @@
       content="Explore Minuri Hewage's portfolio — a passionate Digital Product Designer and Frontend Developer building modern, responsive, and beautiful web experiences."
     />
     <meta name="keywords" content="Frontend Developer, UI Designer, Digital Product Designer, React Developer, Portfolio, Web Developer, Minuri Hewage, UI/UX Design" />
-    <meta name="author" content="Minuri" />
+    <meta name="author" content="Minuri Hewage" />
     <meta name="robots" content="index, follow" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!-- Open Graph meta tags -->
+    <meta property="og:type" content="website" />
     <meta property="og:title" content="Minuri Hewage | Digital Product Designer & Frontend Developer" />
     <meta property="og:description" content="Explore Minuri's portfolio — a passionate Digital Product Designer and Frontend Developer building modern web experiences." />
-    <meta property="og:image" content="https://www.minuri.me/preview.jpg" />
-    <meta property="og:url" content="https://www.minuri.me" />
-    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://minuri.pages.dev/home" />
+    <meta property="og:image" content="https://minuri.pages.dev/preview.jpg" />
+    <meta property="og:site_name" content="Minuri Hewage Portfolio" />
     <!-- Twitter Card meta tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Minuri | Portfolio" />
-    <meta name="twitter:description" content="Portfolio of Minuri, showcasing projects and work." />
-    <meta name="twitter:image" content="https://www.minuri.me/preview.jpg" />
+    <meta name="twitter:title" content="Minuri Hewage | Digital Product Designer & Frontend Developer" />
+    <meta name="twitter:description" content="Explore Minuri Hewage's portfolio — a passionate Digital Product Designer and Frontend Developer building modern web experiences." />
+    <meta name="twitter:image" content="https://minuri.pages.dev/preview.jpg" />
     <!-- Canonical link -->
-    <link rel="canonical" href="https://www.minuri.me" />
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+    <link rel="canonical" href="https://minuri.pages.dev/home" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
       rel="stylesheet"
@@ -72,42 +79,67 @@
 
     <!-- Structured Data -->
     <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Minuri Hewage",
-        "url": "https://minuri.me",
-        "jobTitle": "Digital Product Designer & Frontend Developer",
-        "description": "A passionate Digital Product Designer and Frontend Developer building modern web experiences.",
-        "knowsAbout": ["Frontend Development", "UI Design", "React", "JavaScript", "CSS"],
-        "sameAs": [
-          "https://github.com/minuri12",
-          "https://linkedin.com/in/mshewage",
-          "https://www.behance.net/minurihewage"
-        ]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Minuri Hewage | Portfolio",
-        "url": "https://minuri.me",
-        "description": "Portfolio of Minuri Hewage — Digital Product Designer and Developer."
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://minuri.me/home" },
-          { "@type": "ListItem", "position": 2, "name": "Blogs", "item": "https://minuri.me/blogs" },
-          { "@type": "ListItem", "position": 3, "name": "Info", "item": "https://minuri.me/info" }
-        ]
-      }
-    ]
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Minuri Hewage",
+      "jobTitle": "Digital Product Designer & Frontend Developer",
+      "url": "https://minuri.pages.dev/home",
+      "description": "Passionate Digital Product Designer and Frontend Developer building modern, responsive, and beautiful web experiences.",
+      "sameAs": [
+        "https://www.linkedin.com/in/mshewage",
+        "https://github.com/minuri12", 
+        "https://www.behance.net/minurihewage"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Minuri Hewage Portfolio",
+      "url": "https://minuri.pages.dev/" 
+    }
     </script>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <h1 class="sr-only">Minuri Hewage — Digital Product Designer & Frontend Developer</h1>
+    <nav class="sr-only" aria-label="Site sections">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <h2 class="sr-only">About Minuri Hewage</h2>
+    <h2 class="sr-only">Projects</h2>
+    <h2 class="sr-only">Skills</h2>
+    <h2 class="sr-only">Contact</h2>
+    <noscript>
+      <div>
+        <h1>Minuri Hewage | Digital Product Designer & Frontend Developer</h1>
+        <p>Explore Minuri Hewage's portfolio — a passionate Digital Product Designer and Frontend Developer building modern, responsive, and beautiful web experiences.</p>
+        
+        <h2>About</h2>
+        <p>Minuri Hewage is a Digital Product Designer and Frontend Developer based in Sri Lanka, specialising in React, JavaScript, CSS, and UI/UX design.</p>
+        
+        <h2>Projects</h2>
+        <p>A collection of modern web applications and design projects built with React, JavaScript, and cutting-edge frontend technologies.</p>
+        
+        <h2>Skills</h2>
+        <p>Frontend Development, UI/UX Design, React, JavaScript, CSS, Responsive Web Design, Digital Product Design.</p>
+        
+        <h2>Contact</h2>
+        <p>Get in touch with Minuri Hewage for frontend development and digital product design inquiries.</p>
+        
+        <nav aria-label="Site navigation">
+          <a href="/home">Home</a> |
+          <a href="/projects">Projects</a> |
+          <a href="/contact">Contact</a>
+        </nav>
+      </div>
+      <br />
+      You need to enable JavaScript to run this app.
+    </noscript>
     <div id="root"></div>
     <!--
       This HTML file is a template.

@@ -28,7 +28,7 @@ function Blogs() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'Blogs';
+    document.title = 'Blog & Articles | UI/UX & Design Insights by Minuri Hewage';
   }, []);
 
   // Scroll to top when category or page changes
@@ -203,7 +203,7 @@ function Blogs() {
                           <img src={getCoverImage(blog.coverImage)} alt={blog.title} className='blog-image' />
                         </div>
                         <div className='blog-content'>
-                          <h2 className='blog-title'>{blog.title}</h2>
+                          <h3 className='blog-title'>{blog.title}</h3>
                           <p className='blog-description'>
                             {getShortPreview(blog)}
                           </p>

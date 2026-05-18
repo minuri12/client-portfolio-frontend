@@ -197,7 +197,7 @@ function Info() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Info";
+    document.title = "About Minuri Hewage | Digital Product Designer Portfolio";
   }, []);
 
   useEffect(() => {
@@ -277,7 +277,7 @@ function Info() {
 
   return (
     <div className="info-page">
-      <h1 className="text-hero info-hero" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: 0 }}>About Minuri Hewage Digital Product Designer</h1>
+      <h1 className="text-hero info-hero" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: 0 }}>About Minuri Hewage | Digital Product Designer & Frontend Developer</h1>
       <div className="section-nav">
         <Navbar />
       </div>
@@ -490,7 +490,7 @@ function Info() {
         >
           <div className="row">
             <div className="imgholder">
-              <img src={Minuri3} className="Minuri2" alt="Logo" />
+              <img src={Minuri3} className="Minuri2" alt="Minuri Hewage Professional Portrait" />
             </div>
             <div className="text-section">
               <div className="head_name">
@@ -504,7 +504,7 @@ function Info() {
                 <div className="Logo_Social1">
                   <a href="https://www.behance.net/minurihewage" target="_blank" rel="noreferrer" className="contactbtn">
                     <div className="Touch">
-                      <img src={behance} className="logomark" alt="Logo" />
+                      <img src={behance} className="logomark" alt="Minuri Hewage Behance Profile" />
                     </div>
                   </a>
                 </div>
@@ -517,7 +517,7 @@ function Info() {
                     className="contactbtn"
                   >
                     <div className="Touch">
-                      <img src={instergram} className="logomark" alt="Logo" />{" "}
+                      <img src={instergram} className="logomark" alt="Minuri Hewage Instagram Profile" />{" "}
                     </div>
                   </a>
                 </div>

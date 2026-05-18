@@ -49,7 +49,7 @@ function Navbar() {
       <div className="Navbar">
         <Link to="/home" className="logo-block Navbarfix" aria-label="Go to home page">
           <div className="nav-logo-frame">
-            <img src={Logo} alt="Logo" />
+            <img src={Logo} alt="Minuri Hewage Logo" />
           </div>
         </Link>
 

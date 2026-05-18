@@ -16,14 +16,15 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Explore Minuri's portfolio — a passionate Frontend Developer and UI Designer building modern, responsive, and beautiful web experiences. View projects, skills and more."
+      content="Explore Minuri Hewage's portfolio — a passionate Digital Product Designer and Frontend Developer building modern, responsive, and beautiful web experiences."
     />
-    <meta name="keywords" content="Frontend Developer, UI Designer, React Developer, Portfolio, Web Developer, Minuri, JavaScript, CSS" />
+    <meta name="keywords" content="Frontend Developer, UI Designer, Digital Product Designer, React Developer, Portfolio, Web Developer, Minuri Hewage, UI/UX Design" />
     <meta name="author" content="Minuri" />
+    <meta name="robots" content="index, follow" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!-- Open Graph meta tags -->
-    <meta property="og:title" content="Minuri | Portfolio" />
-    <meta property="og:description" content="Portfolio of Minuri, showcasing projects and work." />
+    <meta property="og:title" content="Minuri Hewage | Digital Product Designer & Frontend Developer" />
+    <meta property="og:description" content="Explore Minuri's portfolio — a passionate Digital Product Designer and Frontend Developer building modern web experiences." />
     <meta property="og:image" content="https://www.minuri.me/preview.jpg" />
     <meta property="og:url" content="https://www.minuri.me" />
     <meta property="og:type" content="website" />
@@ -34,6 +35,7 @@
     <meta name="twitter:image" content="https://www.minuri.me/preview.jpg" />
     <!-- Canonical link -->
     <link rel="canonical" href="https://www.minuri.me" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -66,112 +68,42 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Minuri | Frontend Developer & UI Designer Portfolio</title>
+    <title>Minuri Hewage | Digital Product Designer & Frontend Developer</title>
 
-    <!-- Structured Data: Person Schema -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Minuri",
-      "url": "https://minuri.me",
-      "jobTitle": "Frontend Developer",
-      "description": "A passionate frontend developer and designer creating modern web experiences.",
-      "knowsAbout": [
-        "Frontend Development",
-        "UI Design",
-        "React",
-        "JavaScript",
-        "CSS"
-      ],
-      "sameAs": [
-        "https://github.com/minuri12",
-        "https://linkedin.com/in/mshewage",
-        "https://twitter.com/YOUR_HANDLE"
-      ]
-    }
-    </script>
-
-    <!-- Structured Data: Website Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Minuri | Portfolio",
-      "url": "https://minuri.me",
-      "description": "Portfolio of Minuri — Frontend Developer and Designer.",
-      "author": {
+    [
+      {
+        "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Minuri"
+        "name": "Minuri Hewage",
+        "url": "https://minuri.me",
+        "jobTitle": "Digital Product Designer & Frontend Developer",
+        "description": "A passionate Digital Product Designer and Frontend Developer building modern web experiences.",
+        "knowsAbout": ["Frontend Development", "UI Design", "React", "JavaScript", "CSS"],
+        "sameAs": [
+          "https://github.com/minuri12",
+          "https://linkedin.com/in/mshewage",
+          "https://www.behance.net/minurihewage"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Minuri Hewage | Portfolio",
+        "url": "https://minuri.me",
+        "description": "Portfolio of Minuri Hewage — Digital Product Designer and Developer."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://minuri.me/home" },
+          { "@type": "ListItem", "position": 2, "name": "Blogs", "item": "https://minuri.me/blogs" },
+          { "@type": "ListItem", "position": 3, "name": "Info", "item": "https://minuri.me/info" }
+        ]
       }
-    }
-    </script>
-
-    <!-- Structured Data: CreativeWork Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CreativeWork",
-      "name": "Minuri's Portfolio",
-      "url": "https://minuri.me",
-      "author": {
-        "@type": "Person",
-        "name": "Minuri"
-      },
-      "description": "A collection of frontend development and design projects by Minuri."
-    }
-    </script>
-
-    <!-- Structured Data: BreadcrumbList Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://minuri.me"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Projects",
-          "item": "https://minuri.me/projects"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Contact",
-          "item": "https://minuri.me/contact"
-        }
-      ]
-    }
-    </script>
-
-    <!-- Structured Data: Local Business Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Minuri | Frontend Developer",
-      "url": "https://minuri.me",
-      "description": "Frontend development and UI design services",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "LK"
-      },
-      "priceRange": "$$",
-      "knowsAbout": [
-        "Frontend Development",
-        "UI Design",
-        "React",
-        "JavaScript",
-        "CSS",
-        "Responsive Design"
-      ]
-    }
+    ]
     </script>
   </head>
   <body>

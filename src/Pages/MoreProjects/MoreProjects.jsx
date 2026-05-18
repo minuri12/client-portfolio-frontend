@@ -30,7 +30,7 @@ function MoreProjects() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        document.title = 'More Projects';
+        document.title = 'More UI/UX & Development Projects | Minuri Hewage Portfolio';
     }, []);
 
     useEffect(() => {
@@ -140,7 +140,7 @@ function MoreProjects() {
                                             <div className="project-card-outline2">
                                                 <div className="CardHead">
                                                     <div>
-                                                        <div className="text-projectcard-title">{blog.title}</div>
+                                                        <h3 className="text-projectcard-title">{blog.title}</h3>
                                                         {/* Assuming blog object doesn't have a description field, or it's not needed here */}
                                                     </div>
                                                     <div>

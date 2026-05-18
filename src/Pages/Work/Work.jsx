@@ -118,7 +118,7 @@ const testimonials = [
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Home";
+    document.title = "Minuri Hewage | Digital Product Designer & Frontend Developer";
   }, []);
 
   useEffect(() => {
@@ -243,7 +243,7 @@ const testimonials = [
 
   return (
     <div className="work-page">
-      <h1 className="head_name" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: 0 }}>Minuri Hewage Digital Product Designer Portfolio</h1>
+      <h1 className="head_name" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: 0 }}>Minuri Hewage | Digital Product Designer & Frontend Developer Portfolio</h1>
       <Navbar />
 
       <div className="page-wrapper">
@@ -266,7 +266,7 @@ const testimonials = [
               <div className="button_section">
                 <div className="Logo_Social1">
                   <a href="https://www.behance.net/minurihewage" target="_blank" rel="noreferrer">
-                    <img src={behance} className="logomark" alt="Logo" />
+                    <img src={behance} className="logomark" alt="Minuri Hewage on Behance" />
                   </a>
                 </div>
 
@@ -276,16 +276,16 @@ const testimonials = [
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <img src={instergram} className="logomark" alt="Logo" />{" "}
+                    <img src={instergram} className="logomark" alt="Minuri Hewage on Instagram" />{" "}
                   </a>
                 </div>
                 <ScrambleButton />
               </div>
             </div>
-            <h1 className="head_name">
+            <h2 className="head_name">
               Obsessed with crafting <span>seamless </span>
               <br /> digital experiences.
-            </h1>
+            </h2>
             <div className="description">
               Hey, I'm Minuri, welcome to my world. I love designing and building innovative,
               <br /> user-friendly solutions that solve real-world problems.
@@ -299,7 +299,7 @@ const testimonials = [
               <img
                 src={Minuri}
                 className="logomarkme"
-                alt="Minuri"
+                alt="Minuri Hewage - Digital Product Designer"
                 style={{
                   top: scrollY * 0.2 + "px",
                 }}
@@ -421,7 +421,7 @@ const testimonials = [
         >
           <div className="row">
             <div className="imgholder">
-              <img src={Minuri2} className="Minuri2" alt="Logo" />
+              <img src={Minuri2} className="Minuri2" alt="Portrait of Minuri Hewage" />
             </div>
 
             <div className="text-section help-card">
@@ -460,13 +460,13 @@ const testimonials = [
                 <div className="project-card-outline2">
                   <div className="CardHead">
                     <div>
-                      <div className="text-projectcard-title">Trophy</div>
+                      <h3 className="text-projectcard-title">Trophy</h3>
                       <div className="text-projectcard-description">
                         Non-monetary token-based mobile application.
                       </div>
                     </div>
                     <div>
-                      <img src={Arrow} className="Arrow" alt="Logo" />
+                      <img src={Arrow} className="Arrow" alt="View Trophy project" />
                     </div>
                   </div>
                   <div className="Project_img">
@@ -483,13 +483,13 @@ const testimonials = [
                 <div className="project-card-outline2">
                   <div className="CardHead">
                     <div>
-                      <div className="text-projectcard-title">MoodWave</div>
+                      <h3 className="text-projectcard-title">MoodWave</h3>
                       <div className="text-projectcard-description">
                         Check the emotions of the music.
                       T</div>
                     </div>
                     <div>
-                      <img src={Arrow} className="Arrow" alt="Logo" />
+                      <img src={Arrow} className="Arrow" alt="View MoodWave project" />
                     </div>
                   </div>
                   <div className="Project_img">
@@ -506,13 +506,13 @@ const testimonials = [
                 <div className="project-card-outline2">
                   <div className="CardHead">
                     <div>
-                      <div className="text-projectcard-title">EDU</div>
+                      <h3 className="text-projectcard-title">EDU</h3>
                       <div className="text-projectcard-description">
                         Online Learning and Teaching Platform
                       </div>
                     </div>
                     <div>
-                      <img src={Arrow} className="Arrow" alt="Logo" />
+                      <img src={Arrow} className="Arrow" alt="View EDU project" />
                     </div>
                   </div>
                   <div className="Project_img">
@@ -528,13 +528,13 @@ const testimonials = [
                 <div className="project-card-outline2">
                   <div className="CardHead">
                     <div>
-                      <div className="text-projectcard-title">ShopSense</div>
+                      <h3 className="text-projectcard-title">ShopSense</h3>
                       <div className="text-projectcard-description">
                         Tap it Shop it
                       </div>
                     </div>
                     <div>
-                      <img src={Arrow} className="Arrow" alt="Logo" />
+                      <img src={Arrow} className="Arrow" alt="View ShopSense project" />
                     </div>
                   </div>
                   <div className="Project_img">
@@ -734,7 +734,7 @@ const testimonials = [
         >
           <div className="row">
             <div className="imgholder">
-              <img src={Minuri3} className="Minuri2" alt="Logo" />
+              <img src={Minuri3} className="Minuri2" alt="Minuri Hewage - Product Designer Portrait" />
             </div>
             <div className="text-section">
               <div className="head_name">
@@ -748,7 +748,7 @@ const testimonials = [
                 <div className="Logo_Social1">
                   <a href="https://www.behance.net/minurihewage" target="_blank" rel="noreferrer" className="contactbtn">
                     <div className="Touch">
-                      <img src={behance} className="logomark" alt="Logo" />
+                      <img src={behance} className="logomark" alt="Minuri Hewage Behance" />
                     </div>
                   </a>
                 </div>
@@ -761,7 +761,7 @@ const testimonials = [
                     className="contactbtn"
                   >
                     <div className="Touch">
-                      <img src={instergram} className="logomark" alt="Logo" />{" "}
+                      <img src={instergram} className="logomark" alt="Minuri Hewage Instagram" />{" "}
                     </div>
                   </a>
                 </div>

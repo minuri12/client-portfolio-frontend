@@ -129,6 +129,7 @@ function Blogs() {
 
   return (
     <div className='blogs-page'>
+      <h1 className="text-hero info-hero" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: 0 }}>Articles by Minuri Hewage</h1>
       <Navbar />
       <div className='blogs-container'>
         <motion.div

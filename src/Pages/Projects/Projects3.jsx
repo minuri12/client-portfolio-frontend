@@ -37,6 +37,7 @@ function Projects() {
   }, []);
   return (
     <div className="AboutSec3">
+      <h1 className="text-hero project-title" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: 0 }}>EDU Project Case Study</h1>
       <div className="project-detail-container">
       <div className="button-project-back" onClick={handleBack}>
         {" "}

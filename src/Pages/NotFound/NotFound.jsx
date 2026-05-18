@@ -20,6 +20,7 @@ function NotFound() {
 
   return (
     <div className="not-found-page">
+      <h1 className="error-title" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: 0 }}>Page Not Found</h1>
       <Navbar />
       
       <div className="page-wrapper">

@@ -171,6 +171,7 @@ function BlogDetail() {
   if (loading) {
     return (
       <div className='blog-detail-page'>
+        <h1 className='blog-article-title' style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: 0 }}>Blog Article</h1>
         <Navbar />
         <div className='blog-detail-container'>
           <motion.div
@@ -227,6 +228,7 @@ function BlogDetail() {
   if (error || !blog) {
     return (
       <div className='blog-detail-page'>
+        <h1 className='blog-article-title' style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: 0 }}>Blog Article Not Found</h1>
         <Navbar />
         <div className='blog-detail-container'>
           <motion.div
@@ -270,6 +272,7 @@ function BlogDetail() {
 
   return (
     <div className='blog-detail-page'>
+      <h1 className='blog-article-title' style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: 0 }}>{blog.title}</h1>
       <Navbar />
       <div className='blog-detail-container'>
         <motion.div

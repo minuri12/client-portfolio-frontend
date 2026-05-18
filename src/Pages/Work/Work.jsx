@@ -243,6 +243,7 @@ const testimonials = [
 
   return (
     <div className="work-page">
+      <h1 className="head_name" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: 0 }}>Minuri Hewage Digital Product Designer Portfolio</h1>
       <Navbar />
 
       <div className="page-wrapper">

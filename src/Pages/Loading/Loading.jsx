@@ -43,6 +43,7 @@ function Loading() {
       padding: 0,
       boxSizing: 'border-box'
     }}>
+      <h1 style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: 0 }}>Minuri Hewage Portfolio</h1>
       <BlurText
         text="Hi ! I am Minuri"
         delay={400} // Slower delay between words

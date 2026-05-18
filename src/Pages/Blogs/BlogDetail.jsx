@@ -6,11 +6,10 @@ import { motion } from 'framer-motion';
 import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
 import Arrow from '../../Assets/right-arrow.png';
+import { API_BASE_URL, apiUrl } from '../../utils/api';
 
 // Fallback image
 import blogThumb from '../../Assets/Project1.png';
-
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const scrollToPageTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
@@ -148,12 +147,12 @@ function BlogDetail() {
       setLoading(true);
       setError(null);
       try {
-        const { data } = await axios.get(`/api/blogs/${id}`);
+        const { data } = await axios.get(apiUrl(`/api/blogs/${id}`));
         const fetchedBlog = data.data.blog;
         setBlog(fetchedBlog);
 
         // Fetch random blogs
-        const { data: relatedData } = await axios.get(`/api/blogs`, {
+        const { data: relatedData } = await axios.get(apiUrl('/api/blogs'), {
           params: { published: 'true', limit: 4 },
         });
         setRelatedBlogs(

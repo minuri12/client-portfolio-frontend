@@ -24,6 +24,7 @@ import Code from "../../Assets/Code.gif";
 import "./Work.css";
 import { motion } from "framer-motion";
 import { InteractiveHoverButton } from "./InteractiveHoverButton";
+import { API_BASE_URL, apiUrl } from "../../utils/api";
 
 const TARGET_TEXT = "Get In Touch";
 
@@ -96,7 +97,6 @@ const testimonials = [
   }
 ];
 
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
   const sectionReveal = {
     initial: { opacity: 0, y: 50 },
     whileInView: { opacity: 1, y: 0 },
@@ -147,7 +147,7 @@ const testimonials = [
       setBlogsError("");
 
       try {
-        const response = await fetch(`/api/blogs?published=true&limit=3&page=1`);
+        const response = await fetch(apiUrl("/api/blogs?published=true&limit=3&page=1"));
         if (!response.ok) {
           throw new Error("Failed to load recent blogs");
         }

@@ -4,12 +4,10 @@ import './Blogs.css';
 import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
 import { motion } from 'framer-motion';
+import { API_BASE_URL, apiUrl } from '../../utils/api';
 
 // Fallback thumbnail image
 import blogThumb from '../../Assets/Project1.png';
-
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
-
 
 function Blogs() {
   const navigate = useNavigate();
@@ -43,15 +41,15 @@ function Blogs() {
       setLoading(true);
       setError(null);
       try {
-        let apiUrl = `/api/blogs?published=true&limit=6&page=${currentPage}`;
+        let blogApiUrl = apiUrl(`/api/blogs?published=true&limit=6&page=${currentPage}`);
         if (activeCategory !== 'All') {
           const categoryParam = activeCategory.toLowerCase();
-          apiUrl += `&category=${categoryParam}`;
+          blogApiUrl += `&category=${categoryParam}`;
         }
-        console.log('Fetching blogs from:', apiUrl);
+        console.log('Fetching blogs from:', blogApiUrl);
 
         const response = await fetch(
-          apiUrl,
+          blogApiUrl,
           {
             method: 'GET',
             headers: {

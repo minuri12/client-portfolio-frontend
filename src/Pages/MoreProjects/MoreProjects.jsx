@@ -10,8 +10,8 @@ import Arrow from '../../Assets/right-arrow.png'; // Import Arrow icon
 // Fallback thumbnail image
 import blogThumb from '../../Assets/Project1.png';
 import noProjectImage from '../../Assets/No Project.png';
+import { API_BASE_URL, apiUrl } from '../../utils/api';
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const PAGE_SIZE = 6;
 
 function MoreProjects() {
@@ -39,7 +39,7 @@ function MoreProjects() {
             setError(null);
             try {
                 const params = { published: 'true', limit: PAGE_SIZE, page: currentPage, category: 'projects' };
-                const { data } = await axios.get(`/api/blogs`, { params });
+                const { data } = await axios.get(apiUrl('/api/blogs'), { params });
                 setBlogs(data.data.blogs);
                 setTotalPages(data.data.pagination.totalPages);
             } catch (err) {

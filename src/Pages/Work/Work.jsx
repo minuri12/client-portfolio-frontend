@@ -163,7 +163,7 @@ const testimonials = [
     };
 
     fetchRecentBlogs();
-  }, [API_BASE_URL]);
+  }, []);
 
   useEffect(() => {
     if (!isMobileView && !isTabletView) return;

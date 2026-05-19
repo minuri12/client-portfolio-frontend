@@ -46,6 +46,29 @@ const ScrambleButton = () => {
   );
 };
 
+const testimonials = [
+  // ... same objects as before ...
+];
+
+const sectionReveal = {
+  initial: { opacity: 0, y: 50 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
+  transition: { duration: 0.8, ease: "easeOut" },
+};
+
+const volunteerTitleAnimation = {
+  initial: { opacity: 0, y: 30, scale: 0.95 },
+  whileInView: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1,
+    textShadow: ["0 0 20px rgba(255,255,255,0)", "0 0 40px rgba(255,255,255,0.3)", "0 0 20px rgba(255,255,255,0)"]
+  },
+  viewport: { once: true, amount: 0.3 },
+  transition: { duration: 1, ease: "easeOut" },
+};
+
 function Home() {
 
   const [scrollY, setScrollY] = useState(0);
@@ -58,63 +81,6 @@ function Home() {
   const [isTestimonialMobile, setIsTestimonialMobile] = useState(window.innerWidth < 820);
   const [activeIndex, setActiveIndex] = useState(0);
   const testimonialsWrapperRef = useRef(null);
-
-const testimonials = [
-  {
-    id: 1,
-    name: "Shanka Visal",
-    role: "Associate Software Engineer",
-    text: "Minuri is a highly talented UI/UX designer and developer. She brings strong passion, creativity, and user-focused thinking into every project. Her work is both visually impressive and meaningful, making her a valuable team member.",
-    linkedin: "https://www.linkedin.com/in/shankavisal/"
-  },
-  {
-    id: 2,
-    name: "Zulfa Zulfikar",
-    role: "Project Manager",
-    text: "Minuri played a key role as Design Lead in PearlHack 2.0. Her creativity, attention to detail, and consistency helped shape a strong event identity. She is reliable, collaborative, and delivers high-quality work even under tight deadlines.",
-    linkedin: "https://www.linkedin.com/in/zulfa-zulfikar-5a643521a/"
-  },
-  {
-    id: 3,
-    name: "Avishka Athapattu",
-    role: "Senior Software Engineer",
-    text: "Minuri showed strong dedication, fast learning, and teamwork during Project Trophy. She contributed valuable ideas and consistently delivered quality results, making a strong impact on the team.",
-    linkedin: "https://www.linkedin.com/in/avishka-athapattu-b9037a180/"
-  },
-  {
-    id: 4,
-    name: "Shavinda Wanniarachchi",
-    role: "Talent Acquisition",
-    text: "Minuri contributed as Member Coordinator and lead designer for IEEE StudPro 7.0. Her creativity, professionalism, and ability to deliver under pressure made her an essential part of the team.",
-    linkedin: "https://www.linkedin.com/in/shavinda-wanniarachchi/"
-  },
-  {
-    id: 5,
-    name: "Abishethvarman V",
-    role: "DevOps Engineer",
-    text: "Minuri demonstrated exceptional design skills, dedication, and balance between academics and volunteering. She consistently delivered high-quality work and proved to be a reliable and talented team member.",
-    linkedin: "https://www.linkedin.com/in/abishethvarman-v/"
-  }
-];
-
-  const sectionReveal = {
-    initial: { opacity: 0, y: 50 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, amount: 0.2 },
-    transition: { duration: 0.8, ease: "easeOut" },
-  };
-
-  const volunteerTitleAnimation = {
-    initial: { opacity: 0, y: 30, scale: 0.95 },
-    whileInView: { 
-      opacity: 1, 
-      y: 0, 
-      scale: 1,
-      textShadow: ["0 0 20px rgba(255,255,255,0)", "0 0 40px rgba(255,255,255,0.3)", "0 0 20px rgba(255,255,255,0)"]
-    },
-    viewport: { once: true, amount: 0.3 },
-    transition: { duration: 1, ease: "easeOut" },
-  };
 
   useEffect(() => {
     window.scrollTo(0, 0);

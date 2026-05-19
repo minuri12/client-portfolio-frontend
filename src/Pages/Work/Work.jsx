@@ -243,12 +243,11 @@ const testimonials = [
 
   return (
     <div className="work-page">
-      <h1 className="sr-only">Minuri Hewage — Digital Product Designer & Frontend Developer</h1>
+      <h1 className="head_name" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: 0 }}>Minuri Hewage | Digital Product Designer & Frontend Developer Portfolio</h1>
       <Navbar />
 
       <div className="page-wrapper">
         {/* Section 1: Main Content */}
-        <h2 className="sr-only">About Me</h2>
         <motion.section
           id="section-1"
           className="main-content"
@@ -310,7 +309,6 @@ const testimonials = [
         </motion.section>
 
         {/* Section 2: Volunteer Experience */}
-        <h2 className="sr-only">Volunteer Experience</h2>
         <motion.section
           id="section-2"
           initial={{ opacity: 0 }}
@@ -415,7 +413,6 @@ const testimonials = [
         </motion.section>
 
         {/* Section 3: What Makes Me Different */}
-        <h2 className="sr-only">Why Choose Me</h2>
         <motion.section
           id="section-3"
           className="part_one second"
@@ -441,7 +438,6 @@ const testimonials = [
         </motion.section>
 
         {/* Section 4: My Projects Header and 4 Cards */}
-        <h2 className="sr-only">Portfolio Projects</h2>
         <section id="section-4" className="projects-container">
         <motion.div 
           initial={{ opacity: 0 }}
@@ -563,7 +559,6 @@ const testimonials = [
         </section>
 
         {/* Section 5: What I Do */}
-        <h2 className="sr-only">Services</h2>
         <motion.section
           id="section-5"
           className="services-section"
@@ -636,7 +631,6 @@ const testimonials = [
         </motion.section>
 
         {/* Section 6: Let's Talk Everything (Blogs) */}
-        <h2 className="sr-only">Blog and Articles</h2>
         <motion.section
           id="section-6"
           className="recent-blogs-section"
@@ -673,7 +667,6 @@ const testimonials = [
         </motion.section>
 
         {/* Section: People I've Worked With (Testimonials) */}
-        <h2 className="sr-only">Testimonials</h2>
         <motion.section
           id="section-testimonials"
           className="testimonials-section"
@@ -733,7 +726,6 @@ const testimonials = [
         </motion.section>
 
         {/* Section 7: How I Can Help You */}
-        <h2 className="sr-only">Contact</h2>
         <motion.section
           id="section-7"
           className="part_one second"

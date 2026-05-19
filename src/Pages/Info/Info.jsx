@@ -277,7 +277,7 @@ function Info() {
 
   return (
     <div className="info-page">
-      <h1 className="sr-only">About Minuri Hewage — Digital Product Designer & Frontend Developer</h1>
+      <h1 className="text-hero info-hero" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: 0 }}>About Minuri Hewage | Digital Product Designer & Frontend Developer</h1>
       <div className="section-nav">
         <Navbar />
       </div>
@@ -349,7 +349,6 @@ function Info() {
           </div>
         </div>
       </motion.div>
-      <h2 className="sr-only">Testimonials</h2>
  <motion.section
           id="section-testimonials"
           className="testimonials-section"
@@ -407,7 +406,6 @@ function Info() {
             </div>
           )}
         </motion.section>
-      <h2 className="sr-only">My Story</h2>
       <motion.div className="story-carousel-section" {...sectionReveal} transition={{ duration: 1, ease: "easeOut" }}>
           <h2 style={{ color: 'white', fontSize: '24px', marginBottom: '30px', fontWeight: '500', fontFamily: 'Neue Montreal, sans-serif', textAlign: 'center' }}>
             Know about me 
@@ -453,7 +451,6 @@ function Info() {
         </div>
       </motion.div>
 
-      <h2 className="sr-only">Tech Stack</h2>
       <motion.div className="what-i-use-section" {...sectionReveal}>
         <h2 style={{ color: 'white', fontSize: '24px', marginBottom: '30px', fontWeight: '500', textAlign: 'center' }}>
           What I Use
@@ -485,7 +482,6 @@ function Info() {
         </div>
       </motion.div>
 
-        <h2 className="sr-only">Contact</h2>
         <motion.div
           id="section-7"
           className="part_one second"

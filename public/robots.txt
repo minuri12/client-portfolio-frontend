@@ -1,3 +1,5 @@
+# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Allow: /
-Sitemap: https://minuri.pages.dev/sitemap.xml
+Disallow:
+
+Sitemap: https://www.minuri.me/sitemap.xml

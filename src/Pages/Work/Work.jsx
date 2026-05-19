@@ -424,7 +424,7 @@ const testimonials = [
         >
           <div className="row">
             <div className="imgholder">
-              <img src={Minuri2} width="290" height="330" loading="lazy" className="Minuri2" alt="Portrait of Minuri Hewage" />
+              <img src={Minuri2} className="Minuri2" alt="Portrait of Minuri Hewage" />
             </div>
 
             <div className="text-section help-card">
@@ -474,7 +474,7 @@ const testimonials = [
                     </div>
                   </div>
                   <div className="Project_img">
-                    <img src={Project1} width="350" height="250" loading="lazy" className="Arrow32" alt="Trophy App Screenshot" />
+                    <img src={Project1} className="Arrow32" alt="Logo" />
                   </div>
                 </div>
               </div>

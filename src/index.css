@@ -19,13 +19,6 @@ code {
   box-sizing: border-box;
 }
 
-/* Global Image Optimization */
-img {
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
 html,
 body {
   cursor: url("../src/Assets/cursor.png"), auto;

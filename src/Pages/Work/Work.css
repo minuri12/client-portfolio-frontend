@@ -381,7 +381,7 @@ input:checked + .slider {
 }
 
 .button_section {
-  justify-content: space-between;
+
   display: flex;
   gap: 10px;
   align-items: center;
@@ -589,7 +589,7 @@ input:checked + .slider {
 }
 .imgholder {
   position: relative;
-  width: 290px;
+
   margin-right: 20px;
 }
 

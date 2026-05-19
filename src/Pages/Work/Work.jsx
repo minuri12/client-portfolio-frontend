@@ -421,7 +421,7 @@ const testimonials = [
         >
           <div className="row">
             <div className="imgholder">
-              <img src={Minuri2} className="Minuri2" alt="Portrait of Minuri Hewage" />
+              <img src={Minuri2} width="290" height="330" loading="lazy" className="Minuri2" alt="Portrait of Minuri Hewage" />
             </div>
 
             <div className="text-section help-card">
@@ -470,7 +470,7 @@ const testimonials = [
                     </div>
                   </div>
                   <div className="Project_img">
-                    <img src={Project1} className="Arrow32" alt="Logo" />
+                    <img src={Project1} width="350" height="250" loading="lazy" className="Arrow32" alt="Trophy App Screenshot" />
                   </div>
                 </div>
               </div>
@@ -744,12 +744,10 @@ const testimonials = [
                 Let’s collaborate to create something exceptional! I'm excited to
                 connect over new opportunities in software engineering.
               </div>
-              <div className="button_section" style={{ width: "30%" }}>
+               <div className="button_section">
                 <div className="Logo_Social1">
-                  <a href="https://www.behance.net/minurihewage" target="_blank" rel="noreferrer" className="contactbtn">
-                    <div className="Touch">
-                      <img src={behance} className="logomark" alt="Minuri Hewage Behance" />
-                    </div>
+                  <a href="https://www.behance.net/minurihewage" target="_blank" rel="noreferrer">
+                    <img src={behance} className="logomark" alt="Minuri Hewage on Behance" />
                   </a>
                 </div>
 
@@ -758,11 +756,8 @@ const testimonials = [
                     href="https://www.instagram.com/minuri_senara/?next=%2F"
                     target="_blank"
                     rel="noreferrer"
-                    className="contactbtn"
                   >
-                    <div className="Touch">
-                      <img src={instergram} className="logomark" alt="Minuri Hewage Instagram" />{" "}
-                    </div>
+                    <img src={instergram} className="logomark" alt="Minuri Hewage on Instagram" />{" "}
                   </a>
                 </div>
                 <ScrambleButton />

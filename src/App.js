@@ -62,7 +62,7 @@ function AppContent() {
         enableDeclineButton
         expires={150}
         style={{ background: "#ffffff", color: "black", bottom: "80px", zIndex: 9999 }}
-        buttonStyle={{ background: "#ff0000", color: "white", borderRadius: "8px", height: "48px", padding: "0 20px" }}
+        buttonStyle={{ background: "#000000", color: "white", borderRadius: "8px", height: "48px", padding: "0 20px" }}
         declineButtonStyle={{ background: "transparent", border: "1px solid black", color: "black", borderRadius: "8px", height: "48px", padding: "0 20px" }}
         buttonClasses="cookie-consent-button"
         declineButtonClasses="cookie-consent-decline-button"

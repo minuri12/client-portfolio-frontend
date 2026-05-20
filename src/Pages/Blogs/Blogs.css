@@ -403,7 +403,7 @@ html.custom-cursor-active .blog-card * {
   }
 }
 
-@media (max-width: 820px) {
+@media (min-width: 820px) and (max-width: 820px) {
     .blog-categories {
         width: 100%;
         flex-direction: row;

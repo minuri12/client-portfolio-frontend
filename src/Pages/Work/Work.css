@@ -585,7 +585,7 @@ input:checked + .slider {
   justify-content: center; /* This centers the content vertically within the text-section */
   flex: 1;
   margin-right: 20px;
-  margin-left: 80px;
+
 }
 .imgholder {
   position: relative;

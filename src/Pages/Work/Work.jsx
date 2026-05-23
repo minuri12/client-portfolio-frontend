@@ -22,7 +22,7 @@ import Graphic from "../../Assets/Graphic.gif";
 import UX from "../../Assets/UX.gif";
 import Code from "../../Assets/Code.gif";
 import "./Work.css";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { InteractiveHoverButton } from "./InteractiveHoverButton";
 import { API_BASE_URL, apiUrl } from "../../utils/api";
 
@@ -110,6 +110,7 @@ function Home() {
   const [blogsLoading, setBlogsLoading] = useState(true);
   const [blogsError, setBlogsError] = useState("");
   const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 900);
+  const [showBubble, setShowBubble] = useState(false);
   const [isTabletView, setIsTabletView] = useState(window.innerWidth >= 768 && window.innerWidth <= 1024);
   const [isSmallMobile, setIsSmallMobile] = useState(window.innerWidth <= 768);
   const [isTestimonialMobile, setIsTestimonialMobile] = useState(window.innerWidth < 820);
@@ -294,8 +295,25 @@ function Home() {
 
           </div>
 
-          <div className="part_two grediant">
-            <div className="image-wrapper">
+          <div className="part_two">
+            <div 
+              className="image-wrapper"
+              onMouseEnter={() => setShowBubble(true)}
+              onMouseLeave={() => setShowBubble(false)}
+            >
+              <AnimatePresence>
+                {showBubble && (
+                  <motion.div 
+                    className="speech-bubble"
+                    initial={{ opacity: 0, scale: 0.5, y: 10, x: "-50%" }}
+                    animate={{ opacity: 1, scale: 1, y: 0, x: "-50%" }}
+                    exit={{ opacity: 0, scale: 0.5, y: 10, x: "-50%" }}
+                    style={{ top: `calc(${scrollY * 0.2}px + 40px)` }}
+                  >
+                    <span>Nice to meet you! 👋</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
               <img
                 src={Minuri}
                 className="logomarkme"

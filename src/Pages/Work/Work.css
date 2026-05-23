@@ -594,7 +594,7 @@ input:checked + .slider {
   justify-content: center; /* This centers the content vertically within the text-section */
   flex: 1;
   margin-right: 20px;
-  padding: 28px;
+  padding: 50px;
 
 }
 .imgholder {
@@ -605,7 +605,7 @@ input:checked + .slider {
 
 .Minuri2 {
   padding-top: 20px;
-  width: 290px;
+  width: 335px;
   height: auto;
   padding-width: 80px;
 
@@ -631,7 +631,7 @@ input:checked + .slider {
 .Minuri2 {
   position: relative;
   z-index: 0;
-  height: 290px;
+  height: 335px;
   width: auto;
   padding-left: 50px;
  

@@ -482,7 +482,7 @@ function Info() {
         </div>
       </motion.div>
 
-        <motion.div
+        <motion.section
           id="section-7"
           className="part_one second"
           {...sectionReveal}
@@ -490,7 +490,7 @@ function Info() {
         >
           <div className="row">
             <div className="imgholder">
-              <img src={Minuri3} className="Minuri2" alt="Minuri Hewage Professional Portrait" />
+              <img src={Minuri3} className="Minuri2" alt="Minuri Hewage - Product Designer Portrait" />
             </div>
             <div className="text-section">
               <div className="head_name">
@@ -500,12 +500,10 @@ function Info() {
                 Let’s collaborate to create something exceptional! I'm excited to
                 connect over new opportunities in software engineering.
               </div>
-              <div className="button_section" style={{ width: "30%" }}>
+              <div className="button_section">
                 <div className="Logo_Social1">
-                  <a href="https://www.behance.net/minurihewage" target="_blank" rel="noreferrer" className="contactbtn">
-                    <div className="Touch">
-                      <img src={behance} className="logomark" alt="Minuri Hewage Behance Profile" />
-                    </div>
+                  <a href="https://www.behance.net/minurihewage" target="_blank" rel="noreferrer">
+                    <img src={behance} className="logomark" alt="Minuri Hewage on Behance" />
                   </a>
                 </div>
 
@@ -514,18 +512,15 @@ function Info() {
                     href="https://www.instagram.com/minuri_senara/?next=%2F"
                     target="_blank"
                     rel="noreferrer"
-                    className="contactbtn"
                   >
-                    <div className="Touch">
-                      <img src={instergram} className="logomark" alt="Minuri Hewage Instagram Profile" />{" "}
-                    </div>
+                    <img src={instergram} className="logomark" alt="Minuri Hewage on Instagram" />{" "}
                   </a>
                 </div>
                 <ScrambleButton />
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.section>
         <Footer />
       </div>
     </div>

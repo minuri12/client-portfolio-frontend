@@ -16,7 +16,7 @@
   cursor: pointer !important;
   overflow: hidden;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid #C6EF0B;
   background-color: transparent;
   padding: 0;
   display: inline-flex;
@@ -47,7 +47,7 @@
   left: 16px;
   width: 8px;
   height: 8px;
-  background: white;
+  background: #C6EF0B;
   border-radius: 50%;
   z-index: 1;
   pointer-events: none;
@@ -64,7 +64,7 @@
 .small-dot {
   width: 8px;
   height: 8px;
-  background: white;
+  background: #C6EF0B;
   border-radius: 50%;
   visibility: hidden; /* Spacer for the actual expanding dot-bg */
 }
@@ -84,7 +84,7 @@
 
 .button-text {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600 !important;
   white-space: nowrap;
   letter-spacing: 0.5px;
 }

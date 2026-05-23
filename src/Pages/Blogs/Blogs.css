@@ -82,8 +82,8 @@
 }
 
 .category-btn.active {
-      background-color: rgb(255 255 255);
-    border-color: rgba(255, 255, 255, 0.28);
+      background-color: #CCFF02;
+    border-color: #CCFF02;
     opacity: 1;
     border-radius: 1000px;
     color: black;

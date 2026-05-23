@@ -114,7 +114,7 @@ input:checked + .slider::before {
 }
 
 input:checked + .slider {
-  background-color: #0af7ff94;
+  background-color: #C6EF0B94;
 }
 
 .main-head {
@@ -802,7 +802,7 @@ input:checked + .slider {
 .card:hover .project-card-outline2 {
   background: linear-gradient(
     to bottom,
-    rgb(5, 146, 228),
+    #0b62ef,
     #0a0a0a 90%
   );
 }
@@ -818,7 +818,7 @@ input:checked + .slider {
 .card2:hover .project-card-outline2 {
   background: linear-gradient(
     to bottom,
-    rgb(0, 4, 49),
+    #5489ed,
     #0a0a0a 90%
   );
 }
@@ -1154,7 +1154,7 @@ tbody td {
   text-decoration: none;
   position: relative;
   grid-row-gap: 16px;
-  border: 1px solid #0af7ff15;
+  border: 1px solid #C6EF0B15;
   border-radius: 20px;
   align-self: stretch;
   padding: 50px;
@@ -1202,13 +1202,13 @@ tbody td {
 .Grapicscard:hover {
   transform: translateY(-5px);
   background-color: #0a0a0a;
-  outline: 1px solid #0af7ff;
-  box-shadow: 0 10px 30px rgba(10, 247, 255, 0.2);
+  outline: 1px solid #C6EF0B;
+  box-shadow: 0 10px 30px rgba(198, 239, 11, 0.2);
   text-decoration: none;
 }
 
 .Grapicscard:hover * {
-  color: #0af7ff !important;
+  color: #C6EF0B !important;
 }
 
 @keyframes vibrate {
@@ -1266,7 +1266,7 @@ tbody td {
 }
 
 .more-projects-button-container .Touch {
-  background: radial-gradient(ellipse at center top, #0F9A9E99 0%, #00000000 100%);
+  background: radial-gradient(ellipse at center top, rgba(198, 239, 11, 0.6) 0%, #00000000 100%);
 }
 
 /* Unified Section Gaps */

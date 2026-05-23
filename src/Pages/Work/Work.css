@@ -1464,10 +1464,16 @@ tbody td {
   to { transform: translateX(-50%); }
 }
 
+.testimonials-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
 .testimonial-card {
   background: linear-gradient(to right, #040404, #080808); /* Match service card gradient */
-  border: 1px solid #FFFFFF14; /* Match service card border */
-  border: 1.5px solid rgba(255, 255, 255, 0.12); /* Match service card border */
+  border: 1.5px solid rgba(255, 255, 255, 0.12); 
   border-radius: 24px;
   padding: 32px;
   display: flex;

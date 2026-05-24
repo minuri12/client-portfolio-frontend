@@ -17,10 +17,10 @@ import Project2 from "../../Assets/Project2.png";
 import Project3 from "../../Assets/Project3.png";
 import Project4 from "../../Assets/Project4.png";
 import behance from "../../Assets/behance.png";
-import PM from "../../Assets/PM.gif";
-import Graphic from "../../Assets/Graphic.gif";
-import UX from "../../Assets/UX.gif";
-import Code from "../../Assets/Code.gif";
+import PM from "../../Assets/PM.png";
+import Graphic from "../../Assets/Graphic.png";
+import UX from "../../Assets/UX.png";
+import Code from "../../Assets/Code.png";
 import "./Work.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { InteractiveHoverButton } from "./InteractiveHoverButton";
@@ -628,7 +628,7 @@ function Home() {
               <div key={s.id} className="service-card">
                 <div className="service-card-header">
                   {icons[s.id] && (
-                    <img src={icons[s.id]} alt={`${s.title} Animation`} style={{ width: '60px', height: '60px' }} />
+                    <img src={icons[s.id]} alt={`${s.title} Animation`} style={{ width: '60px' }} />
                   )}
                 </div>
 

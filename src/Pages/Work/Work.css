@@ -504,7 +504,7 @@ input:checked + .slider {
   content: '';
   position: absolute;
   top: 0;
-  width: 60px;
+ 
   height: 100%;
   z-index: 2;
   pointer-events: none;
@@ -1612,8 +1612,9 @@ tbody td {
 
   .Minuri2 {
     height: auto;
-    width:277px;
+    width:200px;
     padding-right: 0px;
+    padding-left: 0px;
   }
 
   .imgholder {

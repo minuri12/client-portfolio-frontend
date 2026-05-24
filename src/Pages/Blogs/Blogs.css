@@ -7,7 +7,7 @@
 .blogs-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+
   margin-top: 80px;
   /* Explicitly ensure overflow is visible to allow sticky behavior */
   overflow: visible !important;
@@ -75,6 +75,7 @@
   font-family: 'Open Sans', sans-serif;
   text-align: left;
   border-radius: 20px;
+  background-color: #0d0d0dd5;
 }
 
 .category-btn:hover {

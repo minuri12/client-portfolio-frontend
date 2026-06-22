@@ -7,26 +7,28 @@
     "@emotion/styled": "^11.13.0",
     "@fontsource/archivo": "^5.1.0",
     "@fontsource/open-sans": "^5.1.0",
+    "@gsap/react": "^2.1.0",
     "@mui/material": "^6.1.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "@gsap/react": "^2.1.0",
     "axios": "^1.7.7",
     "framer-motion": "^11.11.8",
+    "gsap": "^3.12.5",
     "react": "^18.3.1",
     "react-cookie-consent": "^10.0.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4",
-    "gsap": "^3.12.5"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && wrangler deploy",
+    "preview": "npm run build && wrangler dev"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +50,7 @@
   },
   "proxy": "https://client-portfolio-backend.vercel.app",
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "wrangler": "^4.92.0"
   }
 }
